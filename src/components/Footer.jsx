@@ -5,7 +5,7 @@ function Footer() {
     <footer className="footer" id="contact">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>MyWebsite</h3>
+          <h3>Fuze Avatar Hub</h3>
           <p>Building the future, one line of code at a time.</p>
         </div>
         <div className="footer-section">
@@ -27,7 +27,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+        <p>&copy; 2025 Fuze Avatar Hub. All rights reserved.</p>
       </div>
     </footer>
   )

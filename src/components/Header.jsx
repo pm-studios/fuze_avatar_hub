@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header-content">
-        <h1 className="logo">MyWebsite</h1>
+        <h1 className="logo">Fuze Avatar Hub</h1>
         <nav className="nav">
           <a href="#home">Home</a>
           <a href="#about">About</a>

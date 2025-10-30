@@ -4,7 +4,7 @@ function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-content">
-        <h1 className="hero-title">Welcome to MyWebsite</h1>
+        <h1 className="hero-title">Welcome to Fuze Avatar Hub</h1>
         <p className="hero-subtitle">
           Build amazing things with React and modern web technologies
         </p>

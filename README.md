@@ -1,4 +1,4 @@
-# MyWebsite - React Landing Page
+# Fuze Avatar Hub - React Landing Page
 
 Modern and responsive landing page built with React and Vite.
 
@@ -27,7 +27,7 @@ Modern and responsive landing page built with React and Vite.
 1. Clone the repository
 ```bash
 git clone <your-repo-url>
-cd my-react-website
+cd fuze_avatar_hub
 ```
 
 2. Install dependencies
@@ -116,7 +116,7 @@ npm run deploy
 ## Project Structure
 
 ```
-my-react-website/
+fuze_avatar_hub/
 ├── public/          # Static assets
 ├── src/
 │   ├── components/  # React components

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import AvatarCard from './AvatarCard';
+import SkeletonCard from './SkeletonCard';
 import { fetchAvatars } from '../data/avatars';
 import './AvatarGrid.css';
 
@@ -25,15 +26,12 @@ function AvatarGrid() {
     const loadAvatars = async () => {
       setLoading(true);
       try {
-        const newAvatars = await fetchAvatars(page, 20);
+        const { avatars: newAvatars, hasMore: moreAvailable } = await fetchAvatars(page, 20);
         setAvatars(prev => [...prev, ...newAvatars]);
-
-        // For demo purposes, we'll allow infinite scroll up to page 50
-        if (page >= 50) {
-          setHasMore(false);
-        }
+        setHasMore(moreAvailable);
       } catch (error) {
         console.error('Error loading avatars:', error);
+        setHasMore(false);
       } finally {
         setLoading(false);
       }
@@ -63,14 +61,11 @@ function AvatarGrid() {
             return <AvatarCard key={avatar.id} avatar={avatar} />;
           }
         })}
-      </div>
 
-      {loading && (
-        <div className="loading-indicator">
-          <div className="spinner"></div>
-          <p>Loading avatars...</p>
-        </div>
-      )}
+        {loading && Array.from({ length: 20 }).map((_, index) => (
+          <SkeletonCard key={`skeleton-${page}-${index}`} />
+        ))}
+      </div>
 
       <footer className="avatar-hub-footer">
         <span className="footer-link">avatar.fuze.io</span>

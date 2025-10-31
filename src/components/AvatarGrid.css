@@ -6,9 +6,16 @@
 }
 
 .avatar-hub-header {
-  padding: 30px 50px;
+  padding: 30px 0;
   background: rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.avatar-hub-header > .logo-section {
+  width: 80%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .logo-section {
@@ -117,13 +124,20 @@
 .avatar-hub-footer {
   position: sticky;
   bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+}
+
+.avatar-hub-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .footer-link {

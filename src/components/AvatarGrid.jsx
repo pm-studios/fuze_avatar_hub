@@ -86,8 +86,10 @@ function AvatarGrid() {
       </div>
 
       <footer className="avatar-hub-footer">
-        <span className="footer-link">avatar.fuze.io</span>
-        <button className="create-avatar-btn">아바타 만들기</button>
+        <div className="avatar-hub-footer-content">
+          <span className="footer-link">avatar.fuze.io</span>
+          <button className="create-avatar-btn">아바타 만들기</button>
+        </div>
       </footer>
     </div>
   );

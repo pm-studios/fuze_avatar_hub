@@ -23,21 +23,39 @@ function AvatarGrid() {
   }, [loading, hasMore]);
 
   useEffect(() => {
+    let cancelled = false;
+
     const loadAvatars = async () => {
       setLoading(true);
       try {
         const { avatars: newAvatars, hasMore: moreAvailable } = await fetchAvatars(page, 20);
-        setAvatars(prev => [...prev, ...newAvatars]);
-        setHasMore(moreAvailable);
+
+        if (!cancelled) {
+          setAvatars(prev => {
+            // Prevent duplicates by checking if avatar IDs already exist
+            const existingIds = new Set(prev.map(a => a.id));
+            const uniqueNewAvatars = newAvatars.filter(a => !existingIds.has(a.id));
+            return [...prev, ...uniqueNewAvatars];
+          });
+          setHasMore(moreAvailable);
+        }
       } catch (error) {
         console.error('Error loading avatars:', error);
-        setHasMore(false);
+        if (!cancelled) {
+          setHasMore(false);
+        }
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     };
 
     loadAvatars();
+
+    return () => {
+      cancelled = true;
+    };
   }, [page]);
 
   return (

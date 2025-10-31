@@ -39,7 +39,8 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
-  padding: 40px 50px;
+  padding: 40px;
+  width: 80%;
   max-width: 1600px;
   margin: 0 auto;
 }

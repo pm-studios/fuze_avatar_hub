@@ -2,7 +2,7 @@ import './AvatarCard.css';
 
 function AvatarCard({ avatar }) {
   const handleClick = () => {
-    window.location.href = avatar.profileUrl;
+    window.open(avatar.profileUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (

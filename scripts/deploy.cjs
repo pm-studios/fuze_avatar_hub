@@ -18,6 +18,15 @@ const distPath = path.resolve(__dirname, '../dist');
 console.log(`\n🚀 Starting deployment to ${environment} branch...\n`);
 
 try {
+  // Step 0: Ensure dependencies are installed
+  console.log('📦 Step 0: Checking dependencies...');
+  if (!fs.existsSync('node_modules')) {
+    console.log('   Installing dependencies...');
+    execSync('npm install', { stdio: 'inherit' });
+  } else {
+    console.log('   Dependencies already installed');
+  }
+
   // Step 1: Clean dist folder
   console.log('📦 Step 1: Cleaning dist folder...');
   if (fs.existsSync(distPath)) {

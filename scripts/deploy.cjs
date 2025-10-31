@@ -111,6 +111,10 @@ try {
     // No stash to pop
   }
 
+  // Step 11: Reinstall dependencies
+  console.log('📦 Step 10: Reinstalling dependencies...');
+  execSync('npm install', { stdio: 'inherit' });
+
   console.log(`\n✨ Successfully deployed to ${branchName} branch!\n`);
   console.log(`📍 Branch: ${branchName}`);
   console.log(`🔗 GitHub: https://github.com/pm-studios/fuze_avatar_hub/tree/${branchName}\n`);

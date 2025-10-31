@@ -15,7 +15,11 @@
       "Bash(tee:*)",
       "Read(//Users/dongpillim/**)",
       "Bash(env)",
-      "Bash(gh repo view:*)"
+      "Bash(gh repo view:*)",
+      "Bash(chmod:*)",
+      "Bash(npm run deploy-dev:*)",
+      "Bash(npm run deploy-prod:*)",
+      "Bash(npm install)"
     ],
     "deny": [],
     "ask": []

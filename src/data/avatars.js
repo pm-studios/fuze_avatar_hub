@@ -1,5 +1,5 @@
-const API_BASE_URL = 'https://dev-api.fuzeapp.services';
-const PROFILE_BASE_URL = 'https://dev-web.fuzeapp.services';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://dev-api.fuzeapp.services';
+const PROFILE_BASE_URL = import.meta.env.VITE_PROFILE_BASE_URL || 'https://dev-web.fuzeapp.services';
 
 // Fetch avatars from real API
 export const fetchAvatars = async (page = 0, pageSize = 20) => {

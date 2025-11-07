@@ -1,86 +1,84 @@
 .hero {
-  min-height: 60vh;
+  background: linear-gradient(135deg, #2d5f6f 0%, #3a7d8f 50%, #2d6b7f 100%);
+  padding: 2rem 3rem;
+  margin: 1rem auto;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+  width: 1000px;
+}
+
+.hero-container {
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  text-align: center;
-  padding: 2rem;
 }
 
 .hero-content {
-  max-width: 800px;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  animation: fadeInUp 0.8s ease-out;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-  animation: fadeInUp 1s ease-out;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  animation: fadeInUp 1.2s ease-out;
-}
-
-.btn {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
+.hero-btn {
+  background: #4a90a4;
+  color: white;
   border: none;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s;
 }
 
-.btn:hover {
+.hero-btn:hover {
+  background: #5ba3b8;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.btn-primary {
-  background: white;
-  color: #667eea;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 1050px) {
+  .hero {
+    width: 100%;
+    margin: 1rem;
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    margin: 0.8rem;
+    padding: 1.5rem 1.5rem;
+  }
+
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
-  .hero-buttons {
-    flex-direction: column;
+  .hero-btn {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.9rem;
   }
 }

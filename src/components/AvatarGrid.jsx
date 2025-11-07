@@ -28,7 +28,7 @@ function AvatarGrid() {
     const loadAvatars = async () => {
       setLoading(true);
       try {
-        const { avatars: newAvatars, hasMore: moreAvailable } = await fetchAvatars(page, 20);
+        const { avatars: newAvatars, hasMore: moreAvailable } = await fetchAvatars(page, 8);
 
         if (!cancelled) {
           setAvatars(prev => {
@@ -59,39 +59,42 @@ function AvatarGrid() {
   }, [page]);
 
   return (
-    <div className="avatar-grid-container">
-      <header className="avatar-hub-header">
-        <div className="logo-section">
-          <h1 className="logo">FUZE</h1>
-          <p className="tagline">Share with the global gaming community</p>
+    <section className="avatar-grid-section">
+      <div className="avatar-grid-wrapper">
+        <div className="avatar-grid-container">
+          <h2 className="section-title">FUZE Players' Styles</h2>
+
+          <div className="avatar-grid">
+            {avatars.map((avatar, index) => {
+              if (avatars.length === index + 1) {
+                return (
+                  <div ref={lastAvatarElementRef} key={avatar.id}>
+                    <AvatarCard avatar={avatar} index={index} />
+                  </div>
+                );
+              } else {
+                return <AvatarCard key={avatar.id} avatar={avatar} index={index} />;
+              }
+            })}
+
+            {loading && Array.from({ length: 8 }).map((_, index) => (
+              <SkeletonCard key={`skeleton-${page}-${index}`} />
+            ))}
+          </div>
+
+          {hasMore && !loading && (
+            <div className="load-more-trigger" ref={lastAvatarElementRef} />
+          )}
         </div>
-      </header>
 
-      <div className="avatar-grid">
-        {avatars.map((avatar, index) => {
-          if (avatars.length === index + 1) {
-            return (
-              <div ref={lastAvatarElementRef} key={avatar.id}>
-                <AvatarCard avatar={avatar} />
-              </div>
-            );
-          } else {
-            return <AvatarCard key={avatar.id} avatar={avatar} />;
-          }
-        })}
-
-        {loading && Array.from({ length: 20 }).map((_, index) => (
-          <SkeletonCard key={`skeleton-${page}-${index}`} />
-        ))}
+        <aside className="side-panel">
+          <p className="side-panel-text">Already have an account on FUZE?</p>
+          <a href="https://dev-web.fuzeapp.services/profile" className="side-panel-link" target="_blank" rel="noopener noreferrer">
+            Edit Avatar on Profile
+          </a>
+        </aside>
       </div>
-
-      <footer className="avatar-hub-footer">
-        <div className="avatar-hub-footer-content">
-          <span className="footer-link">avatar.fuze.io</span>
-          <button className="create-avatar-btn">아바타 만들기</button>
-        </div>
-      </footer>
-    </div>
+    </section>
   );
 }
 

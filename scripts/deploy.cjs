@@ -27,10 +27,17 @@ try {
     console.log('   Dependencies already installed');
   }
 
-  // Step 1: Clean dist folder
-  console.log('📦 Step 1: Cleaning dist folder...');
+  // Step 1: Clean dist folder and build cache
+  console.log('📦 Step 1: Cleaning dist folder and build cache...');
   if (fs.existsSync(distPath)) {
     fs.rmSync(distPath, { recursive: true, force: true });
+  }
+
+  // Clean Vite cache to ensure fresh build
+  const viteCachePath = path.resolve(__dirname, '../node_modules/.vite');
+  if (fs.existsSync(viteCachePath)) {
+    fs.rmSync(viteCachePath, { recursive: true, force: true });
+    console.log('   Cleared Vite cache');
   }
 
   // Step 2: Build for production
@@ -57,6 +64,13 @@ try {
     console.log('   No changes to stash');
   }
 
+  // Step 5.5: Backup dist folder to temp location outside git
+  console.log('💾 Step 5.5: Backing up build files...');
+  const os = require('os');
+  const tempDistPath = path.join(os.tmpdir(), 'fuze-avatar-deploy-' + Date.now());
+  fs.cpSync(distPath, tempDistPath, { recursive: true });
+  console.log(`   Backed up to ${tempDistPath}`);
+
   // Step 6: Create or checkout target branch
   console.log(`🌿 Step 5: Switching to ${branchName} branch...`);
   try {
@@ -72,10 +86,10 @@ try {
   // Step 7: Copy dist contents to branch root
   console.log(`📂 Step 6: Copying build files to ${branchName} branch...`);
 
-  // Remove all files except .git
+  // Remove all files except .git (including old dist!)
   const files = fs.readdirSync('.');
   files.forEach(file => {
-    if (file !== '.git' && file !== 'dist') {
+    if (file !== '.git') {
       const filePath = path.resolve(file);
       if (fs.existsSync(filePath)) {
         fs.rmSync(filePath, { recursive: true, force: true });
@@ -83,10 +97,10 @@ try {
     }
   });
 
-  // Copy dist contents to root
-  const distFiles = fs.readdirSync(distPath);
+  // Copy backed up dist contents to root
+  const distFiles = fs.readdirSync(tempDistPath);
   distFiles.forEach(file => {
-    const srcPath = path.join(distPath, file);
+    const srcPath = path.join(tempDistPath, file);
     const destPath = path.resolve(file);
     if (fs.statSync(srcPath).isDirectory()) {
       fs.cpSync(srcPath, destPath, { recursive: true });
@@ -94,6 +108,9 @@ try {
       fs.copyFileSync(srcPath, destPath);
     }
   });
+
+  // Clean up temp dist
+  fs.rmSync(tempDistPath, { recursive: true, force: true });
 
   // Step 8: Commit and push
   console.log('✅ Step 7: Committing changes...');

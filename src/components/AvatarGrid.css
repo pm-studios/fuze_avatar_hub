@@ -1,21 +1,20 @@
 .avatar-grid-section {
   background: #0f1923;
   position: relative;
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: center;
+  padding: 0;
 }
 
 .avatar-grid-wrapper {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
+  width: 100%;
 }
 
 .avatar-grid-container {
-  max-width: 1000px;
-  width: 1000px;
-  flex-shrink: 0;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -31,6 +30,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .load-more-trigger {
@@ -74,7 +74,7 @@
 @media (max-width: 1350px) {
   .avatar-grid-wrapper {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .avatar-grid-container {

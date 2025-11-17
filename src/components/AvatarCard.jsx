@@ -22,12 +22,43 @@ const statusMessages = [
   "Currently enjoying"
 ];
 
+/**
+ * Convert background_custom_color (hex or decimal string) to CSS ARGB color
+ * @param {string} colorValue - Color value like "0xFF6B5A36" or decimal string
+ * @returns {string} CSS color in rgba format
+ */
+const convertToArgbColor = (colorValue) => {
+  if (!colorValue) return null;
+
+  let colorInt;
+
+  // Handle hex string (e.g., "0xFF6B5A36")
+  if (typeof colorValue === 'string' && colorValue.startsWith('0x')) {
+    colorInt = parseInt(colorValue, 16);
+  }
+  // Handle decimal string or number
+  else {
+    colorInt = parseInt(colorValue, 10);
+  }
+
+  // Extract ARGB components
+  const a = ((colorInt >> 24) & 0xFF) / 255; // Alpha
+  const r = (colorInt >> 16) & 0xFF;         // Red
+  const g = (colorInt >> 8) & 0xFF;          // Green
+  const b = colorInt & 0xFF;                 // Blue
+
+  return `rgba(${r}, ${g}, ${b}, ${a})`;
+};
+
 function AvatarCard({ avatar, index = 0 }) {
   const handleClick = () => {
     window.open(avatar.profileUrl, '_blank', 'noopener,noreferrer');
   };
 
-  const bgColor = backgroundColors[index % backgroundColors.length];
+  // Use custom background color if available, otherwise use default colors
+  const bgColor = avatar.backgroundColor
+    ? convertToArgbColor(avatar.backgroundColor)
+    : backgroundColors[index % backgroundColors.length];
   const statusMessage = statusMessages[index % statusMessages.length];
 
   return (

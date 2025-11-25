@@ -23,7 +23,11 @@
       "Bash(git checkout:*)",
       "Bash(git stash push:*)",
       "Bash(git stash:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "WebFetch(domain:d2l90i53wjxgno.cloudfront.net)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:react-unity-webgl.dev)"
     ],
     "deny": [],
     "ask": []

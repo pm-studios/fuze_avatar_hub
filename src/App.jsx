@@ -6,9 +6,9 @@ import './App.css'
 
 function App() {
   return (
-    <div className="app">
-      <Header />
+    <div className="app">      
       <div className="main-content">
+        <Header />
         <Hero />
         <AvatarGrid />
       </div>

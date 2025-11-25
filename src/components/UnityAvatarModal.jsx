@@ -3,6 +3,16 @@ import { Unity, useUnityContext } from 'react-unity-webgl'
 import './UnityAvatarModal.css'
 
 function UnityAvatarModal({ isOpen, onClose }) {
+  // Set initial data before Unity loads
+  useEffect(() => {
+    // Method 1: Set window globals that Unity can read
+    window.ReactUnityConfig = {
+      shouldLoadDefaultAvatar: true,
+      avatarId: null
+    }
+    console.log('[WebGL] Set window.ReactUnityConfig:', window.ReactUnityConfig)
+  }, [])
+
   const { unityProvider, loadingProgression, isLoaded, sendMessage, addEventListener, removeEventListener } = useUnityContext({
     loaderUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.loader.js',
     dataUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.data',

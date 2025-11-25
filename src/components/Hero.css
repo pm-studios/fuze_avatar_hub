@@ -56,22 +56,15 @@
   line-height: 1.4;
 }
 
-.hero-btn {
-  background: #4a90a4;
+.hero-badge {
+  display: inline-block;
+  background: rgba(74, 144, 164, 0.3);
   color: white;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 0.75rem 1.8rem;
   font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.hero-btn:hover {
-  background: #5ba3b8;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
 }
 
 @media (max-width: 768px) {
@@ -87,7 +80,7 @@
     font-size: 0.9rem;
   }
 
-  .hero-btn {
+  .hero-badge {
     padding: 0.65rem 1.5rem;
     font-size: 0.9rem;
   }

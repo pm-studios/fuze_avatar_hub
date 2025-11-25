@@ -4,7 +4,7 @@ import SkeletonCard from './SkeletonCard';
 import { fetchAvatars } from '../data/avatars';
 import './AvatarGrid.css';
 
-function AvatarGrid() {
+function AvatarGrid({ onOpenModal }) {
   const [avatars, setAvatars] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -59,42 +59,50 @@ function AvatarGrid() {
   }, [page]);
 
   return (
-    <section className="avatar-grid-section">
-      <div className="avatar-grid-wrapper">
-        <div className="avatar-grid-container">
-          <h2 className="section-title">FUZE Players' Styles</h2>
+    <>
+      <section className="avatar-grid-section">
+        <div className="avatar-grid-wrapper">
+          <div className="avatar-grid-container">
+            <h2 className="section-title">FUZE Players' Styles</h2>
 
-          <div className="avatar-grid">
-            {avatars.map((avatar, index) => {
-              if (avatars.length === index + 1) {
-                return (
-                  <div ref={lastAvatarElementRef} key={avatar.id}>
-                    <AvatarCard avatar={avatar} index={index} />
-                  </div>
-                );
-              } else {
-                return <AvatarCard key={avatar.id} avatar={avatar} index={index} />;
-              }
-            })}
+            <div className="avatar-grid">
+              {avatars.map((avatar, index) => {
+                if (avatars.length === index + 1) {
+                  return (
+                    <div ref={lastAvatarElementRef} key={avatar.id}>
+                      <AvatarCard avatar={avatar} index={index} />
+                    </div>
+                  );
+                } else {
+                  return <AvatarCard key={avatar.id} avatar={avatar} index={index} />;
+                }
+              })}
 
-            {loading && Array.from({ length: 8 }).map((_, index) => (
-              <SkeletonCard key={`skeleton-${page}-${index}`} />
-            ))}
+              {loading && Array.from({ length: 8 }).map((_, index) => (
+                <SkeletonCard key={`skeleton-${page}-${index}`} />
+              ))}
+            </div>
+
+            {hasMore && !loading && (
+              <div className="load-more-trigger" ref={lastAvatarElementRef} />
+            )}
+
+            <div className="create-avatar-section">
+              <button className="create-avatar-btn" onClick={onOpenModal}>
+                Create Avatar for Free
+              </button>
+            </div>
           </div>
 
-          {hasMore && !loading && (
-            <div className="load-more-trigger" ref={lastAvatarElementRef} />
-          )}
+          <aside className="side-panel">
+            <p className="side-panel-text">Already have an account on FUZE?</p>
+            <a href="https://dev-web.fuzeapp.services/profile" className="side-panel-link" target="_blank" rel="noopener noreferrer">
+              Edit Avatar on Profile
+            </a>
+          </aside>
         </div>
-
-        <aside className="side-panel">
-          <p className="side-panel-text">Already have an account on FUZE?</p>
-          <a href="https://dev-web.fuzeapp.services/profile" className="side-panel-link" target="_blank" rel="noopener noreferrer">
-            Edit Avatar on Profile
-          </a>
-        </aside>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

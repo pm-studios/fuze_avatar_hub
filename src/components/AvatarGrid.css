@@ -38,6 +38,31 @@
   width: 100%;
 }
 
+.create-avatar-section {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.create-avatar-btn {
+  background: linear-gradient(135deg, #4a90a4 0%, #3a7d8f 100%);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);
+}
+
+.create-avatar-btn:hover {
+  background: linear-gradient(135deg, #5ba3b8 0%, #4a90a4 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 164, 0.4);
+}
+
 .side-panel {
   position: sticky;
   top: 6rem;

@@ -22,6 +22,14 @@ const statusMessages = [
   "Currently enjoying"
 ];
 
+const gameCovers = [
+  "https://images.igdb.com/igdb/image/upload/t_cover_big/co9rk1.webp",
+  "https://images.igdb.com/igdb/image/upload/t_cover_big/coaend.webp",
+  "https://images.igdb.com/igdb/image/upload/t_cover_big/coabe0.webp",
+  "https://images.igdb.com/igdb/image/upload/t_cover_big/coa5zt.webp",
+  "https://images.igdb.com/igdb/image/upload/t_cover_big/co9yvu.webp"
+];
+
 /**
  * Convert background_custom_color (hex or decimal string) to CSS ARGB color
  * @param {string} colorValue - Color value like "0xFF6B5A36" or decimal string
@@ -60,22 +68,25 @@ function AvatarCard({ avatar, index = 0 }) {
     ? convertToArgbColor(avatar.backgroundColor)
     : backgroundColors[index % backgroundColors.length];
   const statusMessage = statusMessages[index % statusMessages.length];
+  const gameCover = gameCovers[index % gameCovers.length];
 
   return (
     <div className="avatar-card" onClick={handleClick} style={{ background: bgColor }}>
       <div className="card-header">
-        <span className="card-name">{avatar.name}</span>
-        <span className="card-level">Lv {avatar.level}</span>
+        <div className="card-header-text">
+          <span className="card-name">{avatar.name}</span>
+          <span className="card-level">Lv {avatar.level}</span>
+        </div>
       </div>
 
       <div className="card-avatar-container">
         <img src={avatar.imageUrl} alt={avatar.name} className="card-avatar-image" />
       </div>
 
-      <div className="card-footer">
+      <div className="card-footer" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), ${bgColor}` }}>
         <span className="card-status">{statusMessage}</span>
         <div className="card-game-icon">
-          <div className="game-thumbnail"></div>
+          <img src={gameCover} alt="Game cover" className="game-thumbnail" />
         </div>
       </div>
     </div>

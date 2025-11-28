@@ -3,14 +3,10 @@ import { Unity, useUnityContext } from 'react-unity-webgl'
 import './UnityAvatarModal.css'
 
 function UnityAvatarModal({ isOpen, onClose }) {
-  // Set initial data before Unity loads
+  // Set page config before Unity loads (for jslib to read in Awake)
   useEffect(() => {
-    // Method 1: Set window globals that Unity can read
-    window.ReactUnityConfig = {
-      shouldLoadDefaultAvatar: true,
-      avatarId: null
-    }
-    console.log('[WebGL] Set window.ReactUnityConfig:', window.ReactUnityConfig)
+    window.pageConfig = 'AvatarHub'
+    console.log('[WebGL] Set window.pageConfig:', window.pageConfig)
   }, [])
 
   const { unityProvider, loadingProgression, isLoaded, sendMessage, addEventListener, removeEventListener } = useUnityContext({
@@ -18,6 +14,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
     dataUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.data',
     frameworkUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.framework.js',
     codeUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.wasm',
+    productName: "FUZE Avatar Hub"
   })
 
   useEffect(() => {
@@ -97,15 +94,15 @@ function UnityAvatarModal({ isOpen, onClose }) {
         <div className="unity-container">
           {!isLoaded && (
             <div className="unity-loading">
+              <p className="loading-text">
+                Getting avatar ready...
+              </p>
               <div className="loading-bar">
                 <div
                   className="loading-progress"
                   style={{ width: `${loadingProgression * 100}%` }}
                 />
               </div>
-              <p className="loading-text">
-                Loading... {Math.round(loadingProgression * 100)}%
-              </p>
             </div>
           )}
           <Unity

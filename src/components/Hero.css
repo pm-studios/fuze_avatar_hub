@@ -11,7 +11,7 @@
 
 .hero {
   background: linear-gradient(135deg, #2d5f6f 0%, #3a7d8f 50%, #2d6b7f 100%);
-  padding: 3rem;
+  padding: 2.5rem 3rem;
   margin: 1.5rem 0;
   border-radius: 16px;
   position: relative;
@@ -19,6 +19,44 @@
   flex: 1;
   min-width: 0;
   box-sizing: border-box;
+  height: 220px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60%;
+  background-image: url('/header_bg.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+  z-index: 1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #1F3C48 0%, #1F3C48 40%, rgba(31, 60, 72, 0.8) 70%, rgba(31, 60, 72, 0.3) 100%);
+  z-index: 2;
+}
+
+.hero-avatar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  z-index: 3;
+  object-fit: contain;
+  object-position: bottom right;
 }
 
 .hero-spacer {
@@ -29,42 +67,56 @@
 
 .hero-container {
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-content {
-  z-index: 2;
-  text-align: center;
-  width: 100%;
+  z-index: 4;
+  text-align: left;
+  max-width: 50%;
 }
 
 .hero-title {
-  font-size: 2.2rem;
+  color: #FFF;
+  font-family: "Be Vietnam Pro";
+  font-size: 28px;
+  font-style: normal;
   font-weight: 700;
-  color: white;
+  line-height: 32px;
   margin-bottom: 0.6rem;
-  line-height: 1.2;
 }
 
 .hero-subtitle {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   margin-bottom: 1.2rem;
-  line-height: 1.4;
 }
 
 .hero-badge {
-  display: inline-block;
-  background: rgba(74, 144, 164, 0.3);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  padding: 0.75rem 1.8rem;
-  font-size: 0.95rem;
+  display: flex;
+  height: 40px;
+  padding: 3px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #3084B0;
+  width: fit-content;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
   font-weight: 600;
-  border-radius: 50px;
+  line-height: normal;
 }
 
 @media (max-width: 768px) {

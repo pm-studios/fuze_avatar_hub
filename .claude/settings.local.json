@@ -27,7 +27,8 @@
       "WebFetch(domain:d2l90i53wjxgno.cloudfront.net)",
       "Bash(npm install:*)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:react-unity-webgl.dev)"
+      "WebFetch(domain:react-unity-webgl.dev)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []

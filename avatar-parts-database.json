@@ -1,0 +1,1329 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "아바타 파츠 데이터베이스 - 실제 사람 사진과 매칭하기 위한 각 파츠의 특징 정리",
+    "lastUpdated": "2025-11-30",
+    "categories": {
+      "B": "눈썹 (Brows)",
+      "E": "눈 (Eyes)",
+      "H": "헤어 (Hair - 얼굴 포함, 컬러링된 헤어만 식별)",
+      "M": "입 (Mouth)",
+      "N": "코 (Nose)",
+      "W": "수염 (Whiskers/Beard - 얼굴 포함, 컬러링된 수염만 식별)"
+    }
+  },
+  "eyebrows": {
+    "category": "B",
+    "totalCount": 32,
+    "parts": {
+      "C_Ava_B_001": {
+        "file": "/parts/C_Ava_B_001.png",
+        "shape": "arch",
+        "thickness": "thin",
+        "angle": "curved",
+        "style": "natural",
+        "description": "얇고 부드러운 아치형 눈썹"
+      },
+      "C_Ava_B_002": {
+        "file": "/parts/C_Ava_B_002.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 두께의 부드러운 곡선 눈썹"
+      },
+      "C_Ava_B_003": {
+        "file": "/parts/C_Ava_B_003.png",
+        "shape": "round",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "short",
+        "description": "작고 짧은 반원형 눈썹"
+      },
+      "C_Ava_B_004": {
+        "file": "/parts/C_Ava_B_004.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "angled",
+        "style": "natural",
+        "description": "중간 두께의 각진 아치형 눈썹"
+      },
+      "C_Ava_B_005": {
+        "file": "/parts/C_Ava_B_005.png",
+        "shape": "round",
+        "thickness": "thin",
+        "angle": "curved",
+        "style": "short",
+        "description": "매우 얇고 짧은 둥근 눈썹"
+      },
+      "C_Ava_B_006": {
+        "file": "/parts/C_Ava_B_006.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 두께의 부드러운 아치형 눈썹"
+      },
+      "C_Ava_B_007": {
+        "file": "/parts/C_Ava_B_007.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "부드러운 아치형, 중간 두께"
+      },
+      "C_Ava_B_008": {
+        "file": "/parts/C_Ava_B_008.png",
+        "shape": "angled",
+        "thickness": "thick",
+        "angle": "sharp",
+        "style": "bold",
+        "description": "두껍고 각진 형태의 눈썹"
+      },
+      "C_Ava_B_009": {
+        "file": "/parts/C_Ava_B_009.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 두께의 아치형 눈썹"
+      },
+      "C_Ava_B_010": {
+        "file": "/parts/C_Ava_B_010.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "부드러운 곡선, 중간 두께"
+      },
+      "C_Ava_B_011": {
+        "file": "/parts/C_Ava_B_011.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 두께의 자연스러운 아치"
+      },
+      "C_Ava_B_012": {
+        "file": "/parts/C_Ava_B_012.png",
+        "shape": "straight",
+        "thickness": "thick",
+        "angle": "horizontal",
+        "style": "bold",
+        "description": "두껍고 일자에 가까운 눈썹"
+      },
+      "C_Ava_B_013": {
+        "file": "/parts/C_Ava_B_013.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 아치형 눈썹"
+      },
+      "C_Ava_B_014": {
+        "file": "/parts/C_Ava_B_014.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "자연스러운 아치형"
+      },
+      "C_Ava_B_015": {
+        "file": "/parts/C_Ava_B_015.png",
+        "shape": "straight",
+        "thickness": "medium",
+        "angle": "horizontal",
+        "style": "natural",
+        "description": "중간 두께의 직선형 눈썹"
+      },
+      "C_Ava_B_016": {
+        "file": "/parts/C_Ava_B_016.png",
+        "shape": "wavy",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "unique",
+        "description": "웨이브 형태의 독특한 눈썹"
+      },
+      "C_Ava_B_017": {
+        "file": "/parts/C_Ava_B_017.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "자연스러운 아치형"
+      },
+      "C_Ava_B_018": {
+        "file": "/parts/C_Ava_B_018.png",
+        "shape": "angled",
+        "thickness": "medium",
+        "angle": "sharp",
+        "style": "bold",
+        "description": "각진 형태의 중간 두께 눈썹"
+      },
+      "C_Ava_B_019": {
+        "file": "/parts/C_Ava_B_019.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 아치형 눈썹"
+      },
+      "C_Ava_B_020": {
+        "file": "/parts/C_Ava_B_020.png",
+        "shape": "straight",
+        "thickness": "thin",
+        "angle": "horizontal",
+        "style": "minimal",
+        "description": "얇고 직선형 눈썹"
+      },
+      "C_Ava_B_021": {
+        "file": "/parts/C_Ava_B_021.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "자연스러운 아치형"
+      },
+      "C_Ava_B_022": {
+        "file": "/parts/C_Ava_B_022.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 두께의 아치형"
+      },
+      "C_Ava_B_023": {
+        "file": "/parts/C_Ava_B_023.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "부드러운 아치형"
+      },
+      "C_Ava_B_024": {
+        "file": "/parts/C_Ava_B_024.png",
+        "shape": "straight",
+        "thickness": "thick",
+        "angle": "horizontal",
+        "style": "bold",
+        "description": "두껍고 직선형 눈썹"
+      },
+      "C_Ava_B_025": {
+        "file": "/parts/C_Ava_B_025.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "부드러운 곡선의 중간 두께"
+      },
+      "C_Ava_B_026": {
+        "file": "/parts/C_Ava_B_026.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "자연스러운 아치형"
+      },
+      "C_Ava_B_027": {
+        "file": "/parts/C_Ava_B_027.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 아치형 눈썹"
+      },
+      "C_Ava_B_028": {
+        "file": "/parts/C_Ava_B_028.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "부드러운 아치형"
+      },
+      "C_Ava_B_029": {
+        "file": "/parts/C_Ava_B_029.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "자연스러운 아치형"
+      },
+      "C_Ava_B_030": {
+        "file": "/parts/C_Ava_B_030.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "중간 두께의 아치형"
+      },
+      "C_Ava_B_031": {
+        "file": "/parts/C_Ava_B_031.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "부드러운 아치형"
+      },
+      "C_Ava_B_032": {
+        "file": "/parts/C_Ava_B_032.png",
+        "shape": "arch",
+        "thickness": "medium",
+        "angle": "curved",
+        "style": "natural",
+        "description": "부드러운 아치, 중간 두께"
+      }
+    }
+  },
+  "eyes": {
+    "category": "E",
+    "totalCount": 38,
+    "parts": {
+      "C_Ava_E_001": {
+        "file": "/parts/C_Ava_E_001.png",
+        "shape": "round",
+        "size": "large",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": true,
+        "description": "크고 둥근 만화 스타일의 눈"
+      },
+      "C_Ava_E_002": {
+        "file": "/parts/C_Ava_E_002.png",
+        "shape": "almond",
+        "size": "medium",
+        "style": "realistic",
+        "expression": "neutral",
+        "hasLashes": true,
+        "description": "중간 크기의 아몬드형 사실적인 눈"
+      },
+      "C_Ava_E_003": {
+        "file": "/parts/C_Ava_E_003.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기의 둥근 눈"
+      },
+      "C_Ava_E_004": {
+        "file": "/parts/C_Ava_E_004.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 형태의 만화 스타일"
+      },
+      "C_Ava_E_005": {
+        "file": "/parts/C_Ava_E_005.png",
+        "shape": "round",
+        "size": "large",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": true,
+        "description": "큰 눈에 속눈썹이 있는 스타일"
+      },
+      "C_Ava_E_006": {
+        "file": "/parts/C_Ava_E_006.png",
+        "shape": "almond",
+        "size": "medium",
+        "style": "realistic",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "아몬드형 사실적 눈"
+      },
+      "C_Ava_E_007": {
+        "file": "/parts/C_Ava_E_007.png",
+        "shape": "narrow",
+        "size": "medium",
+        "style": "sharp",
+        "expression": "focused",
+        "hasLashes": true,
+        "description": "가늘고 날카로운 형태"
+      },
+      "C_Ava_E_008": {
+        "file": "/parts/C_Ava_E_008.png",
+        "shape": "almond",
+        "size": "medium",
+        "style": "realistic",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기의 아몬드형"
+      },
+      "C_Ava_E_009": {
+        "file": "/parts/C_Ava_E_009.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 만화 스타일 눈"
+      },
+      "C_Ava_E_010": {
+        "file": "/parts/C_Ava_E_010.png",
+        "shape": "round",
+        "size": "large",
+        "style": "realistic",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "크고 둥근 사실적 스타일"
+      },
+      "C_Ava_E_011": {
+        "file": "/parts/C_Ava_E_011.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기 둥근 눈"
+      },
+      "C_Ava_E_012": {
+        "file": "/parts/C_Ava_E_012.png",
+        "shape": "horizontal",
+        "size": "medium",
+        "style": "sleepy",
+        "expression": "tired",
+        "hasLashes": false,
+        "description": "수평적이고 졸린 느낌의 눈"
+      },
+      "C_Ava_E_013": {
+        "file": "/parts/C_Ava_E_013.png",
+        "shape": "almond",
+        "size": "medium",
+        "style": "realistic",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "아몬드형 눈"
+      },
+      "C_Ava_E_014": {
+        "file": "/parts/C_Ava_E_014.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 만화 스타일"
+      },
+      "C_Ava_E_015": {
+        "file": "/parts/C_Ava_E_015.png",
+        "shape": "narrow",
+        "size": "small",
+        "style": "sharp",
+        "expression": "squinting",
+        "hasLashes": false,
+        "description": "날카롭고 가늘게 뜬 눈"
+      },
+      "C_Ava_E_016": {
+        "file": "/parts/C_Ava_E_016.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 형태의 눈"
+      },
+      "C_Ava_E_017": {
+        "file": "/parts/C_Ava_E_017.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기 둥근 눈"
+      },
+      "C_Ava_E_018": {
+        "file": "/parts/C_Ava_E_018.png",
+        "shape": "round",
+        "size": "small",
+        "style": "cute",
+        "expression": "happy",
+        "hasLashes": false,
+        "description": "작고 귀여운 스타일"
+      },
+      "C_Ava_E_019": {
+        "file": "/parts/C_Ava_E_019.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 만화 스타일 눈"
+      },
+      "C_Ava_E_020": {
+        "file": "/parts/C_Ava_E_020.png",
+        "shape": "round",
+        "size": "small",
+        "style": "cute",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "작고 둥근 눈"
+      },
+      "C_Ava_E_021": {
+        "file": "/parts/C_Ava_E_021.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기의 둥근 눈"
+      },
+      "C_Ava_E_022": {
+        "file": "/parts/C_Ava_E_022.png",
+        "shape": "round",
+        "size": "small",
+        "style": "cute",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "작고 둥근 눈"
+      },
+      "C_Ava_E_023": {
+        "file": "/parts/C_Ava_E_023.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 만화 스타일"
+      },
+      "C_Ava_E_024": {
+        "file": "/parts/C_Ava_E_024.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기 둥근 눈"
+      },
+      "C_Ava_E_025": {
+        "file": "/parts/C_Ava_E_025.png",
+        "shape": "round",
+        "size": "small",
+        "style": "cute",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "작고 둥근 눈"
+      },
+      "C_Ava_E_026": {
+        "file": "/parts/C_Ava_E_026.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 형태"
+      },
+      "C_Ava_E_027": {
+        "file": "/parts/C_Ava_E_027.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기의 둥근 눈"
+      },
+      "C_Ava_E_028": {
+        "file": "/parts/C_Ava_E_028.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 만화 스타일"
+      },
+      "C_Ava_E_029": {
+        "file": "/parts/C_Ava_E_029.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 둥근 눈"
+      },
+      "C_Ava_E_030": {
+        "file": "/parts/C_Ava_E_030.png",
+        "shape": "oval",
+        "size": "small",
+        "style": "simple",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "단순한 타원형 눈"
+      },
+      "C_Ava_E_031": {
+        "file": "/parts/C_Ava_E_031.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 형태의 눈"
+      },
+      "C_Ava_E_032": {
+        "file": "/parts/C_Ava_E_032.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기 둥근 눈"
+      },
+      "C_Ava_E_033": {
+        "file": "/parts/C_Ava_E_033.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 만화 스타일"
+      },
+      "C_Ava_E_034": {
+        "file": "/parts/C_Ava_E_034.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 크기의 둥근 눈"
+      },
+      "C_Ava_E_035": {
+        "file": "/parts/C_Ava_E_035.png",
+        "shape": "vertical-oval",
+        "size": "small",
+        "style": "minimal",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "매우 단순한 세로 타원형"
+      },
+      "C_Ava_E_036": {
+        "file": "/parts/C_Ava_E_036.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "둥근 형태"
+      },
+      "C_Ava_E_037": {
+        "file": "/parts/C_Ava_E_037.png",
+        "shape": "round",
+        "size": "medium",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "중간 둥근 눈"
+      },
+      "C_Ava_E_038": {
+        "file": "/parts/C_Ava_E_038.png",
+        "shape": "round",
+        "size": "large",
+        "style": "cartoon",
+        "expression": "neutral",
+        "hasLashes": false,
+        "description": "크고 둥근 눈"
+      }
+    }
+  },
+  "hair": {
+    "category": "H",
+    "totalCount": 32,
+    "note": "헤어 이미지는 얼굴이 포함되어 있으며, 컬러링된 헤어 부분만 식별해야 함",
+    "parts": {
+      "C_Ava_H_001": {
+        "file": "/parts/C_Ava_H_001.png",
+        "style": "bald",
+        "length": "none",
+        "texture": "none",
+        "category": "bald",
+        "description": "대머리/스킨헤드"
+      },
+      "C_Ava_H_002": {
+        "file": "/parts/C_Ava_H_002.png",
+        "style": "short",
+        "length": "short",
+        "texture": "straight",
+        "category": "short",
+        "description": "짧고 단정한 짧은 머리"
+      },
+      "C_Ava_H_003": {
+        "file": "/parts/C_Ava_H_003.png",
+        "style": "short",
+        "length": "short",
+        "texture": "straight",
+        "category": "short",
+        "description": "짧은 스트레이트 헤어"
+      },
+      "C_Ava_H_004": {
+        "file": "/parts/C_Ava_H_004.png",
+        "style": "short",
+        "length": "short",
+        "texture": "straight",
+        "category": "short",
+        "description": "단정한 짧은 머리"
+      },
+      "C_Ava_H_005": {
+        "file": "/parts/C_Ava_H_005.png",
+        "style": "side-swept",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이, 옆으로 넘긴 스타일"
+      },
+      "C_Ava_H_006": {
+        "file": "/parts/C_Ava_H_006.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이의 스트레이트"
+      },
+      "C_Ava_H_007": {
+        "file": "/parts/C_Ava_H_007.png",
+        "style": "bob",
+        "length": "short",
+        "texture": "straight",
+        "category": "short",
+        "description": "짧은 보브컷"
+      },
+      "C_Ava_H_008": {
+        "file": "/parts/C_Ava_H_008.png",
+        "style": "bob",
+        "length": "short",
+        "texture": "straight",
+        "category": "short",
+        "description": "보브 스타일"
+      },
+      "C_Ava_H_009": {
+        "file": "/parts/C_Ava_H_009.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이 헤어"
+      },
+      "C_Ava_H_011": {
+        "file": "/parts/C_Ava_H_011.png",
+        "style": "top-knot",
+        "length": "long",
+        "texture": "straight",
+        "category": "updo",
+        "description": "상단 묶음 스타일 (탑 노트)"
+      },
+      "C_Ava_H_012": {
+        "file": "/parts/C_Ava_H_012.png",
+        "style": "bob",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이 보브"
+      },
+      "C_Ava_H_013": {
+        "file": "/parts/C_Ava_H_013.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이 스트레이트"
+      },
+      "C_Ava_H_014": {
+        "file": "/parts/C_Ava_H_014.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이 헤어"
+      },
+      "C_Ava_H_015": {
+        "file": "/parts/C_Ava_H_015.png",
+        "style": "curly",
+        "length": "long",
+        "texture": "curly",
+        "category": "long",
+        "description": "긴 곱슬머리"
+      },
+      "C_Ava_H_016": {
+        "file": "/parts/C_Ava_H_016.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이"
+      },
+      "C_Ava_H_017": {
+        "file": "/parts/C_Ava_H_017.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이 스트레이트"
+      },
+      "C_Ava_H_018": {
+        "file": "/parts/C_Ava_H_018.png",
+        "style": "curly-short",
+        "length": "short",
+        "texture": "curly",
+        "category": "short",
+        "description": "컬이 있는 짧은 스타일"
+      },
+      "C_Ava_H_019": {
+        "file": "/parts/C_Ava_H_019.png",
+        "style": "short",
+        "length": "short",
+        "texture": "straight",
+        "category": "short",
+        "description": "짧은 헤어"
+      },
+      "C_Ava_H_020": {
+        "file": "/parts/C_Ava_H_020.png",
+        "style": "ponytail",
+        "length": "long",
+        "texture": "straight",
+        "category": "updo",
+        "description": "포니테일"
+      },
+      "C_Ava_H_021": {
+        "file": "/parts/C_Ava_H_021.png",
+        "style": "long",
+        "length": "long",
+        "texture": "straight",
+        "category": "long",
+        "description": "긴 스트레이트 헤어"
+      },
+      "C_Ava_H_022": {
+        "file": "/parts/C_Ava_H_022.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이"
+      },
+      "C_Ava_H_023": {
+        "file": "/parts/C_Ava_H_023.png",
+        "style": "long",
+        "length": "long",
+        "texture": "straight",
+        "category": "long",
+        "description": "긴 헤어"
+      },
+      "C_Ava_H_024": {
+        "file": "/parts/C_Ava_H_024.png",
+        "style": "long",
+        "length": "long",
+        "texture": "straight",
+        "category": "long",
+        "description": "긴 스트레이트"
+      },
+      "C_Ava_H_025": {
+        "file": "/parts/C_Ava_H_025.png",
+        "style": "bangs",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "앞머리가 있는 스타일"
+      },
+      "C_Ava_H_026": {
+        "file": "/parts/C_Ava_H_026.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이 헤어"
+      },
+      "C_Ava_H_027": {
+        "file": "/parts/C_Ava_H_027.png",
+        "style": "long",
+        "length": "long",
+        "texture": "straight",
+        "category": "long",
+        "description": "긴 헤어"
+      },
+      "C_Ava_H_028": {
+        "file": "/parts/C_Ava_H_028.png",
+        "style": "long",
+        "length": "long",
+        "texture": "straight",
+        "category": "long",
+        "description": "긴 스트레이트 헤어"
+      },
+      "C_Ava_H_029": {
+        "file": "/parts/C_Ava_H_029.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이"
+      },
+      "C_Ava_H_030": {
+        "file": "/parts/C_Ava_H_030.png",
+        "style": "twin-tails",
+        "length": "long",
+        "texture": "straight",
+        "category": "updo",
+        "description": "트윈테일 (양갈래)"
+      },
+      "C_Ava_H_031": {
+        "file": "/parts/C_Ava_H_031.png",
+        "style": "long",
+        "length": "long",
+        "texture": "straight",
+        "category": "long",
+        "description": "긴 헤어"
+      },
+      "C_Ava_H_032": {
+        "file": "/parts/C_Ava_H_032.png",
+        "style": "medium",
+        "length": "medium",
+        "texture": "straight",
+        "category": "medium",
+        "description": "중간 길이 스트레이트"
+      },
+      "C_Ava_H_033": {
+        "file": "/parts/C_Ava_H_033.png",
+        "style": "long",
+        "length": "long",
+        "texture": "straight",
+        "category": "long",
+        "description": "긴 스트레이트 헤어"
+      }
+    }
+  },
+  "mouth": {
+    "category": "M",
+    "totalCount": 37,
+    "parts": {
+      "C_Ava_M_001": {
+        "file": "/parts/C_Ava_M_001.png",
+        "shape": "oval",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "단순한 타원형, 닫힌 입"
+      },
+      "C_Ava_M_002": {
+        "file": "/parts/C_Ava_M_002.png",
+        "shape": "lips",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "hasLipstick": true,
+        "description": "립스틱이 있는 입술"
+      },
+      "C_Ava_M_003": {
+        "file": "/parts/C_Ava_M_003.png",
+        "shape": "neutral",
+        "size": "small",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "작은 중립 표정의 입"
+      },
+      "C_Ava_M_004": {
+        "file": "/parts/C_Ava_M_004.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정"
+      },
+      "C_Ava_M_005": {
+        "file": "/parts/C_Ava_M_005.png",
+        "shape": "open",
+        "size": "medium",
+        "expression": "playful",
+        "openness": "open",
+        "showsTongue": true,
+        "description": "혀가 보이는 장난스러운 입"
+      },
+      "C_Ava_M_006": {
+        "file": "/parts/C_Ava_M_006.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정의 입"
+      },
+      "C_Ava_M_007": {
+        "file": "/parts/C_Ava_M_007.png",
+        "shape": "curve",
+        "size": "small",
+        "expression": "smile",
+        "openness": "closed",
+        "description": "단순한 곡선 (미소)"
+      },
+      "C_Ava_M_008": {
+        "file": "/parts/C_Ava_M_008.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정"
+      },
+      "C_Ava_M_009": {
+        "file": "/parts/C_Ava_M_009.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_010": {
+        "file": "/parts/C_Ava_M_010.png",
+        "shape": "wide-smile",
+        "size": "large",
+        "expression": "happy",
+        "openness": "open",
+        "description": "넓은 미소, 입이 크게 열림"
+      },
+      "C_Ava_M_011": {
+        "file": "/parts/C_Ava_M_011.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정의 입"
+      },
+      "C_Ava_M_012": {
+        "file": "/parts/C_Ava_M_012.png",
+        "shape": "circle",
+        "size": "small",
+        "expression": "surprised",
+        "openness": "open",
+        "description": "작은 원형 입 (O 모양)"
+      },
+      "C_Ava_M_013": {
+        "file": "/parts/C_Ava_M_013.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_014": {
+        "file": "/parts/C_Ava_M_014.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정"
+      },
+      "C_Ava_M_015": {
+        "file": "/parts/C_Ava_M_015.png",
+        "shape": "lips",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "부드러운 입술"
+      },
+      "C_Ava_M_016": {
+        "file": "/parts/C_Ava_M_016.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_017": {
+        "file": "/parts/C_Ava_M_017.png",
+        "shape": "wide-smile",
+        "size": "large",
+        "expression": "happy",
+        "openness": "open",
+        "showsTeeth": true,
+        "description": "큰 미소 (이가 보임)"
+      },
+      "C_Ava_M_018": {
+        "file": "/parts/C_Ava_M_018.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정의 입"
+      },
+      "C_Ava_M_019": {
+        "file": "/parts/C_Ava_M_019.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_020": {
+        "file": "/parts/C_Ava_M_020.png",
+        "shape": "curve",
+        "size": "small",
+        "expression": "slight-smile",
+        "openness": "closed",
+        "description": "단순한 곡선"
+      },
+      "C_Ava_M_021": {
+        "file": "/parts/C_Ava_M_021.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정"
+      },
+      "C_Ava_M_022": {
+        "file": "/parts/C_Ava_M_022.png",
+        "shape": "lips",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "입술이 도톰한 형태"
+      },
+      "C_Ava_M_023": {
+        "file": "/parts/C_Ava_M_023.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_024": {
+        "file": "/parts/C_Ava_M_024.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정의 입"
+      },
+      "C_Ava_M_025": {
+        "file": "/parts/C_Ava_M_025.png",
+        "shape": "curve",
+        "size": "small",
+        "expression": "smile",
+        "openness": "closed",
+        "description": "작은 곡선 (웃는 입)"
+      },
+      "C_Ava_M_026": {
+        "file": "/parts/C_Ava_M_026.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_027": {
+        "file": "/parts/C_Ava_M_027.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정"
+      },
+      "C_Ava_M_028": {
+        "file": "/parts/C_Ava_M_028.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_029": {
+        "file": "/parts/C_Ava_M_029.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정의 입"
+      },
+      "C_Ava_M_030": {
+        "file": "/parts/C_Ava_M_030.png",
+        "shape": "smile",
+        "size": "large",
+        "expression": "happy",
+        "openness": "open",
+        "description": "크게 웃는 입"
+      },
+      "C_Ava_M_031": {
+        "file": "/parts/C_Ava_M_031.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_032": {
+        "file": "/parts/C_Ava_M_032.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정"
+      },
+      "C_Ava_M_033": {
+        "file": "/parts/C_Ava_M_033.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_034": {
+        "file": "/parts/C_Ava_M_034.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정의 입"
+      },
+      "C_Ava_M_035": {
+        "file": "/parts/C_Ava_M_035.png",
+        "shape": "circle",
+        "size": "small",
+        "expression": "surprised",
+        "openness": "open",
+        "description": "작고 동그란 입"
+      },
+      "C_Ava_M_036": {
+        "file": "/parts/C_Ava_M_036.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립적인 입"
+      },
+      "C_Ava_M_037": {
+        "file": "/parts/C_Ava_M_037.png",
+        "shape": "neutral",
+        "size": "medium",
+        "expression": "neutral",
+        "openness": "closed",
+        "description": "중립 표정"
+      }
+    }
+  },
+  "nose": {
+    "category": "N",
+    "totalCount": 1,
+    "parts": {
+      "C_Ava_N_001": {
+        "file": "/parts/C_Ava_N_001.png",
+        "shape": "curved",
+        "size": "small",
+        "style": "simple",
+        "description": "단순한 곡선형 코"
+      }
+    }
+  },
+  "beard": {
+    "category": "W",
+    "totalCount": 9,
+    "note": "수염 이미지는 얼굴이 포함되어 있으며, 컬러링된 수염 부분만 식별해야 함",
+    "parts": {
+      "C_Ava_W_001": {
+        "file": "/parts/C_Ava_W_001.png",
+        "style": "none",
+        "coverage": "none",
+        "length": "none",
+        "description": "수염 없음"
+      },
+      "C_Ava_W_002": {
+        "file": "/parts/C_Ava_W_002.png",
+        "style": "chin-beard",
+        "coverage": "chin",
+        "length": "short",
+        "description": "턱수염 (짧은)"
+      },
+      "C_Ava_W_003": {
+        "file": "/parts/C_Ava_W_003.png",
+        "style": "goatee",
+        "coverage": "chin",
+        "length": "medium",
+        "description": "염소수염 스타일"
+      },
+      "C_Ava_W_004": {
+        "file": "/parts/C_Ava_W_004.png",
+        "style": "goatee",
+        "coverage": "chin",
+        "length": "medium",
+        "description": "염소수염"
+      },
+      "C_Ava_W_005": {
+        "file": "/parts/C_Ava_W_005.png",
+        "style": "mouth-beard",
+        "coverage": "mouth",
+        "length": "short",
+        "description": "입 주변 수염"
+      },
+      "C_Ava_W_006": {
+        "file": "/parts/C_Ava_W_006.png",
+        "style": "full",
+        "coverage": "full",
+        "length": "medium",
+        "description": "전체 수염"
+      },
+      "C_Ava_W_007": {
+        "file": "/parts/C_Ava_W_007.png",
+        "style": "mustache",
+        "coverage": "upper-lip",
+        "length": "short",
+        "description": "콧수염"
+      },
+      "C_Ava_W_008": {
+        "file": "/parts/C_Ava_W_008.png",
+        "style": "none",
+        "coverage": "none",
+        "length": "none",
+        "description": "수염 없음"
+      },
+      "C_Ava_W_009": {
+        "file": "/parts/C_Ava_W_009.png",
+        "style": "none",
+        "coverage": "none",
+        "length": "none",
+        "description": "수염 없음 (대머리 얼굴)"
+      }
+    }
+  },
+  "matchingGuide": {
+    "description": "실제 사람 사진과 아바타 파츠를 매칭하기 위한 가이드라인",
+    "eyebrowsMatching": {
+      "considerations": [
+        "눈썹의 두께 (thin/medium/thick)",
+        "눈썹의 형태 (arch/straight/angled/round/wavy)",
+        "눈썹의 각도 (curved/sharp/horizontal)"
+      ],
+      "process": "사진에서 눈썹의 두께와 곡선 정도를 분석하여 가장 유사한 형태를 선택"
+    },
+    "eyesMatching": {
+      "considerations": [
+        "눈의 크기 (small/medium/large)",
+        "눈의 형태 (round/almond/narrow/oval)",
+        "눈의 스타일 (cartoon/realistic/cute/sharp)",
+        "속눈썹 유무"
+      ],
+      "process": "사진에서 눈의 크기와 형태를 분석하고, 원하는 스타일(사실적 vs 만화적)을 고려하여 선택"
+    },
+    "hairMatching": {
+      "considerations": [
+        "헤어 길이 (none/short/medium/long)",
+        "헤어 스타일 (bald/bob/ponytail/twin-tails/curly 등)",
+        "헤어 질감 (straight/curly)"
+      ],
+      "process": "사진에서 헤어 길이와 스타일을 파악하고, 유사한 스타일을 선택. 헤어 이미지는 컬러링된 부분만 식별",
+      "note": "헤어 파츠는 얼굴이 포함되어 있으므로 컬러링된 헤어 부분만 파악해야 함"
+    },
+    "mouthMatching": {
+      "considerations": [
+        "입의 크기 (small/medium/large)",
+        "입의 형태 (oval/lips/curve/circle/wide-smile 등)",
+        "표정 (neutral/smile/happy/surprised/playful)",
+        "개폐 여부 (closed/open)"
+      ],
+      "process": "원하는 표정을 고려하여 입 모양을 선택. 립스틱, 이, 혀 표시 여부도 고려"
+    },
+    "noseMatching": {
+      "considerations": [
+        "코는 현재 1개의 옵션만 존재"
+      ],
+      "process": "기본 코 파츠(N_001) 사용"
+    },
+    "beardMatching": {
+      "considerations": [
+        "수염 스타일 (none/chin-beard/goatee/mustache/full)",
+        "수염 커버리지 (none/chin/mouth/upper-lip/full)",
+        "수염 길이 (none/short/medium)"
+      ],
+      "process": "사진에서 수염 유무와 스타일을 파악하여 선택. 수염 이미지는 컬러링된 부분만 식별",
+      "note": "수염 파츠는 얼굴이 포함되어 있으므로 컬러링된 수염 부분만 파악해야 함"
+    }
+  }
+}

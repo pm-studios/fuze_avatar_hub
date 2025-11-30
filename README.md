@@ -1,6 +1,40 @@
-# Fuze Avatar Hub - React Landing Page
+# Fuze Avatar Hub
 
-Modern and responsive landing page built with React and Vite.
+Modern avatar customization platform with AI-powered face analysis.
+
+## 🎯 프로젝트 개요
+
+1. **React 랜딩 페이지** - Modern and responsive landing page
+2. **AI 얼굴 분석 시스템** - 사진 업로드 → 3D 아바타 자동 생성
+
+## 📖 작업 컨텍스트
+
+**중요: 작업을 이어서 하려면 [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md)를 먼저 읽으세요!**
+
+- 프로젝트 목표 및 현재 진행 상황
+- 다음 작업 단계
+- AI API 가격 비교
+- 얼굴 분석 가능 항목
+
+---
+
+## 🤖 AI 아바타 시스템
+
+### 테스트 실행
+```bash
+npm install canvas  # 이미지 처리 라이브러리
+node create-avatar.cjs  # 2D 아바타 생성 테스트
+```
+
+### 주요 파일
+- `create-avatar.cjs` - 파츠 조합 테스트
+- `avatar-parts-database.json` - 파츠 데이터베이스
+- `face.png` - 테스트용 얼굴 사진
+- `generated_avatar.png` - 생성 결과
+
+---
+
+## 🌐 React 랜딩 페이지
 
 ## Features
 

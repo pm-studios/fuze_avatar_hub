@@ -11,7 +11,8 @@ const backgroundColors = [
   '#4a6b5a', // sea green
 ];
 
-const statusMessages = [
+// Fallback data for avatars without message or cover image
+const defaultStatusMessages = [
   "My Top3 game!",
   "Now playing...",
   "It's awesome!",
@@ -22,7 +23,7 @@ const statusMessages = [
   "Currently enjoying"
 ];
 
-const gameCovers = [
+const defaultGameCovers = [
   "https://images.igdb.com/igdb/image/upload/t_cover_big/co9rk1.webp",
   "https://images.igdb.com/igdb/image/upload/t_cover_big/coaend.webp",
   "https://images.igdb.com/igdb/image/upload/t_cover_big/coabe0.webp",
@@ -69,8 +70,10 @@ function AvatarCard({ avatar, index = 0 }) {
   // Use custom background color if available, otherwise use dark grey
   const customColor = avatar.backgroundColor ? convertToArgbColor(avatar.backgroundColor) : null;
   const bgColor = customColor || '#2a2a2a';
-  const statusMessage = statusMessages[index % statusMessages.length];
-  const gameCover = gameCovers[index % gameCovers.length];
+
+  // Use real data if available, otherwise use fallback
+  const statusMessage = avatar.message || defaultStatusMessages[index % defaultStatusMessages.length];
+  const gameCover = avatar.coverImageUrl || defaultGameCovers[index % defaultGameCovers.length];
 
   return (
     <div className="avatar-card" onClick={handleClick} style={{ background: bgColor }}>

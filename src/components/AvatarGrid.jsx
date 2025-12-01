@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import AvatarCard from './AvatarCard';
 import SkeletonCard from './SkeletonCard';
 import { fetchAvatars } from '../data/avatars';
@@ -58,48 +58,42 @@ function AvatarGrid({ onOpenModal }) {
     };
   }, [page]);
 
+  // Memoize avatar cards to prevent unnecessary re-renders
+  const avatarCards = useMemo(() => {
+    return avatars.map((avatar, index) => {
+      if (avatars.length === index + 1) {
+        return (
+          <div ref={lastAvatarElementRef} key={avatar.id}>
+            <AvatarCard avatar={avatar} index={index} />
+          </div>
+        );
+      } else {
+        return <AvatarCard key={avatar.id} avatar={avatar} index={index} />;
+      }
+    });
+  }, [avatars, lastAvatarElementRef]);
+
   return (
     <>
       <section className="avatar-grid-section">
-        <div className="avatar-grid-wrapper">
-          <div className="avatar-grid-container">
-            <h2 className="section-title">FUZE Player Styles</h2>
+        <h2 className="section-title">FUZE Player Styles</h2>
 
-            <div className="avatar-grid">
-              {avatars.map((avatar, index) => {
-                if (avatars.length === index + 1) {
-                  return (
-                    <div ref={lastAvatarElementRef} key={avatar.id}>
-                      <AvatarCard avatar={avatar} index={index} />
-                    </div>
-                  );
-                } else {
-                  return <AvatarCard key={avatar.id} avatar={avatar} index={index} />;
-                }
-              })}
+        <div className="avatar-grid">
+          {avatarCards}
 
-              {loading && Array.from({ length: 8 }).map((_, index) => (
-                <SkeletonCard key={`skeleton-${page}-${index}`} />
-              ))}
-            </div>
+          {loading && Array.from({ length: 8 }).map((_, index) => (
+            <SkeletonCard key={`skeleton-${page}-${index}`} />
+          ))}
+        </div>
 
-            {hasMore && !loading && (
-              <div className="load-more-trigger" ref={lastAvatarElementRef} />
-            )}
+        {hasMore && !loading && (
+          <div className="load-more-trigger" ref={lastAvatarElementRef} />
+        )}
 
-            <div className="create-avatar-section">
-              <button className="create-avatar-btn" onClick={onOpenModal}>
-                Create Avatar for Free
-              </button>
-            </div>
-          </div>
-
-          <aside className="side-panel">
-            <p className="side-panel-text">Already have an account on FUZE?</p>
-            <a href="https://dev-web.fuzeapp.services/profile" className="side-panel-link" target="_blank" rel="noopener noreferrer">
-              Edit Avatar on Profile
-            </a>
-          </aside>
+        <div className="create-avatar-section">
+          <button className="create-avatar-btn" onClick={onOpenModal}>
+            Create Avatar for Free
+          </button>
         </div>
       </section>
     </>

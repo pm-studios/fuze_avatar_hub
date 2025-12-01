@@ -29,6 +29,10 @@
   width: 100%;
 }
 
+.virtual-grid {
+  margin-bottom: 2rem;
+}
+
 .create-avatar-section {
   text-align: center;
   margin-top: 2rem;

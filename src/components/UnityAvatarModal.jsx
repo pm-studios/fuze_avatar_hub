@@ -68,8 +68,31 @@ function UnityAvatarModal({ isOpen, onClose }) {
   }, [isLoaded, isOpen, sendMessage])
 
   // Handle OnChangedAvatar event from Unity
-  const handleChangedAvatar = useCallback((data) => {
-    console.log('[WebGL] Avatar changed:', data)
+  const handleChangedAvatar = useCallback((uuid) => {
+    console.log('[WebGL] Avatar changed with UUID:', uuid)
+
+    // Determine environment based on hostname
+    const isDev = window.location.hostname === 'localhost' ||
+                  window.location.hostname.includes('dev') ||
+                  window.location.hostname.includes('127.0.0.1')
+
+    // Build URL based on environment
+    const baseUrl = isDev
+      ? 'https://dev-web.fuzeapp.services/login'
+      : 'https://fuze.io/login'
+
+    const loginUrl = `${baseUrl}/?avatar_preset_uuid=${uuid}`
+
+    console.log('[WebGL] Redirecting to:', loginUrl)
+
+    // Try to open in new tab, fallback to current page if blocked
+    const newWindow = window.open(loginUrl, '_blank', 'noopener,noreferrer')
+
+    // If popup was blocked, redirect current page
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      console.log('[WebGL] Popup blocked, redirecting current page')
+      window.location.href = loginUrl
+    }
   }, [])
 
   // Register event listeners

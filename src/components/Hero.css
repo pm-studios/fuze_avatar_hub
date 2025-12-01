@@ -1,23 +1,19 @@
 .hero-section {
-  background: #0f1923;
+  background: #000000;
 }
 
 .hero-wrapper {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
   width: 100%;
 }
 
 .hero {
   background: linear-gradient(135deg, #2d5f6f 0%, #3a7d8f 50%, #2d6b7f 100%);
   padding: 2.5rem 3rem;
-  margin: 1.5rem 0;
+  margin: 1.0rem 0;
   border-radius: 16px;
   position: relative;
   overflow: hidden;
-  flex: 1;
-  min-width: 0;
+  width: 100%;
   box-sizing: border-box;
   height: 220px;
 }
@@ -59,11 +55,6 @@
   object-position: bottom right;
 }
 
-.hero-spacer {
-  min-width: 250px;
-  max-width: 280px;
-  flex-shrink: 0;
-}
 
 .hero-container {
   width: 100%;

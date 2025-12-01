@@ -19,7 +19,6 @@ function Hero() {
             </div>
           </div>
         </div>
-        <div className="hero-spacer"></div>
       </div>
     </section>
   )

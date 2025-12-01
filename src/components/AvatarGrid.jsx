@@ -63,7 +63,7 @@ function AvatarGrid({ onOpenModal }) {
       <section className="avatar-grid-section">
         <div className="avatar-grid-wrapper">
           <div className="avatar-grid-container">
-            <h2 className="section-title">FUZE Players' Styles</h2>
+            <h2 className="section-title">FUZE Player Styles</h2>
 
             <div className="avatar-grid">
               {avatars.map((avatar, index) => {

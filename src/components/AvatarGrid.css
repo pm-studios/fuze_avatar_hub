@@ -1,27 +1,18 @@
 .avatar-grid-section {
-  background: #0f1923;
+  background: #000000;
   position: relative;
   padding: 0;
-}
-
-.avatar-grid-wrapper {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
   width: 100%;
 }
 
-.avatar-grid-container {
-  flex: 1;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
 .section-title {
-  font-size: 1.5rem;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
   font-weight: 700;
-  color: white;
-  margin-bottom: 1.2rem;
+  line-height: 30px;
+  margin-bottom: 0.8rem;
   margin-left: 0;
 }
 
@@ -63,102 +54,22 @@
   box-shadow: 0 6px 20px rgba(74, 144, 164, 0.4);
 }
 
-.side-panel {
-  position: sticky;
-  top: 6rem;
-  height: fit-content;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  text-align: center;
-  min-width: 250px;
-  max-width: 280px;
-  flex-shrink: 0;
-}
-
-.side-panel-text {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
-
-.side-panel-link {
-  color: #4a90a4;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-.side-panel-link:hover {
-  color: #5ba3b8;
-  text-decoration: underline;
-}
-
-@media (max-width: 1350px) {
-  .avatar-grid-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .avatar-grid-container {
-    width: 100%;
-  }
-
-  .side-panel {
-    position: relative;
-    top: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 1100px) {
+@media (max-width: 750px) {
   .avatar-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 850px) {
-  .avatar-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .avatar-grid-section {
-    padding: 1.5rem 1rem;
+    gap: 1.3rem;
   }
 
   .section-title {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
   .avatar-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .avatar-grid-section {
-    padding: 1.5rem;
-    gap: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .side-panel {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .avatar-grid {
-    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .section-title {

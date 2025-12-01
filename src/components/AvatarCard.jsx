@@ -55,6 +55,9 @@ const convertToArgbColor = (colorValue) => {
   const g = (colorInt >> 8) & 0xFF;          // Green
   const b = colorInt & 0xFF;                 // Blue
 
+  // If alpha is 0 or very low (transparent), return null to use default color
+  if (a < 0.01) return null;
+
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 };
 
@@ -63,10 +66,9 @@ function AvatarCard({ avatar, index = 0 }) {
     window.open(avatar.profileUrl, '_blank', 'noopener,noreferrer');
   };
 
-  // Use custom background color if available, otherwise use default colors
-  const bgColor = avatar.backgroundColor
-    ? convertToArgbColor(avatar.backgroundColor)
-    : backgroundColors[index % backgroundColors.length];
+  // Use custom background color if available, otherwise use dark grey
+  const customColor = avatar.backgroundColor ? convertToArgbColor(avatar.backgroundColor) : null;
+  const bgColor = customColor || '#2a2a2a';
   const statusMessage = statusMessages[index % statusMessages.length];
   const gameCover = gameCovers[index % gameCovers.length];
 

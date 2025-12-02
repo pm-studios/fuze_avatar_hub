@@ -42,8 +42,8 @@ const convertToArgbColor = (colorValue) => {
 
   let colorInt;
 
-  // Handle hex string (e.g., "0xFF6B5A36")
-  if (typeof colorValue === 'string' && colorValue.startsWith('0x')) {
+  // Handle hex string (e.g., "0xFF6B5A36" or "0XFFFFFFFF")
+  if (typeof colorValue === 'string' && colorValue.toLowerCase().startsWith('0x')) {
     colorInt = parseInt(colorValue, 16);
   }
   // Handle decimal string or number
@@ -77,8 +77,8 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
   const createDepthGradient = (color) => {
     return `
       radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
-      radial-gradient(ellipse at 85% 85%, rgba(255, 255, 255, 0.12) 0%, transparent 45%),
-      radial-gradient(ellipse at 70% 80%, rgba(0, 0, 0, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 75%, rgba(255, 255, 255, 0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 70% 80%, rgba(0, 0, 0, 0.25) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%, rgba(0, 0, 0, 0.15) 100%),
       ${color}
     `.trim();
@@ -121,7 +121,7 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   };
 
-  const footerBgColor = getColorWithAlpha(baseColor, 0.5, 0.2);
+  const footerBgColor = getColorWithAlpha(baseColor, 0.4, 0.2);
 
   // Use real data if available, otherwise use fallback
   const statusMessage = avatar.message || defaultStatusMessages[index % defaultStatusMessages.length];

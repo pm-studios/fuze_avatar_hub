@@ -3,8 +3,9 @@ const isDev = window.location.hostname === 'localhost' ||
               window.location.hostname.includes('dev') ||
               window.location.hostname.includes('127.0.0.1');
 
-// Use prod API for avatar gallery to get more data
-const API_BASE_URL = 'https://api.fuzeapp.services';
+const API_BASE_URL = isDev
+  ? 'https://dev-api.fuzeapp.services'
+  : 'https://api.fuzeapp.services';
 
 const PROFILE_BASE_URL = isDev
   ? 'https://dev-web.fuzeapp.services'
@@ -24,6 +25,9 @@ export const fetchAvatars = async (page = 0, pageSize = 20) => {
     }
 
     const data = await response.json();
+
+    // Log first 2 avatars for debugging
+    console.log('First 2 avatars from API:', data.results.slice(0, 2));
 
     // Transform API response to match our component structure
     const avatars = data.results.map((avatar) => ({

@@ -72,6 +72,22 @@
   overflow: hidden;
 }
 
+.card-avatar-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
 .card-avatar-image {
   width: 110%;
   height: 110%;
@@ -159,7 +175,7 @@
 .game-thumbnail {
   width: 29px;
   height: 40px;
-  border-radius: 4px 4px 12px 4px;
+  border-radius: 4px;
   object-fit: cover;
   display: block;
 }

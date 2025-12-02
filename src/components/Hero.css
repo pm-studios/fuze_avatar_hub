@@ -68,7 +68,7 @@
 .hero-content {
   z-index: 4;
   text-align: left;
-  max-width: 50%;
+  max-width: 70%;
 }
 
 .hero-title {
@@ -126,5 +126,17 @@
   .hero-badge {
     padding: 0.65rem 1.5rem;
     font-size: 0.9rem;
+  }
+
+  .hero-avatar {
+    height: 0%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero::after {
+    background: linear-gradient(to right, #1F3C48 0%, #1F3C48 50%, rgba(31, 60, 72, 0.8) 85%, rgba(31, 60, 72, 0.3) 100%);
   }
 }

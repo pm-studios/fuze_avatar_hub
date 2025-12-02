@@ -3,9 +3,8 @@ const isDev = window.location.hostname === 'localhost' ||
               window.location.hostname.includes('dev') ||
               window.location.hostname.includes('127.0.0.1');
 
-const API_BASE_URL = isDev
-  ? 'https://dev-api.fuzeapp.services'
-  : 'https://api.fuzeapp.services';
+// Use prod API for avatar gallery to get more data
+const API_BASE_URL = 'https://api.fuzeapp.services';
 
 const PROFILE_BASE_URL = isDev
   ? 'https://dev-web.fuzeapp.services'

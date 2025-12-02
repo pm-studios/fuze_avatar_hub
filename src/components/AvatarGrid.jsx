@@ -28,7 +28,7 @@ function AvatarGrid({ onOpenModal }) {
     const loadAvatars = async () => {
       setLoading(true);
       try {
-        const { avatars: newAvatars, hasMore: moreAvailable } = await fetchAvatars(page, 8);
+        const { avatars: newAvatars, hasMore: moreAvailable } = await fetchAvatars(page, 16);
 
         if (!cancelled) {
           setAvatars(prev => {
@@ -59,9 +59,14 @@ function AvatarGrid({ onOpenModal }) {
   }, [page]);
 
   // Memoize avatar cards to prevent unnecessary re-renders
+  // Trigger loading 8 items before the end for smoother experience
   const avatarCards = useMemo(() => {
     return avatars.map((avatar, index) => {
-      if (avatars.length === index + 1) {
+      // Trigger point: 8 items before the end
+      // This ensures we load next page before user reaches the end
+      const triggerIndex = Math.max(0, avatars.length - 8);
+
+      if (index === triggerIndex) {
         return (
           <div ref={lastAvatarElementRef} key={avatar.id}>
             <AvatarCard avatar={avatar} index={index} />
@@ -81,14 +86,10 @@ function AvatarGrid({ onOpenModal }) {
         <div className="avatar-grid">
           {avatarCards}
 
-          {loading && Array.from({ length: 8 }).map((_, index) => (
+          {loading && Array.from({ length: 16 }).map((_, index) => (
             <SkeletonCard key={`skeleton-${page}-${index}`} />
           ))}
         </div>
-
-        {hasMore && !loading && (
-          <div className="load-more-trigger" ref={lastAvatarElementRef} />
-        )}
 
         <div className="create-avatar-section">
           <button className="create-avatar-btn" onClick={onOpenModal}>

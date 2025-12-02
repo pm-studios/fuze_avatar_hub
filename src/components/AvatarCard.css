@@ -6,6 +6,7 @@
   height: 100%;
   min-height: 350px;
   position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .avatar-card:hover {
@@ -20,6 +21,13 @@
   right: 0;
   padding: 1rem;
   z-index: 2;
+  background: linear-gradient(
+    175deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.2) 25%,
+    rgba(0, 0, 0, 0.1) 45%,
+    transparent 80%
+  );
 }
 
 .card-header-text {

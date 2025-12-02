@@ -10,19 +10,34 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className="app">
-      <div className="main-content">
-        <Header />
-        <Hero />
-        <AvatarGrid onOpenModal={() => setIsModalOpen(true)} />
+    <>
+      <div className="app">
+        <aside className="side-banner side-banner-left">
+          <div className="banner-content">
+            <div className="banner-placeholder">AD</div>
+          </div>
+        </aside>
+
+        <div className="main-content">
+          <Header />
+          <Hero />
+          <AvatarGrid onOpenModal={() => setIsModalOpen(true)} />
+        </div>
+
+        <aside className="side-banner side-banner-right">
+          <div className="banner-content">
+            <div className="banner-placeholder">AD</div>
+          </div>
+        </aside>
       </div>
+
       <Footer onOpenModal={() => setIsModalOpen(true)} />
 
       <UnityAvatarModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
-    </div>
+    </>
   )
 }
 

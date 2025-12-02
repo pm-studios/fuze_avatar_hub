@@ -69,14 +69,34 @@ function AvatarCard({ avatar, index = 0 }) {
 
   // Use custom background color if available, otherwise use dark grey
   const customColor = avatar.backgroundColor ? convertToArgbColor(avatar.backgroundColor) : null;
-  const bgColor = customColor || '#2a2a2a';
+  const baseColor = customColor || '#2a2a2a';
+
+  // Create layered gradient background with depth
+  // Multiple overlapping gradients create a sense of space and atmosphere
+  const createDepthGradient = (color) => {
+    return `
+      radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
+      radial-gradient(ellipse at 85% 85%, rgba(255, 255, 255, 0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 70% 80%, rgba(0, 0, 0, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%, rgba(0, 0, 0, 0.15) 100%),
+      ${color}
+    `.trim();
+  };
+
+  const bgGradient = createDepthGradient(baseColor);
 
   // Use real data if available, otherwise use fallback
   const statusMessage = avatar.message || defaultStatusMessages[index % defaultStatusMessages.length];
   const gameCover = avatar.coverImageUrl || defaultGameCovers[index % defaultGameCovers.length];
 
   return (
-    <div className="avatar-card" onClick={handleClick} style={{ background: bgColor }}>
+    <div
+      className="avatar-card"
+      onClick={handleClick}
+      style={{
+        background: bgGradient
+      }}
+    >
       <div className="card-header">
         <div className="card-header-text">
           <span className="card-name">{avatar.name}</span>
@@ -88,7 +108,7 @@ function AvatarCard({ avatar, index = 0 }) {
         <img src={avatar.imageUrl} alt={avatar.name} className="card-avatar-image" />
       </div>
 
-      <div className="card-footer" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), ${bgColor}` }}>
+      <div className="card-footer" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), ${baseColor}` }}>
         <span className="card-status">{statusMessage}</span>
         <div className="card-game-icon">
           <img src={gameCover} alt="Game cover" className="game-thumbnail" />

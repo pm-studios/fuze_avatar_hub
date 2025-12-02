@@ -85,6 +85,43 @@ function AvatarCard({ avatar, index = 0 }) {
 
   const bgGradient = createDepthGradient(baseColor);
 
+  // Convert baseColor to rgba with transparency and brightness adjustment for footer
+  const getColorWithAlpha = (color, alpha, brightnessIncrease = 0) => {
+    let r, g, b;
+
+    // If color is already rgba, extract rgb parts
+    if (color.startsWith('rgba')) {
+      const match = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (match) {
+        r = parseInt(match[1]);
+        g = parseInt(match[2]);
+        b = parseInt(match[3]);
+      }
+    }
+    // If color is hex, convert to rgba
+    else if (color.startsWith('#')) {
+      const hex = color.replace('#', '');
+      r = parseInt(hex.substr(0, 2), 16);
+      g = parseInt(hex.substr(2, 2), 16);
+      b = parseInt(hex.substr(4, 2), 16);
+    }
+    else {
+      // Fallback to black
+      r = g = b = 0;
+    }
+
+    // Increase brightness by percentage (e.g., 0.2 = 20% brighter)
+    if (brightnessIncrease > 0) {
+      r = Math.min(255, Math.round(r + (255 - r) * brightnessIncrease));
+      g = Math.min(255, Math.round(g + (255 - g) * brightnessIncrease));
+      b = Math.min(255, Math.round(b + (255 - b) * brightnessIncrease));
+    }
+
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  const footerBgColor = getColorWithAlpha(baseColor, 0.5, 0.2);
+
   // Use real data if available, otherwise use fallback
   const statusMessage = avatar.message || defaultStatusMessages[index % defaultStatusMessages.length];
   const gameCover = avatar.coverImageUrl || defaultGameCovers[index % defaultGameCovers.length];
@@ -108,7 +145,7 @@ function AvatarCard({ avatar, index = 0 }) {
         <img src={avatar.imageUrl} alt={avatar.name} className="card-avatar-image" />
       </div>
 
-      <div className="card-footer" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), ${baseColor}` }}>
+      <div className="card-footer" style={{ background: footerBgColor }}>
         <div className="card-status-wrapper">
           <span className="card-status card-status-default">{statusMessage}</span>
           {avatar.gameName && (

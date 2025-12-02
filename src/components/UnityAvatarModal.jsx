@@ -83,16 +83,10 @@ function UnityAvatarModal({ isOpen, onClose }) {
 
     const loginUrl = `${baseUrl}/?avatar_preset_uuid=${uuid}`
 
-    console.log('[WebGL] Redirecting to:', loginUrl)
+    console.log('[WebGL] Opening in new tab:', loginUrl)
 
-    // Try to open in new tab, fallback to current page if blocked
-    const newWindow = window.open(loginUrl, '_blank', 'noopener,noreferrer')
-
-    // If popup was blocked, redirect current page
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-      console.log('[WebGL] Popup blocked, redirecting current page')
-      window.location.href = loginUrl
-    }
+    // Open in new tab (consistent with other navigation in the app)
+    window.open(loginUrl, '_blank', 'noopener,noreferrer')
   }, [])
 
   // Register event listeners

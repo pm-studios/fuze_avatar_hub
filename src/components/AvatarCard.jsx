@@ -72,6 +72,15 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
   const customColor = avatar.backgroundColor ? convertToArgbColor(avatar.backgroundColor) : null;
   const baseColor = customColor || '#2a2a2a';
 
+  // Debug logging
+  if (index < 3) {
+    console.log(`Avatar ${index}:`, {
+      backgroundColor: avatar.backgroundColor,
+      customColor,
+      baseColor
+    });
+  }
+
   // Create layered gradient background with depth
   // Multiple overlapping gradients create a sense of space and atmosphere
   const createDepthGradient = (color) => {
@@ -79,7 +88,6 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
       radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
       radial-gradient(ellipse at 85% 75%, rgba(255, 255, 255, 0.12) 0%, transparent 45%),
       radial-gradient(ellipse at 70% 80%, rgba(0, 0, 0, 0.25) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%, rgba(0, 0, 0, 0.15) 100%),
       ${color}
     `.trim();
   };
@@ -123,6 +131,38 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
 
   const footerBgColor = getColorWithAlpha(baseColor, 0.4, 0.2);
 
+  // Calculate text color based on background brightness
+  const getTextColor = (color) => {
+    let r, g, b;
+
+    // If color is already rgba, extract rgb parts
+    if (color.startsWith('rgba')) {
+      const match = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (match) {
+        r = parseInt(match[1]);
+        g = parseInt(match[2]);
+        b = parseInt(match[3]);
+      }
+    }
+    // If color is hex, convert to rgba
+    else if (color.startsWith('#')) {
+      const hex = color.replace('#', '');
+      r = parseInt(hex.substr(0, 2), 16);
+      g = parseInt(hex.substr(2, 2), 16);
+      b = parseInt(hex.substr(4, 2), 16);
+    }
+    else {
+      // Fallback to white text for unknown color format
+      return 'white';
+    }
+
+    // Calculate brightness using the provided formula
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness < 186 ? "white" : "black";
+  };
+
+  const textColor = getTextColor(baseColor);
+
   // Use real data if available, otherwise use fallback
   const statusMessage = avatar.message || defaultStatusMessages[index % defaultStatusMessages.length];
   const gameCover = avatar.coverImageUrl || defaultGameCovers[index % defaultGameCovers.length];
@@ -138,8 +178,8 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
     >
       <div className="card-header">
         <div className="card-header-text">
-          <span className="card-name">{avatar.name}</span>
-          <span className="card-level">Lv {avatar.level}</span>
+          <span className="card-name" style={{ color: textColor }}>{avatar.name}</span>
+          <span className="card-level" style={{ color: textColor }}>Lv {avatar.level}</span>
         </div>
       </div>
 
@@ -154,9 +194,9 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
 
       <div className="card-footer" style={{ background: footerBgColor }}>
         <div className="card-status-wrapper">
-          <span className="card-status card-status-default">{statusMessage}</span>
+          <span className="card-status card-status-default" style={{ color: textColor }}>{statusMessage}</span>
           {avatar.gameName && (
-            <span className="card-status card-status-game">{avatar.gameName}</span>
+            <span className="card-status card-status-game" style={{ color: textColor }}>{avatar.gameName}</span>
           )}
         </div>
         <div className="card-game-icon">

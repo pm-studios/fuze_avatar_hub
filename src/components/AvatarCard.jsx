@@ -109,7 +109,12 @@ function AvatarCard({ avatar, index = 0 }) {
       </div>
 
       <div className="card-footer" style={{ background: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), ${baseColor}` }}>
-        <span className="card-status">{statusMessage}</span>
+        <div className="card-status-wrapper">
+          <span className="card-status card-status-default">{statusMessage}</span>
+          {avatar.gameName && (
+            <span className="card-status card-status-game">{avatar.gameName}</span>
+          )}
+        </div>
         <div className="card-game-icon">
           <img src={gameCover} alt="Game cover" className="game-thumbnail" />
         </div>

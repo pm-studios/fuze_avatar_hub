@@ -1,6 +1,6 @@
 .avatar-card {
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
   cursor: pointer;
   transition: all 0.3s ease;
   height: 100%;
@@ -68,6 +68,8 @@
   justify-content: center;
   padding: 3rem 1rem;
   z-index: 1;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .card-avatar-image {
@@ -91,15 +93,56 @@
   z-index: 2;
 }
 
+.card-status-wrapper {
+  position: relative;
+  align-self: center;
+  padding-bottom: 0.5rem;
+  flex: 1;
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+}
+
 .card-status {
   color: #FFF;
   font-family: Pretendard;
   font-size: 13px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.3;
+  width: 100%;
+}
+
+.card-status-default {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-status-game {
+  position: absolute;
+  transform: translateX(20px);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   align-self: center;
-  padding-bottom: 0.5rem;
+}
+
+.card-footer:hover .card-status-default {
+  opacity: 0;
+}
+
+.card-footer:hover .card-status-game {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .card-game-icon {
@@ -113,6 +156,7 @@
   height: 40px;
   border-radius: 4px 4px 12px 4px;
   object-fit: cover;
+  display: block;
 }
 
 @media (max-width: 768px) {

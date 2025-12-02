@@ -35,7 +35,8 @@ export const fetchAvatars = async (page = 0, pageSize = 20) => {
       profileUrl: `${PROFILE_BASE_URL}/profile/${avatar.nickname}`,
       backgroundColor: avatar.background_custom_color,
       message: avatar.message,
-      coverImageUrl: avatar.cover_img_url
+      coverImageUrl: avatar.cover_img_url,
+      gameName: avatar.game_name
     }));
 
     return {

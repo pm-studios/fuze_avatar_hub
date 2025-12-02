@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import './AvatarCard.css';
 
 const backgroundColors = [
@@ -62,7 +63,7 @@ const convertToArgbColor = (colorValue) => {
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 };
 
-function AvatarCard({ avatar, index = 0 }) {
+const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
   const handleClick = () => {
     window.open(avatar.profileUrl, '_blank', 'noopener,noreferrer');
   };
@@ -128,6 +129,7 @@ function AvatarCard({ avatar, index = 0 }) {
 
   return (
     <div
+      ref={ref}
       className="avatar-card"
       onClick={handleClick}
       style={{
@@ -142,7 +144,12 @@ function AvatarCard({ avatar, index = 0 }) {
       </div>
 
       <div className="card-avatar-container">
-        <img src={avatar.imageUrl} alt={avatar.name} className="card-avatar-image" />
+        <img
+          src={avatar.imageUrl}
+          alt={avatar.name}
+          className="card-avatar-image"
+          loading="lazy"
+        />
       </div>
 
       <div className="card-footer" style={{ background: footerBgColor }}>
@@ -158,6 +165,8 @@ function AvatarCard({ avatar, index = 0 }) {
       </div>
     </div>
   );
-}
+});
+
+AvatarCard.displayName = 'AvatarCard';
 
 export default AvatarCard;

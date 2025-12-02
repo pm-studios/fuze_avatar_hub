@@ -65,16 +65,16 @@ function AvatarGrid({ onOpenModal }) {
       // Trigger point: 8 items before the end
       // This ensures we load next page before user reaches the end
       const triggerIndex = Math.max(0, avatars.length - 8);
+      const isTrigger = index === triggerIndex;
 
-      if (index === triggerIndex) {
-        return (
-          <div ref={lastAvatarElementRef} key={avatar.id}>
-            <AvatarCard avatar={avatar} index={index} />
-          </div>
-        );
-      } else {
-        return <AvatarCard key={avatar.id} avatar={avatar} index={index} />;
-      }
+      return (
+        <AvatarCard
+          key={avatar.id}
+          avatar={avatar}
+          index={index}
+          ref={isTrigger ? lastAvatarElementRef : null}
+        />
+      );
     });
   }, [avatars, lastAvatarElementRef]);
 

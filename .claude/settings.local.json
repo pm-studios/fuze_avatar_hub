@@ -29,7 +29,8 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:react-unity-webgl.dev)",
       "Bash(mv:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

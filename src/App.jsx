@@ -31,8 +31,6 @@ function App() {
         </aside>
       </div>
 
-      <Footer onOpenModal={() => setIsModalOpen(true)} />
-
       <UnityAvatarModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

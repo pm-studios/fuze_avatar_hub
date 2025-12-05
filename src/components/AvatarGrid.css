@@ -58,6 +58,90 @@
   box-shadow: 0 6px 20px rgba(74, 144, 164, 0.4);
 }
 
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 3rem 0 2rem 0;
+}
+
+.pagination-btn,
+.pagination-arrow {
+  min-width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a2a;
+  color: #ffffff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0 12px;
+}
+
+.pagination-btn:hover:not(.active),
+.pagination-arrow:hover:not(:disabled) {
+  background: #3a3a3a;
+}
+
+.pagination-btn.active {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
+}
+
+.pagination-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+  color: #666666;
+  padding: 0 8px;
+  font-size: 16px;
+}
+
+/* Create Avatar CTA */
+.create-avatar-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 3rem 0 4rem 0;
+}
+
+.cta-text {
+  color: #999999;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #4a90a4 0%, #3a7d8f 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #5ba3b8 0%, #4a90a4 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 144, 164, 0.4);
+}
+
 @media (max-width: 750px) {
   .avatar-grid {
     grid-template-columns: repeat(3, 1fr);

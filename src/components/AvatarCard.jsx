@@ -188,7 +188,8 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
           src={avatar.imageUrl}
           alt={avatar.name}
           className="card-avatar-image"
-          loading="lazy"
+          loading="eager"
+          decoding="async"
         />
       </div>
 
@@ -200,7 +201,7 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
           )}
         </div>
         <div className="card-game-icon">
-          <img src={gameCover} alt="Game cover" className="game-thumbnail" />
+          <img src={gameCover} alt="Game cover" className="game-thumbnail" loading="lazy" />
         </div>
       </div>
     </div>

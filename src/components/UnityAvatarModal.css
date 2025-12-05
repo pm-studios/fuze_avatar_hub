@@ -99,3 +99,202 @@
     aspect-ratio: 988 / 698;
   }
 }
+
+/* Save Popup Styles */
+.save-popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  border-radius: 24px;
+}
+
+.save-popup {
+  background: #292929;
+  border-radius: 24px;
+  padding: 40px;
+  width: 450px;
+  height: 410px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.save-popup-logo {
+  margin-bottom: 6px;
+}
+
+.save-popup-logo img {
+  width: 104px;
+  height: auto;
+}
+
+.save-popup h3 {
+  margin: 0 0 12px 0;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: left;
+}
+
+.save-popup p {
+  margin: 0 0 32px 0;
+  color: #9E9E9E;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
+}
+
+.save-popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.save-popup-buttons button {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn-save {
+  border-radius: 10px;
+  background: #597B87;
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.btn-save:hover {
+  background: #4A6B8A;
+}
+
+.btn-leave {
+  border-radius: 10px;
+  background: #474747;
+  color: #86CFE7;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.btn-leave:hover {
+  background: #555555;
+}
+
+.btn-back {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  padding: 12px 24px;
+}
+
+.btn-back:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Complete Popup Styles */
+.complete-popup {
+  height: auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.complete-popup h3 {
+  margin: 0 0 16px 0;
+  text-align: left;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.complete-message {
+  margin: 0 0 32px 0;
+  text-align: left;
+  color: #9E9E9E;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.complete-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.btn-complete {
+  flex: 1;
+  border-radius: 10px;
+  background: #597B87;
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 16px 24px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-complete:hover {
+  background: #4A6B8A;
+}
+
+.btn-cancel-complete {
+  flex: 1;
+  background: #474747;
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel-complete:hover {
+  background: #555555;
+}

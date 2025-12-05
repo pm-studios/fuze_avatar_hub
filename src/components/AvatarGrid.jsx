@@ -166,7 +166,7 @@ function AvatarGrid({ onOpenModal }) {
         </div>
 
         {/* Pagination */}
-        {totalPages > 1 && avatars.length >= ITEMS_PER_PAGE && (
+        {totalPages >= 1 && !loading && avatars.length > 0 && (
           <div className="pagination">
             <button
               className="pagination-arrow"
@@ -201,7 +201,7 @@ function AvatarGrid({ onOpenModal }) {
         )}
 
         {/* Create Avatar CTA */}
-        {avatars.length >= ITEMS_PER_PAGE && (
+        {!loading && avatars.length > 0 && (
           <div className="create-avatar-cta">
             <p className="cta-text">Feeling inspired? Now create your own!</p>
             <button className="cta-button" onClick={onOpenModal}>

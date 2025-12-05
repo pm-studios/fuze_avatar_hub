@@ -1,6 +1,6 @@
 import './Header.css'
 
-function Header() {
+function Header({ onOpenModal }) {
   const handleLogoClick = () => {
     window.open('https://fuze.io', '_blank', 'noopener,noreferrer');
   };
@@ -12,6 +12,9 @@ function Header() {
           <img src="/Logo_FUZE.png" alt="FUZE Logo" className="logo-image" />
           <span className="logo-text">Avatar Hub</span>
         </div>
+        <button className="create-btn" onClick={onOpenModal}>
+          Create My Own
+        </button>
       </div>
     </header>
   )

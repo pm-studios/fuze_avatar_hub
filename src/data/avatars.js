@@ -1,7 +1,8 @@
 // Determine environment based on hostname
 const isDev = window.location.hostname === 'localhost' ||
               window.location.hostname.includes('dev') ||
-              window.location.hostname.includes('127.0.0.1');
+              window.location.hostname.includes('127.0.0.1') ||
+              window.location.hostname === 'd3cbg89fw3t9m6.cloudfront.net';
 
 const API_BASE_URL = isDev
   ? 'https://dev-api.fuzeapp.services'

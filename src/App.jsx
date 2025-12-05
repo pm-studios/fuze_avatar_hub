@@ -19,7 +19,7 @@ function App() {
         </aside>
 
         <div className="main-content">
-          <Header />
+          <Header onOpenModal={() => setIsModalOpen(true)} />
           <Hero />
           <AvatarGrid onOpenModal={() => setIsModalOpen(true)} />
         </div>

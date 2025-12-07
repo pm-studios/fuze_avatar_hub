@@ -67,6 +67,48 @@
   transform: translateY(-2px);
 }
 
+.header-banner {
+  background: #3084B0;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 1rem;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-banner::before {
+  content: '';
+  position: absolute;
+  right: calc(50% - 475px + 60px);
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.header-banner::after {
+  content: '';
+  position: absolute;
+  right: calc(50% - 475px + 60px);
+  top: 100%;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #0066FF;
+  transform: translateX(50%);
+}
+
+.header-banner span {
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 @media (max-width: 1050px) {
   .header-content {
     width: 100%;

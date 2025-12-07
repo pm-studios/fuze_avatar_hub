@@ -16,6 +16,9 @@ function Header({ onOpenModal }) {
           Create My Own
         </button>
       </div>
+      <div className="header-banner">
+        <span>Create your style for free, no login needed.</span>
+      </div>
     </header>
   )
 }

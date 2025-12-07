@@ -115,25 +115,30 @@
 }
 
 .cta-text {
-  color: #999999;
+  color: #AEAEAE;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
   font-family: Pretendard;
   font-size: 18px;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   margin: 0;
 }
 
 .cta-button {
-  background: linear-gradient(135deg, #4a90a4 0%, #3a7d8f 100%);
-  color: white;
+  background: #3084B0;
+  color: #FFF;
   border: none;
   padding: 14px 32px;
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 600;
-  border-radius: 8px;
+  line-height: normal;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(74, 144, 164, 0.3);
 }
 
 .cta-button:hover {

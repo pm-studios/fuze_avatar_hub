@@ -13,8 +13,8 @@ function AvatarGrid({ onOpenModal }) {
   const [totalCount, setTotalCount] = useState(0);
   const observer = useRef();
 
-  const ITEMS_PER_PAGE = 100; // Total items per page
-  const CHUNK_SIZE = 24; // Items to load per chunk (infinite scroll)
+  const ITEMS_PER_PAGE = 80; // Total items per page
+  const CHUNK_SIZE = 20; // Items to load per chunk (infinite scroll)
   const totalPages = Math.ceil(totalCount / ITEMS_PER_PAGE);
   const currentPageNum = currentPage + 1;
 
@@ -136,10 +136,10 @@ function AvatarGrid({ onOpenModal }) {
   // Memoize avatar cards to prevent unnecessary re-renders
   const avatarCards = useMemo(() => {
     return avatars.map((avatar, index) => {
-      // Trigger point: at the 8th item from the start of current chunk
-      // This means when user scrolls to the 8th item, start loading next chunk
+      // Trigger point: at the 12th item from the start of current chunk
+      // This means when user scrolls to the 12th item, start loading next chunk
       const currentChunkStartIndex = chunkPage * CHUNK_SIZE;
-      const triggerIndex = currentChunkStartIndex + 7; // 8th item (0-indexed)
+      const triggerIndex = currentChunkStartIndex + 11; // 12th item (0-indexed)
       const isTrigger = index === triggerIndex && avatars.length < ITEMS_PER_PAGE;
 
       return (
@@ -167,7 +167,7 @@ function AvatarGrid({ onOpenModal }) {
         </div>
 
         {/* Pagination */}
-        {totalPages >= 1 && !loading && avatars.length > 0 && (
+        {totalPages >= 1 && (
           <div className="pagination">
             <button
               className="pagination-arrow"

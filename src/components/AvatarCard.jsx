@@ -72,15 +72,6 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
   const customColor = avatar.backgroundColor ? convertToArgbColor(avatar.backgroundColor) : null;
   const baseColor = customColor || '#2a2a2a';
 
-  // Debug logging
-  if (index < 3) {
-    console.log(`Avatar ${index}:`, {
-      backgroundColor: avatar.backgroundColor,
-      customColor,
-      baseColor
-    });
-  }
-
   // Create layered gradient background with depth
   // Multiple overlapping gradients create a sense of space and atmosphere
   const createDepthGradient = (color) => {

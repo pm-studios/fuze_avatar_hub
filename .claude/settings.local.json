@@ -30,7 +30,12 @@
       "WebFetch(domain:react-unity-webgl.dev)",
       "Bash(mv:*)",
       "Bash(npm uninstall:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(for i in 1 2 3 4 5)",
+      "Bash(do curl -s -w \"Page $i: %{time_total}s\\n\" \"https://dev-api.fuzeapp.services/avatar-gallery/?page_size=20&page=$i\" -o /dev/null)",
+      "Bash(done)",
+      "Bash(for i in 1 5 10 20 30 40 50)",
+      "Bash(do echo \"Page $i:\")"
     ],
     "deny": [],
     "ask": []

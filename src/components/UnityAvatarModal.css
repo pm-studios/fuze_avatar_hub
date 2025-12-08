@@ -118,48 +118,50 @@
 .save-popup {
   background: #292929;
   border-radius: 24px;
-  padding: 40px;
-  width: 450px;
-  height: 410px;
+  padding: 16px;
+  width: 400px;
+  height: 330px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
 .save-popup-logo {
+  margin-top: 12px;
   margin-bottom: 6px;
+  text-align: center;
 }
 
 .save-popup-logo img {
-  width: 104px;
+  width: 72px;
   height: auto;
 }
 
-.save-popup h3 {
-  margin: 0 0 12px 0;
+.save-popup h2 {
+  margin: 0 0 6px 0;
   color: #FFF;
+  text-align: center;
   font-family: Pretendard;
-  font-size: 30px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  text-align: left;
 }
 
 .save-popup p {
   margin: 0 0 32px 0;
-  color: #9E9E9E;
-  font-family: Pretendard;
-  font-size: 18px;
+  color: var(--color-text-common, rgba(255, 255, 255, 0.6));
+  text-align: center;
+  font-family: var(--typo-family-pretendard, Pretendard);
+  font-size: var(--typo-size-body-md, 15px);
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
-  text-align: left;
+  line-height: 21px;
 }
 
 .save-popup-buttons {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .save-popup-buttons button {
@@ -167,7 +169,7 @@
   border: none;
   border-radius: 12px;
   font-family: Pretendard;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -193,7 +195,7 @@
 .btn-leave {
   border-radius: 10px;
   background: #474747;
-  color: #86CFE7;
+  color: #FFF;
   text-align: center;
   font-family: Pretendard;
   font-size: 20px;
@@ -208,13 +210,13 @@
 
 .btn-back {
   background: transparent;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-button-label-default, rgba(255, 255, 255, 0.4));
   text-align: center;
-  font-family: Pretendard;
-  font-size: 20px;
+  font-family: var(--typo-family-pretendard, Pretendard);
+  font-size: var(--typo-size-title-sm, 18px);
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  line-height: 22px;
   border: none;
   padding: 12px 24px;
 }
@@ -226,17 +228,18 @@
 /* Complete Popup Styles */
 .complete-popup {
   height: auto;
-  padding: 40px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
 }
 
-.complete-popup h3 {
-  margin: 0 0 16px 0;
-  text-align: left;
+.complete-popup h2 {
+  margin: 12px 0 6px 0;
   color: #FFF;
+  text-align: center;
   font-family: Pretendard;
-  font-size: 28px;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
@@ -253,7 +256,7 @@
 
 .complete-buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 12px;
 }
 
@@ -279,22 +282,14 @@
 }
 
 .btn-cancel-complete {
-  flex: 1;
-  background: #474747;
-  color: #FFF;
+  background: transparent;
+  color: var(--color-button-label-default, rgba(255, 255, 255, 0.4));
   text-align: center;
-  font-family: Pretendard;
-  font-size: 18px;
+  font-family: var(--typo-family-pretendard, Pretendard);
+  font-size: var(--typo-size-title-sm, 18px);
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  line-height: 22px;
   border: none;
-  border-radius: 10px;
-  padding: 16px 24px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-cancel-complete:hover {
-  background: #555555;
+  padding: 12px 24px;
 }

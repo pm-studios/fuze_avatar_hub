@@ -67,7 +67,6 @@ function AvatarGrid({ onOpenModal }) {
           setTotalCount(total);
         }
       } catch (error) {
-        console.error('Error loading avatars:', error);
         if (!cancelled) {
           setHasMore(false);
         }
@@ -156,7 +155,7 @@ function AvatarGrid({ onOpenModal }) {
   return (
     <>
       <section className="avatar-grid-section">
-        <h2 className="section-title">FUZE Player Styles</h2>
+        <h2 className="section-title">Style Gallery</h2>
 
         <div className="avatar-grid">
           {avatarCards}

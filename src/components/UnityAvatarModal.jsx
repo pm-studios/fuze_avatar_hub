@@ -10,7 +10,6 @@ function UnityAvatarModal({ isOpen, onClose }) {
   // Set page config before Unity loads (for jslib to read in Awake)
   useEffect(() => {
     window.pageConfig = 'AvatarHub'
-    console.log('[WebGL] Set window.pageConfig:', window.pageConfig)
   }, [])
 
   const { unityProvider, loadingProgression, isLoaded, sendMessage, addEventListener, removeEventListener } = useUnityContext({
@@ -34,32 +33,21 @@ function UnityAvatarModal({ isOpen, onClose }) {
 
   // Handle OnStateChanged event from Unity
   const handleStateChanged = useCallback((data) => {
-    console.log('[WebGL] OnStateChanged received:', data)
-    console.log('[WebGL] isLoaded status:', isLoaded)
-
     if (data === 'SceneLoaded') {
-      console.log('[WebGL] Scene loaded')
-
       if (!isLoaded) {
-        console.warn('[WebGL] Unity is not fully loaded yet! Waiting for isLoaded to be true...')
         return
       }
 
-      console.log('[WebGL] Unity is fully loaded, calling LoadDefaultAvatar_ForHub')
       try {
         sendMessage('System', 'LoadDefaultAvatar_ForHub')
-        console.log('[WebGL] Message sent successfully to Unity')
       } catch (error) {
-        console.error('[WebGL] Error sending message:', error)
+        // Error sending message
       }
     } else if (data === 'CloseAvatarModal') {
-      console.log('[WebGL] CloseAvatarModal received')
       // If no UUID saved, just close the modal
       if (!savedUuidRef.current) {
-        console.log('[WebGL] No UUID saved, closing modal directly')
         onClose()
       } else {
-        console.log('[WebGL] UUID exists, showing save popup')
         setShowSavePopup(true)
       }
     }
@@ -68,21 +56,17 @@ function UnityAvatarModal({ isOpen, onClose }) {
   // Send message when Unity is fully loaded
   useEffect(() => {
     if (isLoaded && isOpen) {
-      console.log('[WebGL] Unity is now fully loaded! Sending LoadDefaultAvatar_ForHub...')
       try {
         sendMessage('System', 'LoadDefaultAvatar_ForHub')
-        console.log('[WebGL] Message sent on load complete')
       } catch (error) {
-        console.error('[WebGL] Error sending message on load:', error)
+        // Error sending message
       }
     }
   }, [isLoaded, isOpen, sendMessage])
 
   // Handle OnChangedAvatar event from Unity - just store UUID in memory
   const handleChangedAvatar = useCallback((uuid) => {
-    console.log('[WebGL] Avatar changed with UUID:', uuid)
     savedUuidRef.current = uuid
-    console.log('[WebGL] UUID saved to memory')
   }, [])
 
   // Handle save and close - open new tab and show completion popup
@@ -99,8 +83,6 @@ function UnityAvatarModal({ isOpen, onClose }) {
         : 'https://fuze.io/login'
 
       const loginUrl = `${baseUrl}/?avatar_preset_uuid=${savedUuidRef.current}`
-
-      console.log('[WebGL] Opening in new tab:', loginUrl)
 
       // Open in new tab
       window.open(loginUrl, '_blank', 'noopener,noreferrer')
@@ -137,13 +119,10 @@ function UnityAvatarModal({ isOpen, onClose }) {
 
   // Register event listeners
   useEffect(() => {
-    console.log('[WebGL] Registering Unity event listeners')
     addEventListener('OnStateChanged', handleStateChanged)
     addEventListener('OnChangedAvatar', handleChangedAvatar)
-    console.log('[WebGL] Event listeners registered')
 
     return () => {
-      console.log('[WebGL] Removing Unity event listeners')
       removeEventListener('OnStateChanged', handleStateChanged)
       removeEventListener('OnChangedAvatar', handleChangedAvatar)
     }
@@ -185,17 +164,17 @@ function UnityAvatarModal({ isOpen, onClose }) {
             <div className="save-popup-logo">
               <img src="/Logo_FUZE.png" alt="FUZE" />
             </div>
-            <h3>Save your style? Join FUZE to save your avatar</h3>
-            <p>If you leave now, your changes will be lost.</p>
+            <h2>Save your avatar before leaving?</h2>
+            <p>Create a free account to keep this look.</p>
             <div className="save-popup-buttons">
               <button className="btn-save" onClick={handleSaveAndClose}>
-                Join FUZE & Save
+                Save & sign up
               </button>
               <button className="btn-leave" onClick={handleCloseWithoutSaving}>
-                Leave Without Saving
+                Leave without saving
               </button>
               <button className="btn-back" onClick={handleCancelPopup}>
-                Go Back to Edit
+                Back to editing
               </button>
             </div>
           </div>
@@ -205,14 +184,14 @@ function UnityAvatarModal({ isOpen, onClose }) {
       {showCompletePopup && (
         <div className="save-popup-overlay">
           <div className="save-popup complete-popup">
-            <h3>Registration Complete?</h3>
-            <p className="complete-message">If you've finished signing up for FUZE,<br />click Complete to close this window.</p>
+            <h2>Have you completed sign-up?</h2>
+            <p className="complete-message">Please finish your signup in the new tab.<br />Once it's done, your avatar will be saved.</p>
             <div className="complete-buttons">
-              <button className="btn-cancel-complete" onClick={handleCompleteCancel}>
-                Not Yet
-              </button>
               <button className="btn-complete" onClick={handleCompleteConfirm}>
-                Complete
+                Done & close
+              </button>
+              <button className="btn-cancel-complete" onClick={handleCompleteCancel}>
+                Not yet, back to editing
               </button>
             </div>
           </div>

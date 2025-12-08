@@ -24,8 +24,6 @@ export const fetchAvatars = async (page = 0, pageSize = 20) => {
     const endTime = performance.now();
     const loadTime = ((endTime - startTime) / 1000).toFixed(2);
 
-    console.log(`[API] ${url} - ${loadTime}s`);
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -52,7 +50,6 @@ export const fetchAvatars = async (page = 0, pageSize = 20) => {
       total: data.count
     };
   } catch (error) {
-    console.error('Error fetching avatars:', error);
     throw error;
   }
 };

@@ -7,19 +7,19 @@
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "0ad2c169",
+      "fileHash": "18230d56",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "dfb17e98",
+      "fileHash": "e338eccd",
       "needsInterop": true
     },
     "react-unity-webgl": {
       "src": "../../node_modules/react-unity-webgl/distribution/exports.js",
       "file": "react-unity-webgl.js",
-      "fileHash": "6abb56d1",
+      "fileHash": "5d47da59",
       "needsInterop": true
     }
   },

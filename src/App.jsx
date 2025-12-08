@@ -13,9 +13,9 @@ function App() {
     <>
       <div className="app">
         <aside className="side-banner side-banner-left">
-          <div className="banner-content">
-            <div className="banner-placeholder">AD</div>
-          </div>
+          <a href="https://recap.fuze.io" target="_blank" rel="noopener noreferrer" className="banner-content">
+            <img src="/avatar_left_ads.jpg" alt="recap.fuze.io" className="banner-image" />
+          </a>
         </aside>
 
         <div className="main-content">
@@ -25,9 +25,9 @@ function App() {
         </div>
 
         <aside className="side-banner side-banner-right">
-          <div className="banner-content">
-            <div className="banner-placeholder">AD</div>
-          </div>
+          <a href="https://fuze.io" target="_blank" rel="noopener noreferrer" className="banner-content">
+            <img src="/avatar_right_ads.jpg" alt="fuze.io" className="banner-image" />
+          </a>
         </aside>
       </div>
 

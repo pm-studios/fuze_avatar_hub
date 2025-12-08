@@ -12,11 +12,21 @@ function UnityAvatarModal({ isOpen, onClose }) {
     window.pageConfig = 'AvatarHub'
   }, [])
 
+  // Determine environment based on hostname
+  const isDev = window.location.hostname === 'localhost' ||
+                window.location.hostname.includes('dev') ||
+                window.location.hostname.includes('127.0.0.1') ||
+                window.location.hostname === 'd3cbg89fw3t9m6.cloudfront.net'
+
+  const unityBaseUrl = isDev
+    ? 'https://d2l90i53wjxgno.cloudfront.net'
+    : 'https://dc9hmifs54gdc.cloudfront.net'
+
   const { unityProvider, loadingProgression, isLoaded, sendMessage, addEventListener, removeEventListener } = useUnityContext({
-    loaderUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.loader.js',
-    dataUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.data',
-    frameworkUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.framework.js',
-    codeUrl: 'https://d2l90i53wjxgno.cloudfront.net/Build/web.wasm',
+    loaderUrl: `${unityBaseUrl}/Build/web.loader.js`,
+    dataUrl: `${unityBaseUrl}/Build/web.data${isDev ? '' : '.br'}`,
+    frameworkUrl: `${unityBaseUrl}/Build/web.framework.js${isDev ? '' : '.br'}`,
+    codeUrl: `${unityBaseUrl}/Build/web.wasm${isDev ? '' : '.br'}`,
     productName: "FUZE Avatar Hub"
   })
 
@@ -72,12 +82,6 @@ function UnityAvatarModal({ isOpen, onClose }) {
   // Handle save and close - open new tab and show completion popup
   const handleSaveAndClose = useCallback(() => {
     if (savedUuidRef.current) {
-      // Determine environment based on hostname
-      const isDev = window.location.hostname === 'localhost' ||
-                    window.location.hostname.includes('dev') ||
-                    window.location.hostname.includes('127.0.0.1') ||
-                    window.location.hostname === 'd3cbg89fw3t9m6.cloudfront.net'
-
       // Build URL based on environment
       const baseUrl = isDev
         ? 'https://dev-web.fuzeapp.services/login'
@@ -92,7 +96,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
     // Close save popup and show completion popup
     setShowSavePopup(false)
     setShowCompletePopup(true)
-  }, [])
+  }, [isDev])
 
   // Handle close without saving
   const handleCloseWithoutSaving = useCallback(() => {

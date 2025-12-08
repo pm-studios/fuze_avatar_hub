@@ -75,7 +75,8 @@ function UnityAvatarModal({ isOpen, onClose }) {
       // Determine environment based on hostname
       const isDev = window.location.hostname === 'localhost' ||
                     window.location.hostname.includes('dev') ||
-                    window.location.hostname.includes('127.0.0.1')
+                    window.location.hostname.includes('127.0.0.1') ||
+                    window.location.hostname === 'd3cbg89fw3t9m6.cloudfront.net'
 
       // Build URL based on environment
       const baseUrl = isDev
@@ -105,12 +106,10 @@ function UnityAvatarModal({ isOpen, onClose }) {
     setShowSavePopup(false)
   }, [])
 
-  // Handle completion confirmation - close everything
+  // Handle completion confirmation - refresh the page
   const handleCompleteConfirm = useCallback(() => {
-    setShowCompletePopup(false)
-    savedUuidRef.current = null
-    onClose()
-  }, [onClose])
+    window.location.reload()
+  }, [])
 
   // Handle completion cancel - go back to Unity
   const handleCompleteCancel = useCallback(() => {

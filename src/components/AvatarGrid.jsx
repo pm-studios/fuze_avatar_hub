@@ -112,7 +112,7 @@ function AvatarGrid({ onOpenModal }) {
   // Generate pagination buttons
   const getPaginationButtons = () => {
     const buttons = [];
-    const maxVisiblePages = 5;
+    const maxVisiblePages = 4;
 
     if (totalPages <= maxVisiblePages + 2) {
       // Show all pages if total is small enough
@@ -120,15 +120,15 @@ function AvatarGrid({ onOpenModal }) {
         buttons.push(i);
       }
     } else {
-      if (currentPageNum <= 4) {
-        // Near the beginning: show 1, 2, 3, 4, 5, ..., last
+      if (currentPageNum <= 3) {
+        // Near the beginning: show 1, 2, 3, 4, ..., last
         for (let i = 1; i <= maxVisiblePages; i++) {
           buttons.push(i);
         }
         buttons.push('...');
         buttons.push(totalPages);
-      } else if (currentPageNum >= totalPages - 3) {
-        // Near the end: show 1, ..., last-4, last-3, last-2, last-1, last
+      } else if (currentPageNum >= totalPages - 2) {
+        // Near the end: show 1, ..., last-3, last-2, last-1, last
         buttons.push(1);
         buttons.push('...');
         for (let i = totalPages - maxVisiblePages + 1; i <= totalPages; i++) {

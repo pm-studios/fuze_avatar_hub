@@ -22,6 +22,7 @@ function App() {
           <Header onOpenModal={() => setIsModalOpen(true)} />
           <Hero />
           <AvatarGrid onOpenModal={() => setIsModalOpen(true)} />
+          <Footer />
         </div>
 
         <aside className="side-banner side-banner-right">

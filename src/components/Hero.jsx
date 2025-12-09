@@ -9,7 +9,7 @@ function Hero() {
     <section className="hero-section" onClick={handleClick} style={{ cursor: 'pointer' }}>
       <div className="hero-wrapper">
         <div className="hero">
-          <img src="/AvatarImage.png" alt="Avatar characters" className="hero-avatar" />
+          <img src="/AvatarImage2.png" alt="Avatar characters" className="hero-avatar" />
           <div className="hero-container">
             <div className="hero-content">
               <h1 className="hero-title">Make your best look-alike</h1>

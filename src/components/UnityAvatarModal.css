@@ -100,6 +100,23 @@
   }
 }
 
+/* Close Button */
+.unity-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.unity-close-btn img {
+  width: 44px;
+  height: 44px;
+}
+
 /* Save Popup Styles */
 .save-popup-overlay {
   position: absolute;
@@ -292,4 +309,23 @@
   line-height: 22px;
   border: none;
   padding: 12px 24px;
+}
+
+/* Small Screen Popup Styles */
+.small-screen-popup {
+  height: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.small-screen-popup .small-screen-message {
+  margin: 12px 0 32px 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

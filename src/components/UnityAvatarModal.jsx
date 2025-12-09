@@ -5,7 +5,33 @@ import './UnityAvatarModal.css'
 function UnityAvatarModal({ isOpen, onClose }) {
   const [showSavePopup, setShowSavePopup] = useState(false)
   const [showCompletePopup, setShowCompletePopup] = useState(false)
+  const [showSmallScreenPopup, setShowSmallScreenPopup] = useState(false)
+  const [shouldLoadUnity, setShouldLoadUnity] = useState(false)
   const savedUuidRef = useRef(null)
+
+  // Check screen size when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      if (window.innerWidth < 900) {
+        setShowSmallScreenPopup(true)
+        setShouldLoadUnity(false)
+      } else {
+        setShouldLoadUnity(true)
+      }
+    }
+  }, [isOpen])
+
+  // Handle small screen popup confirmation
+  const handleSmallScreenConfirm = useCallback(() => {
+    setShowSmallScreenPopup(false)
+    setShouldLoadUnity(true)
+  }, [])
+
+  // Handle close during loading
+  const handleCloseWhileLoading = useCallback(() => {
+    setShouldLoadUnity(false)
+    onClose()
+  }, [onClose])
 
   // Set page config before Unity loads (for jslib to read in Awake)
   useEffect(() => {
@@ -110,9 +136,9 @@ function UnityAvatarModal({ isOpen, onClose }) {
     setShowSavePopup(false)
   }, [])
 
-  // Handle completion confirmation - refresh the page
+  // Handle completion confirmation - go to page 1
   const handleCompleteConfirm = useCallback(() => {
-    window.location.reload()
+    window.location.href = window.location.pathname
   }, [])
 
   // Handle completion cancel - go back to Unity
@@ -136,28 +162,43 @@ function UnityAvatarModal({ isOpen, onClose }) {
   return (
     <div className="unity-modal-overlay">
       <div className="unity-modal-content">
+        {!isLoaded && (
+          <button className="unity-close-btn" onClick={handleCloseWhileLoading}>
+            <img src="/close_button.png" alt="Close" />
+          </button>
+        )}
         <div className="unity-container">
-          {!isLoaded && (
+          {shouldLoadUnity ? (
+            <>
+              {!isLoaded && (
+                <div className="unity-loading">
+                  <p className="loading-text">
+                    Getting avatar ready...
+                  </p>
+                  <div className="loading-bar">
+                    <div
+                      className="loading-progress"
+                      style={{ width: `${loadingProgression * 100}%` }}
+                    />
+                  </div>
+                </div>
+              )}
+              <Unity
+                unityProvider={unityProvider}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  visibility: isLoaded ? 'visible' : 'hidden'
+                }}
+              />
+            </>
+          ) : (
             <div className="unity-loading">
               <p className="loading-text">
                 Getting avatar ready...
               </p>
-              <div className="loading-bar">
-                <div
-                  className="loading-progress"
-                  style={{ width: `${loadingProgression * 100}%` }}
-                />
-              </div>
             </div>
           )}
-          <Unity
-            unityProvider={unityProvider}
-            style={{
-              width: '100%',
-              height: '100%',
-              visibility: isLoaded ? 'visible' : 'hidden'
-            }}
-          />
         </div>
       </div>
 
@@ -197,6 +238,17 @@ function UnityAvatarModal({ isOpen, onClose }) {
                 Not yet, back to editing
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {showSmallScreenPopup && (
+        <div className="save-popup-overlay">
+          <div className="save-popup small-screen-popup">
+            <p className="small-screen-message">This screen is a bit small for creating your avatar. For the best experience, please use a desktop.</p>
+            <button className="btn-complete" onClick={handleSmallScreenConfirm}>
+              OK
+            </button>
           </div>
         </div>
       )}

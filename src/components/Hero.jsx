@@ -1,20 +1,24 @@
 import './Hero.css'
 
 function Hero() {
+  const handleClick = () => {
+    window.open('https://fuze.io/community/180386/', '_blank')
+  }
+
   return (
-    <section className="hero-section">
+    <section className="hero-section" onClick={handleClick} style={{ cursor: 'pointer' }}>
       <div className="hero-wrapper">
         <div className="hero">
-          <img src="/hero_avatar.png" alt="Avatar characters" className="hero-avatar" />
+          <img src="/AvatarImage.png" alt="Avatar characters" className="hero-avatar" />
           <div className="hero-container">
             <div className="hero-content">
-              <h1 className="hero-title">Create Your Gamer Style</h1>
+              <h1 className="hero-title">Make your best look-alike</h1>
               <p className="hero-subtitle">
-                Build your avatar to express yourself,<br />
-                connect with gamers, and join FUZE.
+                Try your best match, see what others <br />
+                have made, and dive into the challenge.
               </p>
               <div className="hero-badge">
-                Look around FUZE
+                See the event
               </div>
             </div>
           </div>

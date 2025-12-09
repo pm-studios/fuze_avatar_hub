@@ -5,8 +5,15 @@ import { fetchAvatars } from '../data/avatars';
 import './AvatarGrid.css';
 
 function AvatarGrid({ onOpenModal }) {
+  // Get initial page from URL
+  const getInitialPage = () => {
+    const params = new URLSearchParams(window.location.search);
+    const page = parseInt(params.get('page'), 10);
+    return (page && page > 0) ? page - 1 : 0;
+  };
+
   const [avatars, setAvatars] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0); // Which page (0-indexed) for pagination
+  const [currentPage, setCurrentPage] = useState(getInitialPage); // Which page (0-indexed) for pagination
   const [chunkPage, setChunkPage] = useState(0); // Which chunk within the current page (0-indexed)
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -89,6 +96,16 @@ function AvatarGrid({ onOpenModal }) {
     setCurrentPage(pageNum - 1);
     setChunkPage(0); // Reset to first chunk
     setAvatars([]); // Clear current avatars
+
+    // Update URL with page number
+    const url = new URL(window.location);
+    if (pageNum === 1) {
+      url.searchParams.delete('page');
+    } else {
+      url.searchParams.set('page', pageNum);
+    }
+    window.history.pushState({}, '', url);
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

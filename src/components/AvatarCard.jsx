@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { track } from '../utils/mixpanel';
 import './AvatarCard.css';
 
 const backgroundColors = [
@@ -65,6 +66,11 @@ const convertToArgbColor = (colorValue) => {
 
 const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
   const handleClick = () => {
+    track('Avatar Card Click', {
+      avatar_id: avatar.id,
+      avatar_name: avatar.name,
+      avatar_level: avatar.level,
+    });
     window.open(avatar.profileUrl, '_blank', 'noopener,noreferrer');
   };
 

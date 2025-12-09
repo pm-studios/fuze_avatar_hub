@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useRef, useState } from 'react'
 import { Unity, useUnityContext } from 'react-unity-webgl'
+import { track, trackButtonClick } from '../utils/mixpanel'
 import './UnityAvatarModal.css'
 
 function UnityAvatarModal({ isOpen, onClose }) {
@@ -12,6 +13,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
   // Check screen size when modal opens
   useEffect(() => {
     if (isOpen) {
+      track('Modal Opened', { modal_name: 'unity_avatar_modal' })
       if (window.innerWidth < 900) {
         setShowSmallScreenPopup(true)
         setShouldLoadUnity(false)
@@ -107,6 +109,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
 
   // Handle save and close - open new tab and show completion popup
   const handleSaveAndClose = useCallback(() => {
+    trackButtonClick('save_and_signup')
     if (savedUuidRef.current) {
       // Build URL based on environment
       const baseUrl = isDev
@@ -126,6 +129,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
 
   // Handle close without saving
   const handleCloseWithoutSaving = useCallback(() => {
+    trackButtonClick('leave_without_saving')
     setShowSavePopup(false)
     savedUuidRef.current = null
     onClose()
@@ -133,16 +137,19 @@ function UnityAvatarModal({ isOpen, onClose }) {
 
   // Handle popup cancel (just close popup, keep modal open)
   const handleCancelPopup = useCallback(() => {
+    trackButtonClick('back_to_editing')
     setShowSavePopup(false)
   }, [])
 
   // Handle completion confirmation - go to page 1
   const handleCompleteConfirm = useCallback(() => {
+    trackButtonClick('done_and_close')
     window.location.href = window.location.pathname
   }, [])
 
   // Handle completion cancel - go back to Unity
   const handleCompleteCancel = useCallback(() => {
+    trackButtonClick('not_yet_back_to_editing')
     setShowCompletePopup(false)
   }, [])
 

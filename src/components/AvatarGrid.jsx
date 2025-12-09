@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import AvatarCard from './AvatarCard';
 import SkeletonCard from './SkeletonCard';
 import { fetchAvatars } from '../data/avatars';
+import { trackButtonClick, track } from '../utils/mixpanel';
 import './AvatarGrid.css';
 
 function AvatarGrid({ onOpenModal }) {
@@ -93,6 +94,7 @@ function AvatarGrid({ onOpenModal }) {
 
   // Handle page navigation
   const goToPage = (pageNum) => {
+    track('Page Navigation', { page_number: pageNum });
     setCurrentPage(pageNum - 1);
     setChunkPage(0); // Reset to first chunk
     setAvatars([]); // Clear current avatars
@@ -107,6 +109,12 @@ function AvatarGrid({ onOpenModal }) {
     window.history.pushState({}, '', url);
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Handle CTA button click
+  const handleCtaClick = () => {
+    trackButtonClick('create_my_own_avatar_cta');
+    onOpenModal();
   };
 
   // Generate pagination buttons
@@ -221,7 +229,7 @@ function AvatarGrid({ onOpenModal }) {
         {!loading && avatars.length > 0 && (
           <div className="create-avatar-cta">
             <p className="cta-text">Feeling inspired? Now create your own!</p>
-            <button className="cta-button" onClick={onOpenModal}>
+            <button className="cta-button" onClick={handleCtaClick}>
               Create My Own Avatar
             </button>
           </div>

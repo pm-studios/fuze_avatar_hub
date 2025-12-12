@@ -8,12 +8,22 @@ function UnityAvatarModal({ isOpen, onClose }) {
   const [showCompletePopup, setShowCompletePopup] = useState(false)
   const [showSmallScreenPopup, setShowSmallScreenPopup] = useState(false)
   const [shouldLoadUnity, setShouldLoadUnity] = useState(false)
+  const [unitySize, setUnitySize] = useState(null)
   const savedUuidRef = useRef(null)
 
-  // Check screen size when modal opens
+  // Check screen size when modal opens and set fixed size for small screens only
   useEffect(() => {
     if (isOpen) {
+      console.log('Screen width (CSS):', window.innerWidth)
+      console.log('Device Pixel Ratio:', window.devicePixelRatio)
+      console.log('Screen width (Physical):', window.innerWidth * window.devicePixelRatio)
       track('Modal Opened', { modal_name: 'unity_avatar_modal' })
+
+      // Set fixed size only for small screens (< 400px)
+      if (unitySize === null && window.innerWidth < 400) {
+        setUnitySize({ width: 350, height: 650 })
+      }
+
       if (window.innerWidth < 900) {
         setShowSmallScreenPopup(true)
         setShouldLoadUnity(false)
@@ -168,7 +178,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
 
   return (
     <div className="unity-modal-overlay">
-      <div className="unity-modal-content">
+      <div className="unity-modal-content" style={unitySize ? { width: unitySize.width, height: unitySize.height, minWidth: unitySize.width, maxWidth: unitySize.width, minHeight: unitySize.height, maxHeight: unitySize.height } : {}}>
         {!isLoaded && (
           <button className="unity-close-btn" onClick={handleCloseWhileLoading}>
             <img src="/close_button.png" alt="Close" />

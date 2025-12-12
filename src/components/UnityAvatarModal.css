@@ -18,9 +18,19 @@
   border-radius: 24px;
   width: 988px;
   height: 698px;
+  max-width: 988px;
+  max-height: 698px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1000px) {
+  .unity-modal-content {
+    width: 95%;
+    height: auto;
+    aspect-ratio: 988 / 698;
+  }
 }
 
 .unity-container {
@@ -92,13 +102,6 @@
   margin: 0 0 8px 0;
 }
 
-@media (max-width: 1000px) {
-  .unity-modal-content {
-    width: 95%;
-    height: auto;
-    aspect-ratio: 988 / 698;
-  }
-}
 
 /* Close Button */
 .unity-close-btn {
@@ -329,3 +332,4 @@
   font-weight: 400;
   line-height: normal;
 }
+

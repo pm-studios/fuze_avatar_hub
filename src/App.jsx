@@ -39,9 +39,23 @@ function App() {
         </div>
 
         <aside className="side-banner side-banner-right">
-          <a href="https://fuze.io" target="_blank" rel="noopener noreferrer" className="banner-content" onClick={handleRightBannerClick}>
-            <img src="/avatar_right_ads.jpg" alt="fuze.io" className="banner-image" />
-          </a>
+          <div className="banner-content banner-video-wrapper" onClick={handleRightBannerClick}>
+            <div className="banner-header">
+              <p className="banner-tagline">Share Your<br/><span className="tagline-highlight">Gaming Moments</span></p>
+            </div>
+            <video
+              src="/fuze.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="banner-video"
+            />
+            <div className="banner-overlay">
+              <h3 className="banner-title">What Are You Playing Today?</h3>
+              <button className="banner-button">Talk Gamers</button>
+            </div>
+          </div>
         </aside>
       </div>
 

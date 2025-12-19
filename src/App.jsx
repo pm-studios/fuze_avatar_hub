@@ -40,9 +40,7 @@ function App() {
 
         <aside className="side-banner side-banner-right">
           <div className="banner-content banner-video-wrapper" onClick={handleRightBannerClick}>
-            <div className="banner-header">
-              <p className="banner-tagline">Share Your<br/><span className="tagline-highlight">Gaming Moments</span></p>
-            </div>
+            <img src="/avatar_right_ads2.png" alt="fuze.io" className="banner-bg-image" />
             <video
               src="/fuze.mp4"
               autoPlay
@@ -51,10 +49,6 @@ function App() {
               playsInline
               className="banner-video"
             />
-            <div className="banner-overlay">
-              <h3 className="banner-title">What Are You Playing Today?</h3>
-              <button className="banner-button">Talk Gamers</button>
-            </div>
           </div>
         </aside>
       </div>

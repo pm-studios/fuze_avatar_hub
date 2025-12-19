@@ -40,7 +40,7 @@ function App() {
 
         <aside className="side-banner side-banner-right">
           <div className="banner-content banner-video-wrapper" onClick={handleRightBannerClick}>
-            <img src="/avatar_right_ads2.png" alt="fuze.io" className="banner-bg-image" />
+            <img src="/avatar_right_ads2.jpg" alt="fuze.io" className="banner-bg-image" />
             <video
               src="/fuze.mp4"
               autoPlay

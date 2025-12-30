@@ -14,13 +14,13 @@ function Hero() {
           <img src="/AvatarImage2.png" alt="Avatar characters" className="hero-avatar" />
           <div className="hero-container">
             <div className="hero-content">
-              <h1 className="hero-title">Make your best look-alike</h1>
+              <h1 className="hero-title">Discover Gamer Styles</h1>
               <p className="hero-subtitle">
-                Try your best match, see what others <br />
-                have made, and dive into the challenge.
+                Meet the gamers and conversations <br />
+                behind every style.
               </p>
               <div className="hero-badge">
-                See the event
+                Meet the gamers
               </div>
             </div>
           </div>

@@ -198,6 +198,17 @@ function UnityAvatarModal({ isOpen, onClose }) {
                       style={{ width: `${loadingProgression * 100}%` }}
                     />
                   </div>
+                  {loadingProgression >= 0.9 ? (
+                    <div className="loading-slow-box">
+                      <p className="loading-slow-title">
+                        <img src="/info_icon.svg" alt="info" className="info-icon" />
+                        Is the loading taking longer?
+                      </p>
+                      <p className="loading-slow-desc">Some browsers may not fully support it. For the best experience, try Chrome on a desktop.</p>
+                    </div>
+                  ) : (
+                    <p className="loading-hint">For the best experience, please use Chrome or a desktop</p>
+                  )}
                 </div>
               )}
               <Unity
@@ -214,6 +225,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
               <p className="loading-text">
                 Getting avatar ready...
               </p>
+              <p className="loading-hint">For the best experience, please use Chrome or a desktop</p>
             </div>
           )}
         </div>

@@ -37,7 +37,8 @@
       "Bash(for i in 1 5 10 20 30 40 50)",
       "Bash(do echo \"Page $i:\")",
       "Bash(lsof:*)",
-      "Bash(xargs kill:*)"
+      "Bash(xargs kill:*)",
+      "Bash(xargs ls:*)"
     ],
     "deny": [],
     "ask": []

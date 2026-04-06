@@ -124,7 +124,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
       // Build URL based on environment
       const baseUrl = isDev
         ? 'https://dev-web.fuzeapp.services/login'
-        : 'https://fuze.io/login'
+        : 'https://panaxgames.com/login'
 
       const loginUrl = `${baseUrl}/?avatar_preset_uuid=${savedUuidRef.current}`
 
@@ -235,7 +235,7 @@ function UnityAvatarModal({ isOpen, onClose }) {
         <div className="save-popup-overlay">
           <div className="save-popup">
             <div className="save-popup-logo">
-              <img src="/Logo_FUZE.png" alt="FUZE" />
+              <img src="/Logo_Panax_Only.png" alt="Panax Avatar Hub" />
             </div>
             <h2>Save your avatar before leaving?</h2>
             <p>Create a free account to keep this look.</p>

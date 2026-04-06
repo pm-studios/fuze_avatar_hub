@@ -3,8 +3,13 @@ import { trackButtonClick, trackBannerClick } from '../utils/mixpanel'
 
 function Header({ onOpenModal }) {
   const handleLogoClick = () => {
-    trackBannerClick('header_logo', 'https://fuze.io');
-    window.open('https://fuze.io', '_blank', 'noopener,noreferrer');
+    trackBannerClick('header_logo', 'https://panaxgames.com');
+    window.open('https://panaxgames.com', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleTitleClick = () => {
+    trackBannerClick('header_title', 'https://avatar.panaxgames.com');
+    window.open('https://avatar.panaxgames.com', '_blank', 'noopener,noreferrer');
   };
 
   const handleCreateClick = () => {
@@ -16,9 +21,9 @@ function Header({ onOpenModal }) {
     <>
       <header className="header-fixed">
         <div className="header-content">
-          <div className="logo-container" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
-            <img src="/Logo_FUZE.png" alt="FUZE Logo" className="logo-image" />
-            <span className="logo-text">Avatar Hub</span>
+          <div className="logo-container">
+            <img src="/Logo_Panax_Only.png" alt="Panax Avatar Hub Logo" className="logo-image" onClick={handleLogoClick} style={{ cursor: 'pointer' }} />
+            <span className="logo-text" onClick={handleTitleClick} style={{ cursor: 'pointer' }}>Avatar Hub</span>
           </div>
           <button className="create-btn" onClick={handleCreateClick}>
             <span className="btn-text-full">Create My Own</span>

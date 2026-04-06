@@ -10,7 +10,7 @@ const API_BASE_URL = isDev
 
 const PROFILE_BASE_URL = isDev
   ? 'https://dev-web.fuzeapp.services'
-  : 'https://fuze.io';
+  : 'https://panaxgames.com';
 
 // Fetch avatars from real API
 export const fetchAvatars = async (page = 0, pageSize = 20) => {

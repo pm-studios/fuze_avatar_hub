@@ -1,7 +1,9 @@
 import {
-  __commonJS,
   require_react
-} from "./chunk-TDVGPZLM.js";
+} from "./chunk-J6KE6MJH.js";
+import {
+  __commonJS
+} from "./chunk-BUSYA2B4.js";
 
 // node_modules/react-unity-webgl/distribution/hooks/use-canvas-identifier.js
 var require_use_canvas_identifier = __commonJS({

@@ -12,22 +12,22 @@ function App() {
 
   const handleLeftBannerClick = (e) => {
     e.preventDefault()
-    trackBannerClick('side_banner_left', 'https://recap.fuze.io')
-    window.open('https://recap.fuze.io', '_blank', 'noopener,noreferrer')
+    trackBannerClick('side_banner_left', 'https://recap.panaxgames.com')
+    window.open('https://recap.panaxgames.com', '_blank', 'noopener,noreferrer')
   }
 
   const handleRightBannerClick = (e) => {
     e.preventDefault()
-    trackBannerClick('side_banner_right', 'https://fuze.io')
-    window.open('https://fuze.io', '_blank', 'noopener,noreferrer')
+    trackBannerClick('side_banner_right', 'https://panaxgames.com')
+    window.open('https://panaxgames.com', '_blank', 'noopener,noreferrer')
   }
 
   return (
     <>
       <div className="app">
         <aside className="side-banner side-banner-left">
-          <a href="https://recap.fuze.io" target="_blank" rel="noopener noreferrer" className="banner-content" onClick={handleLeftBannerClick}>
-            <img src="/avatar_left_ads.jpg" alt="recap.fuze.io" className="banner-image" />
+          <a href="https://recap.panaxgames.com" target="_blank" rel="noopener noreferrer" className="banner-content" onClick={handleLeftBannerClick}>
+            <img src="/avatar left ads.jpg" alt="recap.fuze.io" className="banner-image" />
           </a>
         </aside>
 
@@ -40,7 +40,8 @@ function App() {
 
         <aside className="side-banner side-banner-right">
           <div className="banner-content banner-video-wrapper" onClick={handleRightBannerClick}>
-            <img src="/avatar_right_ads2.jpg" alt="fuze.io" className="banner-bg-image" />
+            <img src="/avatar right ads.jpg" alt="fuze.io" className="banner-bg-image" />
+            {/* 임시: 영상 비활성화. 복원 시 아래 주석 해제
             <video
               src="/fuze.mp4"
               autoPlay
@@ -49,6 +50,7 @@ function App() {
               playsInline
               className="banner-video"
             />
+            */}
           </div>
         </aside>
       </div>

@@ -1,31 +1,40 @@
 {
-  "hash": "25fd0450",
+  "hash": "70c212c7",
   "configHash": "30de00ef",
-  "lockfileHash": "81392d9d",
-  "browserHash": "e0305b9f",
+  "lockfileHash": "cc84f9ca",
+  "browserHash": "9fa8cbc2",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "31a7f6da",
+      "fileHash": "7dd9d350",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "b6c03400",
+      "fileHash": "25689730",
       "needsInterop": true
+    },
+    "mixpanel-browser": {
+      "src": "../../node_modules/mixpanel-browser/dist/mixpanel.module.js",
+      "file": "mixpanel-browser.js",
+      "fileHash": "cbd7b0d0",
+      "needsInterop": false
     },
     "react-unity-webgl": {
       "src": "../../node_modules/react-unity-webgl/distribution/exports.js",
       "file": "react-unity-webgl.js",
-      "fileHash": "03bcfbe9",
+      "fileHash": "35658a75",
       "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-TDVGPZLM": {
-      "file": "chunk-TDVGPZLM.js"
+    "chunk-J6KE6MJH": {
+      "file": "chunk-J6KE6MJH.js"
+    },
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
     }
   }
 }

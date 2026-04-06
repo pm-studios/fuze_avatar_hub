@@ -3,8 +3,8 @@ import { trackBannerClick } from '../utils/mixpanel'
 
 function Hero() {
   const handleClick = () => {
-    trackBannerClick('hero_banner', 'https://fuze.io')
-    window.open('https://fuze.io', '_blank')
+    trackBannerClick('hero_banner', 'https://panaxgames.com')
+    window.open('https://panaxgames.com', '_blank')
   }
 
   return (

@@ -1,7 +1,7 @@
 import mixpanel from 'mixpanel-browser';
 
 // Production 환경에서만 Mixpanel 활성화
-const isProd = window.location.hostname === 'avatar.fuze.io' ||
+const isProd = window.location.hostname === 'avatar.panaxgames.com' ||
                window.location.hostname === 'd1234567890.cloudfront.net'; // prod CloudFront 도메인 추가 필요시
 
 const isEnabled = isProd;

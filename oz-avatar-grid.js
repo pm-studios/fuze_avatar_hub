@@ -21636,11 +21636,12 @@ const In = class In {
       canvas: this.canvas,
       alpha: !0,
       antialias: !0,
-      powerPreference: "high-performance"
+      powerPreference: "high-performance",
+      premultipliedAlpha: !0
     }), this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, this.dprCap)), this.renderer.setClearColor(0, 0), this.renderer.toneMapping = 1, this.renderer.toneMappingExposure = on.toneMappingExposure, this.renderer.outputColorSpace = gt, this.canvas.addEventListener("webglcontextlost", (t) => {
       var n;
       t.preventDefault(), (n = this.onContextLost) == null || n.call(this);
-    }, !1), this.scene = new Aa(), this.camera = new Ci(0, 1, 1, 0, 0.1, 2e3), this.camera.position.z = 1e3, this.setupLights(), this.setupEnvMap(), this.setupComposer(), this.setupResize(), this.start();
+    }, !1), this.scene = new Aa(), this.camera = new Ci(0, 1, 1, 0, 0.1, 2e4), this.camera.position.z = 1e4, this.setupLights(), this.setupEnvMap(), this.setupComposer(), this.setupResize(), this.start();
   }
   /**
    * EffectComposer 파이프라인 — oz-avatar.ts와 동일.
@@ -21655,7 +21656,7 @@ const In = class In {
     this.composer = new Jf(this.renderer, i), this.composer.addPass(new ep(this.scene, this.camera));
     const r = on.bloom, a = new si(
       new Le(e * n, t * n),
-      0,
+      5e-3,
       r.radius,
       r.threshold
     );
@@ -21703,7 +21704,7 @@ const In = class In {
                     }
                     c = uGain * pow(c, uInvGamma);
                     vec3 outColor = clamp(c, 0.0, 1.0);
-                    // alpha-preserving blending + opaque slot quad → tex.a가 정상.
+                    // 캔버스 transparent — slot quad가 깐 alpha=1을 그대로 통과시키고
                     // premultipliedAlpha=true 캔버스라 color * alpha 출력.
                     gl_FragColor = vec4(outColor * tex.a, tex.a);
                 }

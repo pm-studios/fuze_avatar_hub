@@ -5,9 +5,12 @@
   width: 100%;
 }
 
-/* oz-avatar-grid 캔버스가 absolute로 깔리는 부모. */
+/* oz-avatar-grid 캔버스가 absolute로 깔리는 부모.
+   상단/하단 padding으로 hover lift(-4px) 시 캔버스 영역 밖으로 나가지 않게 버퍼 확보. */
 .avatar-grid-container {
   position: relative;
+  padding-top: 8px;
+  margin-top: -8px;
 }
 
 .section-title {

@@ -11,15 +11,22 @@ const isDev = window.location.hostname === 'localhost' ||
               window.location.hostname.includes('127.0.0.1') ||
               window.location.hostname === 'd3cbg89fw3t9m6.cloudfront.net';
 
+// AvatarWeb CDN (에셋: GLB, partsdata.json, masks). Unity WebGL CDN과 다름.
 const AVATAR_CDN_BASE = isDev
-  ? 'https://d2l90i53wjxgno.cloudfront.net/oz-avatar/'
-  : 'https://d14h4a2hnt5eea.cloudfront.net/public/avatar/';
+  ? 'https://d1yc3s10n1140s.cloudfront.net/'
+  : 'https://d1ifixnjky3kx.cloudfront.net/';
 
 const API_BASE_URL = isDev
   ? 'https://dev-api.fuzeapp.services'
   : 'https://api.fuzeapp.services';
 
-const OZ_AVATAR_GRID_SCRIPT_URL = `${AVATAR_CDN_BASE}oz-avatar-grid.js`;
+// localhost 개발 시: oz-avatar-grid.js를 fuze public/ symlink로 로컬 로드 (빠른 iteration).
+// 그 외: dev/prod CDN에서 fetch.
+const isLocalhost = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1';
+const OZ_AVATAR_GRID_SCRIPT_URL = isLocalhost
+  ? '/oz-avatar-grid.js'
+  : `${AVATAR_CDN_BASE}oz-avatar-grid.js`;
 
 // 모듈 스크립트 1회만 로드
 let ozGridScriptLoaded = false;
@@ -33,6 +40,23 @@ function ensureOzGridScript() {
 }
 
 const ITEMS_PER_PAGE = 24;
+
+// AvatarCard.jsx의 convertToArgbColor 단순 버전 — slot 배경색용.
+function getSlotBgColor(colorValue) {
+  if (!colorValue) return '#2a2a2a';
+  let colorInt;
+  if (typeof colorValue === 'string' && colorValue.toLowerCase().startsWith('0x')) {
+    colorInt = parseInt(colorValue, 16);
+  } else {
+    colorInt = parseInt(colorValue, 10);
+  }
+  const a = ((colorInt >> 24) & 0xFF) / 255;
+  const r = (colorInt >> 16) & 0xFF;
+  const g = (colorInt >> 8) & 0xFF;
+  const b = colorInt & 0xFF;
+  if (a < 0.01) return '#2a2a2a';
+  return `rgb(${r}, ${g}, ${b})`;
+}
 
 function AvatarGrid({ onOpenModal }) {
   // Get initial page from URL
@@ -92,6 +116,7 @@ function AvatarGrid({ onOpenModal }) {
             id: String(a.id),
             presetUrl: `${API_BASE_URL}/accounts/${a.id}/avatar-json/`,
             element: cardRefsRef.current.get(String(a.id)),
+            bgColor: getSlotBgColor(a.backgroundColor),
           }))
           .filter(s => s.element);
         grid.setSlots(slots);
@@ -100,14 +125,19 @@ function AvatarGrid({ onOpenModal }) {
     return () => { cancelled = true; };
   }, [avatars]);
 
-  // oz-avatar-grid 이벤트 → PNG fallback
+  // oz-avatar-grid 이벤트 → 스피너 제거 / PNG fallback
   useEffect(() => {
     const grid = gridElRef.current;
     if (!grid) return;
 
+    const removeSpinner = (slot) => {
+      slot?.querySelector('.card-avatar-loading')?.remove();
+    };
+
     const insertFallback = (id) => {
       const slot = cardRefsRef.current.get(id);
       if (!slot) return;
+      removeSpinner(slot);
       // 이미 fallback 삽입된 경우 중복 방지
       if (slot.querySelector('img')) return;
       const fallbackUrl = slot.dataset.fallbackImg;
@@ -120,20 +150,28 @@ function AvatarGrid({ onOpenModal }) {
       slot.appendChild(img);
     };
 
+    const onLoaded = (e) => {
+      const id = e.detail?.id;
+      const slot = cardRefsRef.current.get(id);
+      removeSpinner(slot);
+      // 캔버스가 그 카드의 배경/외곽선을 그렸으니 React 카드는 visual 제거
+      slot?.closest('.avatar-card')?.classList.add('canvas-ready');
+    };
     const onError = (e) => {
       const id = e.detail?.id;
       if (id) insertFallback(id);
     };
     const onContextLost = () => {
-      // 모든 카드 PNG fallback
       for (const id of cardRefsRef.current.keys()) {
         insertFallback(id);
       }
     };
 
+    grid.addEventListener('slot-loaded', onLoaded);
     grid.addEventListener('slot-error', onError);
     grid.addEventListener('gl-context-lost', onContextLost);
     return () => {
+      grid.removeEventListener('slot-loaded', onLoaded);
       grid.removeEventListener('slot-error', onError);
       grid.removeEventListener('gl-context-lost', onContextLost);
     };

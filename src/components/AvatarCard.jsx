@@ -78,6 +78,29 @@ const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref
   const customColor = avatar.backgroundColor ? convertToArgbColor(avatar.backgroundColor) : null;
   const baseColor = customColor || '#2a2a2a';
 
+  // 캔버스 로딩 fallback — baseColor를 grey와 blend해서 흐리게 (30% color + 70% grey).
+  // 캔버스 ready되면 .canvas-ready 클래스가 추가되어 background 자체가 hide.
+  const baseColorFallback = (() => {
+    let r, g, b;
+    const m = baseColor.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    if (m) {
+      r = parseInt(m[1]); g = parseInt(m[2]); b = parseInt(m[3]);
+    } else if (baseColor.startsWith('#')) {
+      const hex = baseColor.replace('#', '');
+      r = parseInt(hex.substr(0, 2), 16);
+      g = parseInt(hex.substr(2, 2), 16);
+      b = parseInt(hex.substr(4, 2), 16);
+    } else {
+      return baseColor;
+    }
+    // 90% baseColor + 10% dark grey (#2a2a2a = 42)
+    const mix = 0.9;
+    const dr = Math.round(r * mix + 42 * (1 - mix));
+    const dg = Math.round(g * mix + 42 * (1 - mix));
+    const db = Math.round(b * mix + 42 * (1 - mix));
+    return `rgb(${dr}, ${dg}, ${db})`;
+  })();
+
   // Create layered gradient background with depth
   // Multiple overlapping gradients create a sense of space and atmosphere
   const createDepthGradient = (color) => {
@@ -89,7 +112,7 @@ const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref
     `.trim();
   };
 
-  const bgGradient = createDepthGradient(baseColor);
+  const bgGradient = createDepthGradient(baseColorFallback);
 
   // Convert baseColor to rgba with transparency and brightness adjustment for footer
   const getColorWithAlpha = (color, alpha, brightnessIncrease = 0) => {
@@ -191,9 +214,12 @@ const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref
         data-fallback-img={avatar.imageUrl}
         onMouseEnter={() => onHover?.(true)}
         onMouseLeave={() => onHover?.(false)}
-      />
-      {/* card-avatar-slot은 oz-avatar-grid가 그 위에 three.js로 그릴 placeholder.
-          slot-error 시 React가 data-fallback-img를 읽어 <img>를 동적 삽입. */}
+      >
+        {/* 로딩 스피너 — slot-loaded 이벤트 시 React가 동적 제거 */}
+        <div className="card-avatar-loading">
+          <div className="card-avatar-spinner" />
+        </div>
+      </div>
 
       <div className="card-footer" style={{ background: footerBgColor }}>
         <div className="card-status-wrapper">

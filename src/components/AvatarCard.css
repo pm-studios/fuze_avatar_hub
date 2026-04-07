@@ -6,12 +6,21 @@
   height: 100%;
   min-height: 350px;
   position: relative;
+  top: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  /* 초기 로딩: 50% alpha gradient (살짝만). 캔버스 ready 시 background 제거. */
+}
+
+/* 캔버스가 ready된 카드 — React가 그리는 background/border 제거.
+   캔버스가 같은 모양의 라운드 사각형 + outline을 그려서 시각적 인계. */
+.avatar-card.canvas-ready {
+  background: none !important;
+  border-color: transparent;
 }
 
 .avatar-card:hover {
-  transform: translateY(-4px);
+  top: -4px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -130,6 +139,29 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* 로딩 스피너 — slot-loaded 이벤트 시 React가 동적 제거 */
+.card-avatar-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-avatar-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: card-avatar-spin 0.8s linear infinite;
+}
+@keyframes card-avatar-spin {
+  to { transform: rotate(360deg); }
 }
 
 .card-footer {

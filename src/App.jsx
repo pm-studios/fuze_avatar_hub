@@ -27,7 +27,7 @@ function App() {
       <div className="app">
         <aside className="side-banner side-banner-left">
           <a href="https://recap.panaxgames.com" target="_blank" rel="noopener noreferrer" className="banner-content" onClick={handleLeftBannerClick}>
-            <img src="/avatar left ads.jpg" alt="recap.fuze.io" className="banner-image" />
+            <img src="/avatar left ads.png" alt="recap.fuze.io" className="banner-image" />
           </a>
         </aside>
 
@@ -40,7 +40,7 @@ function App() {
 
         <aside className="side-banner side-banner-right">
           <div className="banner-content banner-video-wrapper" onClick={handleRightBannerClick}>
-            <img src="/avatar right ads.jpg" alt="fuze.io" className="banner-bg-image" />
+            <img src="/avatar right ads.png" alt="fuze.io" className="banner-bg-image" />
             {/* 임시: 영상 비활성화. 복원 시 아래 주석 해제
             <video
               src="/fuze.mp4"

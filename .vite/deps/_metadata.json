@@ -7,25 +7,25 @@
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "7dd9d350",
+      "fileHash": "5f452e54",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "25689730",
+      "fileHash": "0967abff",
       "needsInterop": true
     },
     "mixpanel-browser": {
       "src": "../../node_modules/mixpanel-browser/dist/mixpanel.module.js",
       "file": "mixpanel-browser.js",
-      "fileHash": "cbd7b0d0",
+      "fileHash": "a6b472a0",
       "needsInterop": false
     },
     "react-unity-webgl": {
       "src": "../../node_modules/react-unity-webgl/distribution/exports.js",
       "file": "react-unity-webgl.js",
-      "fileHash": "35658a75",
+      "fileHash": "afc90504",
       "needsInterop": true
     }
   },

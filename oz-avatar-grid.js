@@ -21477,7 +21477,18 @@ class qp {
   }
   /** AvatarDataJson 객체 직접 전달 (내부 사용 — 콜백 발사 없음) */
   async loadDataInternal(e) {
-    this.disposed || (await this.viewer.loadAvatarFromData(e), !this.disposed && this.measureNativeHeight());
+    this.disposed || (await this.viewer.loadAvatarFromData(e), !this.disposed && (this.measureNativeHeight(), this.desyncAnimation()));
+  }
+  /**
+   * 같은 row의 아바타들이 batch 로드로 거의 동시에 playPose를 호출 → action.time=0에서
+   * 같이 시작 → 같은 포즈는 시각적으로 sync된다. 로드 직후 한 번만 랜덤 오프셋을
+   * 줘서 desync. (AvatarViewer 격리 — private 필드는 런타임 bracket 접근.)
+   */
+  desyncAnimation() {
+    const t = this.viewer.currentAction ?? null;
+    if (!t) return;
+    const n = t.getClip();
+    !n || n.duration <= 0 || (t.time = Math.random() * n.duration);
   }
   /** AvatarDataJson 객체 직접 전달 — onLoaded/onError 발사 */
   async loadFromData(e) {

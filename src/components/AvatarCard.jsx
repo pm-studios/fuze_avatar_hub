@@ -64,7 +64,7 @@ const convertToArgbColor = (colorValue) => {
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 };
 
-const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
+const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref) => {
   const handleClick = () => {
     track('Avatar Card Click', {
       avatar_id: avatar.id,
@@ -180,15 +180,20 @@ const AvatarCard = forwardRef(({ avatar, index = 0 }, ref) => {
         </div>
       </div>
 
-      <div className="card-avatar-container">
-        <img
-          src={avatar.imageUrl}
-          alt={avatar.name}
-          className="card-avatar-image"
-          loading="eager"
-          decoding="async"
-        />
-      </div>
+      <div
+        className="card-avatar-slot"
+        ref={(el) => {
+          if (registerSlot) registerSlot(el);
+          if (typeof ref === "function") ref(el);
+          else if (ref) ref.current = el;
+        }}
+        data-avatar-id={avatar.id}
+        data-fallback-img={avatar.imageUrl}
+        onMouseEnter={() => onHover?.(true)}
+        onMouseLeave={() => onHover?.(false)}
+      />
+      {/* card-avatar-slot은 oz-avatar-grid가 그 위에 three.js로 그릴 placeholder.
+          slot-error 시 React가 data-fallback-img를 읽어 <img>를 동적 삽입. */}
 
       <div className="card-footer" style={{ background: footerBgColor }}>
         <div className="card-status-wrapper">

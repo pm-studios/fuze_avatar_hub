@@ -5,6 +5,11 @@
   width: 100%;
 }
 
+/* oz-avatar-grid 캔버스가 absolute로 깔리는 부모. */
+.avatar-grid-container {
+  position: relative;
+}
+
 .section-title {
   color: #FFF;
   font-family: Pretendard;

@@ -38,7 +38,10 @@
       "Bash(do echo \"Page $i:\")",
       "Bash(lsof:*)",
       "Bash(xargs kill:*)",
-      "Bash(xargs ls:*)"
+      "Bash(xargs ls:*)",
+      "Bash(grep:*)",
+      "Bash(ln -sf /Users/dongpillim/Desktop/Works/oz_unity/unity/AvatarWeb/dist/oz-avatar-editor.js /Users/dongpillim/Desktop/Works/fuze_avatar_hub/public/oz-avatar-editor.js)",
+      "Bash(ln -sf /Users/dongpillim/Desktop/Works/oz_unity/unity/AvatarWeb/dist/oz-avatar-grid.js /Users/dongpillim/Desktop/Works/fuze_avatar_hub/public/oz-avatar-grid.js)"
     ],
     "deny": [],
     "ask": []

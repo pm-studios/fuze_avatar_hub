@@ -4,7 +4,7 @@ import { trackBannerClick } from './utils/mixpanel'
 import Hero from './components/Hero'
 import AvatarGrid from './components/AvatarGrid'
 import Footer from './components/Footer'
-import UnityAvatarModal from './components/UnityAvatarModal'
+import AvatarEditorModal from './components/AvatarEditorModal'
 import './App.css'
 
 function App() {
@@ -40,22 +40,20 @@ function App() {
 
         <aside className="side-banner side-banner-right">
           <div className="banner-content banner-video-wrapper" onClick={handleRightBannerClick}>
-            <img src="/avatar right ads.png" alt="fuze.io" className="banner-bg-image" />
-            {/* 임시: 영상 비활성화. 복원 시 아래 주석 해제
+            <img src="/avatar_right_ads2.jpg" alt="fuze.io" className="banner-bg-image" />
             <video
-              src="/fuze.mp4"
+              src="/FUZE_PAX_PANAX_compressed.mp4"
               autoPlay
               loop
               muted
               playsInline
               className="banner-video"
             />
-            */}
           </div>
         </aside>
       </div>
 
-      <UnityAvatarModal
+      <AvatarEditorModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />

@@ -2,31 +2,25 @@
   "hash": "70c212c7",
   "configHash": "30de00ef",
   "lockfileHash": "cc84f9ca",
-  "browserHash": "9fa8cbc2",
+  "browserHash": "b7a92c17",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "5f452e54",
+      "fileHash": "40617502",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "0967abff",
+      "fileHash": "cec50fec",
       "needsInterop": true
     },
     "mixpanel-browser": {
       "src": "../../node_modules/mixpanel-browser/dist/mixpanel.module.js",
       "file": "mixpanel-browser.js",
-      "fileHash": "a6b472a0",
+      "fileHash": "1deb79af",
       "needsInterop": false
-    },
-    "react-unity-webgl": {
-      "src": "../../node_modules/react-unity-webgl/distribution/exports.js",
-      "file": "react-unity-webgl.js",
-      "fileHash": "afc90504",
-      "needsInterop": true
     }
   },
   "chunks": {

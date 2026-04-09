@@ -11,16 +11,16 @@ function Hero() {
     <section className="hero-section" onClick={handleClick} style={{ cursor: 'pointer' }}>
       <div className="hero-wrapper">
         <div className="hero">
-          <img src="/AvatarImage2.png" alt="Avatar characters" className="hero-avatar" />
+          <img src="/AvatarImage.png" alt="Avatar characters" className="hero-avatar" />
           <div className="hero-container">
             <div className="hero-content">
-              <h1 className="hero-title">Discover Gamer Styles</h1>
+              <h1 className="hero-title">Every Avatar Has a Voice</h1>
               <p className="hero-subtitle">
-                Meet the gamers and conversations <br />
-                behind every style.
+                Discover unique gamer styles <br />
+                and the conversations on PANAX.
               </p>
               <div className="hero-badge">
-                Meet the gamers
+                Join the Conversation
               </div>
             </div>
           </div>

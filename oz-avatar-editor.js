@@ -22655,8 +22655,10 @@ const kt = class kt extends HTMLElement {
     this.dispatchEvent(new CustomEvent("state-changed", { bubbles: !0, composed: !0, detail: t }));
   }
   setEditModeVisibility(e) {
-    const t = this.hasAttribute("compact") || this.clientWidth < 500;
-    this.editorPanel.classList.toggle("hidden", !e), this.toolbar.classList.toggle("hidden", !e), this.footer.classList.toggle("hidden", !e), this.editBtn.classList.toggle("hidden", e), this.closeBtn.classList.toggle("hidden", t ? !1 : e), this.captureBtn && this.captureBtn.classList.toggle("hidden", e);
+    const t = this.hasAttribute("compact") || this.clientWidth < 500, n = this.hasAttribute("hub-mode");
+    this.editorPanel.classList.toggle("hidden", !e), this.toolbar.classList.toggle("hidden", !e), this.footer.classList.toggle("hidden", !e), this.editBtn.classList.toggle("hidden", e);
+    const i = t ? !1 : n ? e : !0;
+    this.closeBtn.classList.toggle("hidden", i), this.captureBtn && this.captureBtn.classList.toggle("hidden", e);
   }
   async enterEditMode() {
     this.isEditMode = !0, this._wasPoseTab = !1, this.viewer.playPose("Pose_Idle"), this.setEditModeVisibility(!0), this.updateSize(), await this._editorDataReady, setTimeout(() => {

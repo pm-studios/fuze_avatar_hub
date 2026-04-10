@@ -125,29 +125,13 @@ function AvatarGrid({ onOpenModal }) {
     return () => { cancelled = true; };
   }, [avatars]);
 
-  // oz-avatar-grid 이벤트 → 스피너 제거 / PNG fallback
+  // oz-avatar-grid 이벤트 → 스피너 제거
   useEffect(() => {
     const grid = gridElRef.current;
     if (!grid) return;
 
     const removeSpinner = (slot) => {
       slot?.querySelector('.card-avatar-loading')?.remove();
-    };
-
-    const insertFallback = (id) => {
-      const slot = cardRefsRef.current.get(id);
-      if (!slot) return;
-      removeSpinner(slot);
-      // 이미 fallback 삽입된 경우 중복 방지
-      if (slot.querySelector('img')) return;
-      const fallbackUrl = slot.dataset.fallbackImg;
-      if (!fallbackUrl) return;
-      const img = document.createElement('img');
-      img.src = fallbackUrl;
-      img.alt = '';
-      img.loading = 'eager';
-      img.decoding = 'async';
-      slot.appendChild(img);
     };
 
     const onLoaded = (e) => {
@@ -159,11 +143,13 @@ function AvatarGrid({ onOpenModal }) {
     };
     const onError = (e) => {
       const id = e.detail?.id;
-      if (id) insertFallback(id);
+      const slot = cardRefsRef.current.get(id);
+      removeSpinner(slot);
     };
     const onContextLost = () => {
       for (const id of cardRefsRef.current.keys()) {
-        insertFallback(id);
+        const slot = cardRefsRef.current.get(id);
+        removeSpinner(slot);
       }
     };
 

@@ -36,7 +36,6 @@ export const fetchAvatars = async (page = 0, pageSize = 20) => {
       name: avatar.nickname,
       level: avatar.level,
       game: avatar.introduction || 'No introduction',
-      imageUrl: avatar.avatar_full_img_url,
       profileUrl: `${PROFILE_BASE_URL}/profile/${avatar.nickname}`,
       backgroundColor: avatar.background_custom_color,
       message: avatar.message,

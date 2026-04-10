@@ -211,7 +211,6 @@ const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref
           else if (ref) ref.current = el;
         }}
         data-avatar-id={avatar.id}
-        data-fallback-img={avatar.imageUrl}
         onMouseEnter={() => onHover?.(true)}
         onMouseLeave={() => onHover?.(false)}
       >

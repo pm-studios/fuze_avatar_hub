@@ -1,0 +1,37 @@
+key	en	ko	ja	note
+meta.title	PANAX Community | Avatar hub	PANAX 커뮤니티 | 아바타 허브	PANAX コミュニティ | アバターハブ	브라우저 탭 제목
+header.title	Avatar Hub	Avatar Hub	Avatar Hub	로고 옆 이름 (브랜드라 그대로 두는 것을 권장)
+header.create	Create My Own	내 아바타 만들기	自分で作る	상단 버튼 (넓은 화면)
+header.create_short	Create	만들기	作成	상단 버튼 (폰, 짧게)
+header.banner	Create your style for free, no login needed.	로그인 없이 무료로 나만의 스타일을 만드세요.	ログイン不要、無料で自分のスタイルを作れます。	상단 파란 띠
+header.tip_label	Tips:	팁:	ヒント:	폰에서만 보임, 굵게
+header.tip	Best experienced on desktop	컴퓨터에서 가장 잘 보여요	パソコンでの利用がおすすめです	폰에서만 보임, 팁: 뒤
+header.language	Language	언어	言語	언어 선택 드롭다운 이름(화면 읽기용)
+hero.title	Every Avatar Has a Voice	모든 아바타에는 이야기가 있다	すべてのアバターに声がある	큰 배너 제목
+hero.subtitle	Discover unique gamer styles\nand the conversations on PANAX.	PANAX에서 개성 있는 게이머 스타일과\n그들의 이야기를 만나 보세요.	PANAXで個性的なゲーマースタイルと\nその会話を見つけよう。	\n = 줄바꿈
+hero.badge	Join the Conversation	대화에 참여하기	会話に参加する	배너 안 버튼 모양
+hero.image_alt	Avatar characters	아바타 캐릭터	アバターキャラクター	이미지 대체 문구
+gallery.title	Style Gallery	스타일 갤러리	スタイルギャラリー	목록 제목
+gallery.cta_text	Feeling inspired? Now create your own!	마음에 드는 스타일이 있나요? 이제 직접 만들어 보세요!	インスピレーションが湧いた？自分のアバターを作ろう！	목록 아래
+gallery.cta_button	Create My Own Avatar	내 아바타 만들기	自分のアバターを作る	목록 아래 버튼
+card.level	Lv {n}	Lv {n}	Lv {n}	카드 레벨
+card.game_cover_alt	Game cover	게임 표지	ゲームカバー	이미지 대체 문구
+card.status_1	My Top3 game!	내 인생 게임 TOP3!	私のTOP3ゲーム！	상태 메시지가 없는 카드에 돌아가며 표시 (1~8)
+card.status_2	Now playing...	지금 하는 중...	プレイ中...	
+card.status_3	It's awesome!	이거 최고야!	最高！	
+card.status_4	My top pick!	내 원픽!	イチオシ！	
+card.status_5	Just finished!	방금 다 깼어!	クリアしたばかり！	
+card.status_6	Playing daily	매일 하는 중	毎日プレイ中	
+card.status_7	Love this!	너무 좋아!	大好き！	
+card.status_8	Currently enjoying	요즘 빠진 게임	今ハマってる	
+editor.save_title	Save your avatar before leaving?	나가기 전에 아바타를 저장할까요?	終了する前にアバターを保存しますか？	편집기 닫을 때 창
+editor.save_text	Create a free account to keep this look.	무료 계정을 만들면 이 모습을 간직할 수 있어요.	無料アカウントを作ると、このスタイルを保存できます。	
+editor.save_signup	Save & sign up	저장하고 가입하기	保存して登録	
+editor.leave	Leave without saving	저장하지 않고 나가기	保存せずに終了	
+editor.back	Back to editing	계속 편집하기	編集に戻る	
+editor.done_title	Have you completed sign-up?	가입을 마치셨나요?	登録は完了しましたか？	가입 탭을 연 뒤 창
+editor.done_text	Please finish your signup in the new tab.\nOnce it's done, your avatar will be saved.	새 탭에서 가입을 마쳐 주세요.\n가입이 끝나면 아바타가 저장됩니다.	新しいタブで登録を完了してください。\n完了するとアバターが保存されます。	\n = 줄바꿈
+editor.done_close	Done & close	완료하고 닫기	完了して閉じる	
+editor.not_yet	Not yet, back to editing	아직이에요, 계속 편집할게요	まだです、編集に戻る	
+footer.copyright	©2026 PANAX™, Inc. All rights reserved.	©2026 PANAX™, Inc. All rights reserved.	©2026 PANAX™, Inc. All rights reserved.	저작권 문구 (보통 영어 그대로)
+footer.about	About Us	회사 소개	会社概要	

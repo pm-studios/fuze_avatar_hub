@@ -1,18 +1,10 @@
 import { forwardRef } from 'react';
 import { track } from '../utils/mixpanel';
 import './AvatarCard.css';
+import { t } from '../i18n';
 
 // Fallback data for avatars without message or cover image
-const defaultStatusMessages = [
-  "My Top3 game!",
-  "Now playing...",
-  "It's awesome!",
-  "My top pick!",
-  "Just finished!",
-  "Playing daily",
-  "Love this!",
-  "Currently enjoying"
-];
+const defaultStatusMessages = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => t(`card.status_${n}`));
 
 const defaultGameCovers = [
   "https://images.igdb.com/igdb/image/upload/t_cover_big/co9rk1.webp",
@@ -188,7 +180,7 @@ const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref
       <div className="card-header">
         <div className="card-header-text">
           <span className="card-name" style={{ color: textColor }}>{avatar.name}</span>
-          <span className="card-level" style={{ color: textColor }}>Lv {avatar.level}</span>
+          <span className="card-level" style={{ color: textColor }}>{t('card.level', { n: avatar.level })}</span>
         </div>
       </div>
 
@@ -217,7 +209,7 @@ const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref
           )}
         </div>
         <div className="card-game-icon">
-          <img src={gameCover} alt="Game cover" className="game-thumbnail" loading="lazy" />
+          <img src={gameCover} alt={t('card.game_cover_alt')} className="game-thumbnail" loading="lazy" />
         </div>
       </div>
     </div>

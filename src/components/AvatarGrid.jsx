@@ -4,6 +4,7 @@ import SkeletonCard from './SkeletonCard';
 import { fetchAvatars } from '../data/avatars';
 import { trackButtonClick, track } from '../utils/mixpanel';
 import './AvatarGrid.css';
+import { t } from '../i18n';
 
 // Determine environment based on hostname
 const isDev = window.location.hostname === 'localhost' ||
@@ -206,7 +207,7 @@ function AvatarGrid({ onOpenModal }) {
   return (
     <>
       <section className="avatar-grid-section">
-        <h2 className="section-title">Style Gallery</h2>
+        <h2 className="section-title">{t('gallery.title')}</h2>
 
         <div className="avatar-grid-container">
           <div className="avatar-grid">
@@ -273,9 +274,9 @@ function AvatarGrid({ onOpenModal }) {
         {/* Create Avatar CTA */}
         {!loading && avatars.length > 0 && (
           <div className="create-avatar-cta">
-            <p className="cta-text">Feeling inspired? Now create your own!</p>
+            <p className="cta-text">{t('gallery.cta_text')}</p>
             <button className="cta-button" onClick={handleCtaClick}>
-              Create My Own Avatar
+              {t('gallery.cta_button')}
             </button>
           </div>
         )}

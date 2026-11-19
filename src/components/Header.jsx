@@ -1,5 +1,6 @@
 import './Header.css'
 import { trackButtonClick, trackBannerClick } from '../utils/mixpanel'
+import { t, LANG, LANGS, setLang } from '../i18n'
 
 function Header({ onOpenModal }) {
   const handleLogoClick = () => {
@@ -23,18 +24,28 @@ function Header({ onOpenModal }) {
         <div className="header-content">
           <div className="logo-container">
             <img src="/Logo_Panax_Only.png" alt="Panax Avatar Hub Logo" className="logo-image" onClick={handleLogoClick} style={{ cursor: 'pointer' }} />
-            <span className="logo-text" onClick={handleTitleClick} style={{ cursor: 'pointer' }}>Avatar Hub</span>
+            <span className="logo-text" onClick={handleTitleClick} style={{ cursor: 'pointer' }}>{t('header.title')}</span>
           </div>
-          <button className="create-btn" onClick={handleCreateClick}>
-            <span className="btn-text-full">Create My Own</span>
-            <span className="btn-text-short">Create</span>
-          </button>
+          <div className="header-actions">
+            <select
+              className="lang-select"
+              value={LANG}
+              aria-label={t('header.language')}
+              onChange={(e) => setLang(e.target.value)}
+            >
+              {LANGS.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
+            </select>
+            <button className="create-btn" onClick={handleCreateClick}>
+              <span className="btn-text-full">{t('header.create')}</span>
+              <span className="btn-text-short">{t('header.create_short')}</span>
+            </button>
+          </div>
         </div>
       </header>
       <div className="header-spacer"></div>
       <div className="header-banner">
-        <span className="banner-text-main">Create your style for free, no login needed.</span>
-        <span className="banner-text-tip"><strong>Tips:</strong> Best experienced on desktop</span>
+        <span className="banner-text-main">{t('header.banner')}</span>
+        <span className="banner-text-tip"><strong>{t('header.tip_label')}</strong> {t('header.tip')}</span>
       </div>
     </>
   )

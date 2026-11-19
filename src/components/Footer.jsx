@@ -1,5 +1,6 @@
 import './Footer.css'
 import { trackLinkClick } from '../utils/mixpanel'
+import { t } from '../i18n'
 
 function Footer() {
   const handleLinkClick = (linkName, url) => (e) => {
@@ -13,12 +14,12 @@ function Footer() {
       <div className="footer-divider"></div>
       <div className="footer-content">
         <div className="footer-left">
-          <p className="footer-copyright">©2026 PANAX™, Inc. All rights reserved.</p>
+          <p className="footer-copyright">{t('footer.copyright')}</p>
         </div>
         <div className="footer-right">
           <div className="footer-social">
             <div className="footer-links">
-              <a href="https://panaxgames.com" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick('about_us', 'https://panaxgames.com')}>About Us</a>
+              <a href="https://panaxgames.com" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick('about_us', 'https://panaxgames.com')}>{t('footer.about')}</a>
             </div>
             <a href="https://x.com/PANAXofficial" target="_blank" rel="noopener noreferrer" className="social-link" onClick={handleLinkClick('social_x', 'https://x.com/PANAXofficial')}>
               <img src="/x.png" alt="X" />

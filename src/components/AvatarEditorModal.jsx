@@ -1,6 +1,7 @@
 import { useEffect, useCallback, useRef, useState } from 'react'
 import { track, trackButtonClick } from '../utils/mixpanel'
 import './AvatarEditorModal.css'
+import { t, tl } from '../i18n'
 
 // 환경 판별 (AvatarGrid.jsx와 동일 패턴)
 const isDev = window.location.hostname === 'localhost' ||
@@ -173,17 +174,17 @@ function AvatarEditorModal({ isOpen, onClose }) {
             <div className="save-popup-logo">
               <img src="/Logo_Panax_Only.png" alt="Panax Avatar Hub" />
             </div>
-            <h2>Save your avatar before leaving?</h2>
-            <p>Create a free account to keep this look.</p>
+            <h2>{t('editor.save_title')}</h2>
+            <p>{t('editor.save_text')}</p>
             <div className="save-popup-buttons">
               <button className="btn-save" onClick={handleSaveAndClose}>
-                Save & sign up
+                {t('editor.save_signup')}
               </button>
               <button className="btn-leave" onClick={handleCloseWithoutSaving}>
-                Leave without saving
+                {t('editor.leave')}
               </button>
               <button className="btn-back" onClick={handleCancelPopup}>
-                Back to editing
+                {t('editor.back')}
               </button>
             </div>
           </div>
@@ -193,14 +194,14 @@ function AvatarEditorModal({ isOpen, onClose }) {
       {showCompletePopup && (
         <div className="save-popup-overlay">
           <div className="save-popup complete-popup">
-            <h2>Have you completed sign-up?</h2>
-            <p className="complete-message">Please finish your signup in the new tab.<br />Once it's done, your avatar will be saved.</p>
+            <h2>{t('editor.done_title')}</h2>
+            <p className="complete-message">{tl('editor.done_text')}</p>
             <div className="complete-buttons">
               <button className="btn-complete" onClick={handleCompleteConfirm}>
-                Done & close
+                {t('editor.done_close')}
               </button>
               <button className="btn-cancel-complete" onClick={handleCompleteCancel}>
-                Not yet, back to editing
+                {t('editor.not_yet')}
               </button>
             </div>
           </div>

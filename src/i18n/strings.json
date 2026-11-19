@@ -1,0 +1,182 @@
+{
+  "meta.title": {
+    "en": "PANAX Community | Avatar hub",
+    "ko": "PANAX 커뮤니티 | 아바타 허브",
+    "ja": "PANAX コミュニティ | アバターハブ"
+  },
+  "header.title": {
+    "en": "Avatar Hub",
+    "ko": "Avatar Hub",
+    "ja": "Avatar Hub"
+  },
+  "header.create": {
+    "en": "Create My Own",
+    "ko": "내 아바타 만들기",
+    "ja": "自分で作る"
+  },
+  "header.create_short": {
+    "en": "Create",
+    "ko": "만들기",
+    "ja": "作成"
+  },
+  "header.banner": {
+    "en": "Create your style for free, no login needed.",
+    "ko": "로그인 없이 무료로 나만의 스타일을 만드세요.",
+    "ja": "ログイン不要、無料で自分のスタイルを作れます。"
+  },
+  "header.tip_label": {
+    "en": "Tips:",
+    "ko": "팁:",
+    "ja": "ヒント:"
+  },
+  "header.tip": {
+    "en": "Best experienced on desktop",
+    "ko": "컴퓨터에서 가장 잘 보여요",
+    "ja": "パソコンでの利用がおすすめです"
+  },
+  "header.language": {
+    "en": "Language",
+    "ko": "언어",
+    "ja": "言語"
+  },
+  "hero.title": {
+    "en": "Every Avatar Has a Voice",
+    "ko": "모든 아바타에는 이야기가 있다",
+    "ja": "すべてのアバターに声がある"
+  },
+  "hero.subtitle": {
+    "en": "Discover unique gamer styles\nand the conversations on PANAX.",
+    "ko": "PANAX에서 개성 있는 게이머 스타일과\n그들의 이야기를 만나 보세요.",
+    "ja": "PANAXで個性的なゲーマースタイルと\nその会話を見つけよう。"
+  },
+  "hero.badge": {
+    "en": "Join the Conversation",
+    "ko": "대화에 참여하기",
+    "ja": "会話に参加する"
+  },
+  "hero.image_alt": {
+    "en": "Avatar characters",
+    "ko": "아바타 캐릭터",
+    "ja": "アバターキャラクター"
+  },
+  "gallery.title": {
+    "en": "Style Gallery",
+    "ko": "스타일 갤러리",
+    "ja": "スタイルギャラリー"
+  },
+  "gallery.cta_text": {
+    "en": "Feeling inspired? Now create your own!",
+    "ko": "마음에 드는 스타일이 있나요? 이제 직접 만들어 보세요!",
+    "ja": "インスピレーションが湧いた？自分のアバターを作ろう！"
+  },
+  "gallery.cta_button": {
+    "en": "Create My Own Avatar",
+    "ko": "내 아바타 만들기",
+    "ja": "自分のアバターを作る"
+  },
+  "card.level": {
+    "en": "Lv {n}",
+    "ko": "Lv {n}",
+    "ja": "Lv {n}"
+  },
+  "card.game_cover_alt": {
+    "en": "Game cover",
+    "ko": "게임 표지",
+    "ja": "ゲームカバー"
+  },
+  "card.status_1": {
+    "en": "My Top3 game!",
+    "ko": "내 인생 게임 TOP3!",
+    "ja": "私のTOP3ゲーム！"
+  },
+  "card.status_2": {
+    "en": "Now playing...",
+    "ko": "지금 하는 중...",
+    "ja": "プレイ中..."
+  },
+  "card.status_3": {
+    "en": "It's awesome!",
+    "ko": "이거 최고야!",
+    "ja": "最高！"
+  },
+  "card.status_4": {
+    "en": "My top pick!",
+    "ko": "내 원픽!",
+    "ja": "イチオシ！"
+  },
+  "card.status_5": {
+    "en": "Just finished!",
+    "ko": "방금 다 깼어!",
+    "ja": "クリアしたばかり！"
+  },
+  "card.status_6": {
+    "en": "Playing daily",
+    "ko": "매일 하는 중",
+    "ja": "毎日プレイ中"
+  },
+  "card.status_7": {
+    "en": "Love this!",
+    "ko": "너무 좋아!",
+    "ja": "大好き！"
+  },
+  "card.status_8": {
+    "en": "Currently enjoying",
+    "ko": "요즘 빠진 게임",
+    "ja": "今ハマってる"
+  },
+  "editor.save_title": {
+    "en": "Save your avatar before leaving?",
+    "ko": "나가기 전에 아바타를 저장할까요?",
+    "ja": "終了する前にアバターを保存しますか？"
+  },
+  "editor.save_text": {
+    "en": "Create a free account to keep this look.",
+    "ko": "무료 계정을 만들면 이 모습을 간직할 수 있어요.",
+    "ja": "無料アカウントを作ると、このスタイルを保存できます。"
+  },
+  "editor.save_signup": {
+    "en": "Save & sign up",
+    "ko": "저장하고 가입하기",
+    "ja": "保存して登録"
+  },
+  "editor.leave": {
+    "en": "Leave without saving",
+    "ko": "저장하지 않고 나가기",
+    "ja": "保存せずに終了"
+  },
+  "editor.back": {
+    "en": "Back to editing",
+    "ko": "계속 편집하기",
+    "ja": "編集に戻る"
+  },
+  "editor.done_title": {
+    "en": "Have you completed sign-up?",
+    "ko": "가입을 마치셨나요?",
+    "ja": "登録は完了しましたか？"
+  },
+  "editor.done_text": {
+    "en": "Please finish your signup in the new tab.\nOnce it's done, your avatar will be saved.",
+    "ko": "새 탭에서 가입을 마쳐 주세요.\n가입이 끝나면 아바타가 저장됩니다.",
+    "ja": "新しいタブで登録を完了してください。\n完了するとアバターが保存されます。"
+  },
+  "editor.done_close": {
+    "en": "Done & close",
+    "ko": "완료하고 닫기",
+    "ja": "完了して閉じる"
+  },
+  "editor.not_yet": {
+    "en": "Not yet, back to editing",
+    "ko": "아직이에요, 계속 편집할게요",
+    "ja": "まだです、編集に戻る"
+  },
+  "footer.copyright": {
+    "en": "©2026 PANAX™, Inc. All rights reserved.",
+    "ko": "©2026 PANAX™, Inc. All rights reserved.",
+    "ja": "©2026 PANAX™, Inc. All rights reserved."
+  },
+  "footer.about": {
+    "en": "About Us",
+    "ko": "회사 소개",
+    "ja": "会社概要"
+  }
+}

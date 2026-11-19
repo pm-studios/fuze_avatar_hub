@@ -1,5 +1,6 @@
 import './Hero.css'
 import { trackBannerClick } from '../utils/mixpanel'
+import { t, tl } from '../i18n'
 
 function Hero() {
   const handleClick = () => {
@@ -11,16 +12,15 @@ function Hero() {
     <section className="hero-section" onClick={handleClick} style={{ cursor: 'pointer' }}>
       <div className="hero-wrapper">
         <div className="hero">
-          <img src="/AvatarImage.png" alt="Avatar characters" className="hero-avatar" />
+          <img src="/AvatarImage.png" alt={t('hero.image_alt')} className="hero-avatar" />
           <div className="hero-container">
             <div className="hero-content">
-              <h1 className="hero-title">Every Avatar Has a Voice</h1>
+              <h1 className="hero-title">{t('hero.title')}</h1>
               <p className="hero-subtitle">
-                Discover unique gamer styles <br />
-                and the conversations on PANAX.
+                {tl('hero.subtitle')}
               </p>
               <div className="hero-badge">
-                Join the Conversation
+                {t('hero.badge')}
               </div>
             </div>
           </div>

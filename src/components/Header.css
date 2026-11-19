@@ -61,6 +61,28 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-select {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lang-select option {
+  color: #000000;
+}
+
 .create-btn {
   background: #ffffff;
   color: #000000;
@@ -144,6 +166,11 @@
   .create-btn {
     padding: 8px 16px;
     font-size: 14px;
+  }
+
+  .lang-select {
+    padding: 7px 6px;
+    font-size: 13px;
   }
 }
 

@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "i18n:pull": "node scripts/i18n-pull.mjs",
     "deploy-dev": "node scripts/deploy.cjs dev",
     "deploy-prod": "node scripts/deploy.cjs prod"
   },

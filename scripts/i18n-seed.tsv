@@ -35,3 +35,11 @@ editor.done_close	Done & close	완료하고 닫기	完了して閉じる
 editor.not_yet	Not yet, back to editing	아직이에요, 계속 편집할게요	まだです、編集に戻る	
 footer.copyright	©2026 PANAX™, Inc. All rights reserved.	©2026 PANAX™, Inc. All rights reserved.	©2026 PANAX™, Inc. All rights reserved.	저작권 문구 (보통 영어 그대로)
 footer.about	About Us	회사 소개	会社概要	
+editor.capture	Capture &\nDownload	캡처 &\n다운로드	撮影して\n保存	편집기 왼쪽 아래 버튼 (110px 칸, 줄마다 짧게)
+card.msg.how_about_this	How about this?	이거 어때?	これどう？	카드 아래 문구: 앱에서 고르는 정해진 문구 7개 (영어 원문이 일치할 때만 번역)
+card.msg.now_playing	Now playing...	지금 하는 중...	プレイ中...	
+card.msg.i_played_this	I played this	해 봤어요	プレイしたよ	
+card.msg.my_top_pick	My top pick!	내 원픽!	イチオシ！	
+card.msg.my_top_game_is	My top game is	내 최고의 게임은	私のベストゲームは	다음 줄에 게임 이름이 붙음
+card.msg.all_time_favorite	All-time favorite	인생 게임	永遠の名作	
+card.msg.my_fave_game_is	My fave game is	내 최애 게임은	私の推しゲームは	다음 줄에 게임 이름이 붙음

@@ -6,6 +6,18 @@ import { t } from '../i18n';
 // Fallback data for avatars without message or cover image
 const defaultStatusMessages = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => t(`card.status_${n}`));
 
+// 앱에서 고르는 정해진 상태 문구(영어 원문) → 시트 키. 목록에 없는 문구는 그대로 보여 준다.
+const PRESET_MESSAGES = {
+  'How about this?': 'card.msg.how_about_this',
+  'Now playing...': 'card.msg.now_playing',
+  'I played this': 'card.msg.i_played_this',
+  'My top pick!': 'card.msg.my_top_pick',
+  'My top game is': 'card.msg.my_top_game_is',
+  'All-time favorite': 'card.msg.all_time_favorite',
+  'My fave game is': 'card.msg.my_fave_game_is',
+};
+const translateMessage = (m) => (PRESET_MESSAGES[m?.trim()] ? t(PRESET_MESSAGES[m.trim()]) : m);
+
 const defaultGameCovers = [
   "https://images.igdb.com/igdb/image/upload/t_cover_big/co9rk1.webp",
   "https://images.igdb.com/igdb/image/upload/t_cover_big/coaend.webp",
@@ -165,7 +177,7 @@ const AvatarCard = forwardRef(({ avatar, index = 0, registerSlot, onHover }, ref
   const textColor = getTextColor(baseColor);
 
   // Use real data if available, otherwise use fallback
-  const statusMessage = avatar.message || defaultStatusMessages[index % defaultStatusMessages.length];
+  const statusMessage = translateMessage(avatar.message) || defaultStatusMessages[index % defaultStatusMessages.length];
   const gameCover = avatar.coverImageUrl || defaultGameCovers[index % defaultGameCovers.length];
 
   return (

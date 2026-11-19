@@ -22,6 +22,22 @@ const OZ_AVATAR_EDITOR_SCRIPT_URL = isLocalhost
   ? '/oz-avatar-editor.js'
   : `${AVATAR_CDN_BASE}oz-avatar-editor.js`
 
+// 왼쪽 아래 "Capture & Download" 버튼 이름 — 편집기(AvatarWeb)에 이 문구 키가 없어 허브에서 바꾼다.
+// shadow DOM 이 open 이라 접근 가능. 버튼이 늦게 생길 수 있어 몇 번 다시 본다.
+function localizeCaptureButton(editor) {
+  let tries = 0
+  const apply = () => {
+    const label = editor?.shadowRoot?.querySelector('.capture-btn .label')
+    if (label) {
+      label.replaceChildren(...t('editor.capture').split('\n').flatMap((line, i) =>
+        i ? [document.createElement('br'), line] : [line]))
+      return
+    }
+    if (++tries < 40) setTimeout(apply, 100)
+  }
+  apply()
+}
+
 // 모듈 스크립트 1회만 로드
 let ozEditorScriptLoaded = false
 function ensureOzEditorScript() {
@@ -104,6 +120,7 @@ function AvatarEditorModal({ isOpen, onClose }) {
       editor.addEventListener('state-changed', handleStateChanged)
       editor.addEventListener('changed-avatar', handleChangedAvatar)
       editor.addEventListener('editor-error', handleError)
+      localizeCaptureButton(editor)
     })
 
     return () => {

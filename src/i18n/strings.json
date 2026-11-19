@@ -178,5 +178,45 @@
     "en": "About Us",
     "ko": "회사 소개",
     "ja": "会社概要"
+  },
+  "editor.capture": {
+    "en": "Capture &\nDownload",
+    "ko": "캡처 &\n다운로드",
+    "ja": "撮影して\n保存"
+  },
+  "card.msg.how_about_this": {
+    "en": "How about this?",
+    "ko": "이거 어때?",
+    "ja": "これどう？"
+  },
+  "card.msg.now_playing": {
+    "en": "Now playing...",
+    "ko": "지금 하는 중...",
+    "ja": "プレイ中..."
+  },
+  "card.msg.i_played_this": {
+    "en": "I played this",
+    "ko": "해 봤어요",
+    "ja": "プレイしたよ"
+  },
+  "card.msg.my_top_pick": {
+    "en": "My top pick!",
+    "ko": "내 원픽!",
+    "ja": "イチオシ！"
+  },
+  "card.msg.my_top_game_is": {
+    "en": "My top game is",
+    "ko": "내 최고의 게임은",
+    "ja": "私のベストゲームは"
+  },
+  "card.msg.all_time_favorite": {
+    "en": "All-time favorite",
+    "ko": "인생 게임",
+    "ja": "永遠の名作"
+  },
+  "card.msg.my_fave_game_is": {
+    "en": "My fave game is",
+    "ko": "내 최애 게임은",
+    "ja": "私の推しゲームは"
   }
 }

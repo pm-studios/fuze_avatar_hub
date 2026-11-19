@@ -42,7 +42,7 @@ function App() {
           <div className="banner-content banner-video-wrapper" onClick={handleRightBannerClick}>
             <img src="/avatar_right_ads2.jpg" alt="fuze.io" className="banner-bg-image" />
             <video
-              src="/FUZE_PAX_PANAX_compressed.mp4"
+              src="/Panax_promo.mp4"
               autoPlay
               loop
               muted

@@ -29,3 +29,6 @@ dist-ssr
 *.sw?
 
 .node_modules/*
+
+.vite
+.vercel

@@ -11,7 +11,7 @@ const isDev = window.location.hostname === 'localhost' ||
               window.location.hostname.includes('127.0.0.1') ||
               window.location.hostname === 'd3cbg89fw3t9m6.cloudfront.net';
 
-// AvatarWeb CDN (에셋: GLB, partsdata.json, masks). Unity WebGL CDN과 다름.
+// AvatarWeb CDN (에셋: GLB, partsdata.json, masks).
 const AVATAR_CDN_BASE = isDev
   ? 'https://d1yc3s10n1140s.cloudfront.net/'
   : 'https://d1ifixnjky3kx.cloudfront.net/';

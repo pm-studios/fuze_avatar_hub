@@ -2,17 +2,6 @@ import { forwardRef } from 'react';
 import { track } from '../utils/mixpanel';
 import './AvatarCard.css';
 
-const backgroundColors = [
-  '#3d5a6b', // blue-grey
-  '#6b5d47', // brown
-  '#4a7d7c', // teal
-  '#4a5f7d', // dark blue
-  '#5a6b4a', // olive green
-  '#6b4a5a', // purple
-  '#7d5a4a', // rust
-  '#4a6b5a', // sea green
-];
-
 // Fallback data for avatars without message or cover image
 const defaultStatusMessages = [
   "My Top3 game!",

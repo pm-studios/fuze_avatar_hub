@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef, useState } from 'react'
 import { track, trackButtonClick } from '../utils/mixpanel'
-import './UnityAvatarModal.css'
+import './AvatarEditorModal.css'
 
 // 환경 판별 (AvatarGrid.jsx와 동일 패턴)
 const isDev = window.location.hostname === 'localhost' ||

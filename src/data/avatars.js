@@ -14,41 +14,34 @@ const PROFILE_BASE_URL = isDev
 
 // Fetch avatars from real API
 export const fetchAvatars = async (page = 0, pageSize = 20) => {
-  try {
-    // API uses 1-based pagination
-    const apiPage = page + 1;
-    const url = `${API_BASE_URL}/avatar-gallery/?page_size=${pageSize}&page=${apiPage}`;
+  // API uses 1-based pagination
+  const apiPage = page + 1;
+  const url = `${API_BASE_URL}/avatar-gallery/?page_size=${pageSize}&page=${apiPage}`;
 
-    const startTime = performance.now();
-    const response = await fetch(url);
-    const endTime = performance.now();
-    const loadTime = ((endTime - startTime) / 1000).toFixed(2);
+  const response = await fetch(url);
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    // Transform API response to match our component structure
-    const avatars = data.results.map((avatar) => ({
-      id: avatar.id,
-      name: avatar.nickname,
-      level: avatar.level,
-      game: avatar.introduction || 'No introduction',
-      profileUrl: `${PROFILE_BASE_URL}/profile/${avatar.nickname}`,
-      backgroundColor: avatar.background_custom_color,
-      message: avatar.message,
-      coverImageUrl: avatar.cover_img_url,
-      gameName: avatar.game_name
-    }));
-
-    return {
-      avatars,
-      hasMore: !!data.next, // Check if there's a next page
-      total: data.count
-    };
-  } catch (error) {
-    throw error;
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
   }
+
+  const data = await response.json();
+
+  // Transform API response to match our component structure
+  const avatars = data.results.map((avatar) => ({
+    id: avatar.id,
+    name: avatar.nickname,
+    level: avatar.level,
+    game: avatar.introduction || 'No introduction',
+    profileUrl: `${PROFILE_BASE_URL}/profile/${avatar.nickname}`,
+    backgroundColor: avatar.background_custom_color,
+    message: avatar.message,
+    coverImageUrl: avatar.cover_img_url,
+    gameName: avatar.game_name
+  }));
+
+  return {
+    avatars,
+    hasMore: !!data.next, // Check if there's a next page
+    total: data.count
+  };
 };

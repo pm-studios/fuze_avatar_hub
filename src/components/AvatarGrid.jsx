@@ -42,6 +42,16 @@ function ensureOzGridScript() {
 
 const ITEMS_PER_PAGE = 24;
 
+// 정렬 옵션: value = API ordering 값 ('' = 서버 기본 정렬)
+const SORT_OPTIONS = [
+  { value: '', label: () => t('gallery.sort_default') },
+  { value: 'level', label: () => t('gallery.sort_level') },
+];
+const getInitialSort = () => {
+  const v = new URLSearchParams(window.location.search).get('sort') || '';
+  return SORT_OPTIONS.some(o => o.value === v) ? v : '';
+};
+
 // AvatarCard.jsx의 convertToArgbColor 단순 버전 — slot 배경색용.
 function getSlotBgColor(colorValue) {
   if (!colorValue) return '#2a2a2a';
@@ -71,6 +81,7 @@ function AvatarGrid({ onOpenModal }) {
   const [currentPage, setCurrentPage] = useState(getInitialPage);
   const [loading, setLoading] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
+  const [sort, setSort] = useState(getInitialSort);
 
   const gridElRef = useRef(null);
   const cardRefsRef = useRef(new Map());
@@ -88,7 +99,7 @@ function AvatarGrid({ onOpenModal }) {
     let cancelled = false;
     setLoading(true);
     cardRefsRef.current.clear();
-    fetchAvatars(currentPage, ITEMS_PER_PAGE).then(({ avatars, total }) => {
+    fetchAvatars(currentPage, ITEMS_PER_PAGE, sort).then(({ avatars, total }) => {
       if (cancelled) return;
       setAvatars(avatars);
       setTotalCount(total);
@@ -99,7 +110,7 @@ function AvatarGrid({ onOpenModal }) {
       setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [currentPage]);
+  }, [currentPage, sort]);
 
   // 카드 mount 후 oz-avatar-grid에 slots 전달.
   // 렌더 다음 프레임에 ref가 모두 채워지고 customElements.define도 끝난 상태에서 호출.
@@ -175,6 +186,18 @@ function AvatarGrid({ onOpenModal }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // 정렬 변경 → 1페이지로
+  const changeSort = (value) => {
+    track('Gallery Sort', { sort: value || 'default' });
+    setSort(value);
+    setCurrentPage(0);
+    const url = new URL(window.location);
+    if (value) url.searchParams.set('sort', value);
+    else url.searchParams.delete('sort');
+    url.searchParams.delete('page');
+    window.history.pushState({}, '', url);
+  };
+
   const handleCtaClick = () => {
     trackButtonClick('create_my_own_avatar_cta');
     onOpenModal();
@@ -207,7 +230,22 @@ function AvatarGrid({ onOpenModal }) {
   return (
     <>
       <section className="avatar-grid-section">
-        <h2 className="section-title">{t('gallery.title')}</h2>
+        <div className="section-header">
+          <h2 className="section-title">{t('gallery.title')}</h2>
+          <div className="sort-tabs" role="group" aria-label={t('gallery.sort')}>
+            {SORT_OPTIONS.map(o => (
+              <button
+                key={o.value || 'default'}
+                type="button"
+                className={`sort-tab ${sort === o.value ? 'active' : ''}`}
+                aria-pressed={sort === o.value}
+                onClick={() => sort !== o.value && changeSort(o.value)}
+              >
+                {o.label()}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <div className="avatar-grid-container">
           <div className="avatar-grid">

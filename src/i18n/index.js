@@ -1,6 +1,6 @@
 /**
  * 다국어 (en·ko·ja). 문구 정본은 구글 시트 — `npm run i18n:pull` 이 시트를 받아 strings.json 을 만든다.
- * 언어는 페이지를 열 때 한 번 정한다: ?lang= > 저장된 선택 > 브라우저 언어 > en.
+ * 언어는 페이지를 열 때 한 번 정한다: ?lang= > en (지금은 영어 고정, 헤더 언어 선택 숨김).
  * 바꾸면 setLang() 이 저장하고 새로 고친다(화면 전체가 한 언어로 다시 그려지게).
  */
 import { createElement } from 'react'
@@ -20,20 +20,14 @@ function pick(v) {
   return CODES.includes(c) ? c : null
 }
 
+// 지금은 영어 고정: 헤더 언어 선택을 숨기고 브라우저 언어·저장된 선택은 보지 않는다.
+// ?lang=ko 처럼 URL 로 들어올 때만 그 언어 (2026-11-19 결정).
 function detect() {
   if (typeof window === 'undefined') return 'en'
   try {
     const q = pick(new URLSearchParams(window.location.search).get('lang'))
     if (q) return q
   } catch { /* noop */ }
-  try {
-    const s = pick(localStorage.getItem(STORE_KEY))
-    if (s) return s
-  } catch { /* noop */ }
-  for (const l of navigator.languages || [navigator.language]) {
-    const c = pick(l)
-    if (c) return c
-  }
   return 'en'
 }
 

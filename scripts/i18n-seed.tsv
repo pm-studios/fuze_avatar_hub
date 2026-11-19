@@ -43,3 +43,6 @@ card.msg.my_top_pick	My top pick!	내 원픽!	イチオシ！
 card.msg.my_top_game_is	My top game is	내 최고의 게임은	私のベストゲームは	다음 줄에 게임 이름이 붙음
 card.msg.all_time_favorite	All-time favorite	인생 게임	永遠の名作	
 card.msg.my_fave_game_is	My fave game is	내 최애 게임은	私の推しゲームは	다음 줄에 게임 이름이 붙음
+gallery.sort	Sort	정렬	並び替え	
+gallery.sort_default	Recently updated	최근 업데이트순	最近の更新順	기본 정렬
+gallery.sort_level	Highest level	레벨 높은순	レベル順	같은 레벨은 업데이트순

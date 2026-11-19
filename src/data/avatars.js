@@ -13,10 +13,11 @@ const PROFILE_BASE_URL = isDev
   : 'https://panaxgames.com';
 
 // Fetch avatars from real API
-export const fetchAvatars = async (page = 0, pageSize = 20) => {
+// ordering: '' = 기본 정렬, 'level' = 레벨순(같은 레벨은 아바타 업데이트 순)
+export const fetchAvatars = async (page = 0, pageSize = 20, ordering = '') => {
   // API uses 1-based pagination
   const apiPage = page + 1;
-  const url = `${API_BASE_URL}/avatar-gallery/?page_size=${pageSize}&page=${apiPage}`;
+  const url = `${API_BASE_URL}/avatar-gallery/?page_size=${pageSize}&page=${apiPage}${ordering ? `&ordering=${encodeURIComponent(ordering)}` : ''}`;
 
   const response = await fetch(url);
 

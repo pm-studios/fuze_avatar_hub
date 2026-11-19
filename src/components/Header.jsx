@@ -1,6 +1,6 @@
 import './Header.css'
 import { trackButtonClick, trackBannerClick } from '../utils/mixpanel'
-import { t, LANG, LANGS, setLang } from '../i18n'
+import { t } from '../i18n'
 
 function Header({ onOpenModal }) {
   const handleLogoClick = () => {
@@ -27,14 +27,7 @@ function Header({ onOpenModal }) {
             <span className="logo-text" onClick={handleTitleClick} style={{ cursor: 'pointer' }}>{t('header.title')}</span>
           </div>
           <div className="header-actions">
-            <select
-              className="lang-select"
-              value={LANG}
-              aria-label={t('header.language')}
-              onChange={(e) => setLang(e.target.value)}
-            >
-              {LANGS.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
-            </select>
+            {/* 언어 선택은 당분간 숨김 — 영어 고정, ?lang= 으로만 다른 언어 (i18n/index.js) */}
             <button className="create-btn" onClick={handleCreateClick}>
               <span className="btn-text-full">{t('header.create')}</span>
               <span className="btn-text-short">{t('header.create_short')}</span>

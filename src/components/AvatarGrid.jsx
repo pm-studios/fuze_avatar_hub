@@ -82,6 +82,21 @@ function AvatarGrid({ onOpenModal }) {
   const [loading, setLoading] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
   const [sort, setSort] = useState(getInitialSort);
+  const [sortOpen, setSortOpen] = useState(false);
+  const sortRef = useRef(null);
+
+  // 정렬 메뉴: 바깥 클릭·Esc 로 닫기
+  useEffect(() => {
+    if (!sortOpen) return;
+    const onDown = (e) => { if (!sortRef.current?.contains(e.target)) setSortOpen(false); };
+    const onKey = (e) => { if (e.key === 'Escape') setSortOpen(false); };
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [sortOpen]);
 
   const gridElRef = useRef(null);
   const cardRefsRef = useRef(new Map());
@@ -232,18 +247,38 @@ function AvatarGrid({ onOpenModal }) {
       <section className="avatar-grid-section">
         <div className="section-header">
           <h2 className="section-title">{t('gallery.title')}</h2>
-          <div className="sort-tabs" role="group" aria-label={t('gallery.sort')}>
-            {SORT_OPTIONS.map(o => (
-              <button
-                key={o.value || 'default'}
-                type="button"
-                className={`sort-tab ${sort === o.value ? 'active' : ''}`}
-                aria-pressed={sort === o.value}
-                onClick={() => sort !== o.value && changeSort(o.value)}
-              >
-                {o.label()}
-              </button>
-            ))}
+          <div className={`sort-dropdown ${sortOpen ? 'open' : ''}`} ref={sortRef}>
+            <button
+              type="button"
+              className="sort-trigger"
+              aria-haspopup="listbox"
+              aria-expanded={sortOpen}
+              aria-label={t('gallery.sort')}
+              onClick={() => setSortOpen(o => !o)}
+            >
+              {(SORT_OPTIONS.find(o => o.value === sort) || SORT_OPTIONS[0]).label()}
+              <svg className="sort-chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                <path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            {sortOpen && (
+              <ul className="sort-menu" role="listbox">
+                {SORT_OPTIONS.map(o => (
+                  <li
+                    key={o.value || 'default'}
+                    role="option"
+                    aria-selected={sort === o.value}
+                    className={`sort-option ${sort === o.value ? 'active' : ''}`}
+                    onClick={() => {
+                      setSortOpen(false);
+                      if (sort !== o.value) changeSort(o.value);
+                    }}
+                  >
+                    {o.label()}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 

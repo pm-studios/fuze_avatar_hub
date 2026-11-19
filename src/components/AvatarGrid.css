@@ -189,41 +189,75 @@
   margin-bottom: 0;
 }
 
-/* 정렬: 박스 없는 글자 탭, 선택된 것은 흰 글자 + 서비스 파랑(#3084B0) 밑줄 */
-.sort-tabs {
-  display: flex;
-  gap: 18px;
+/* 정렬: 박스 없는 드롭다운 (글자 + 화살표), 메뉴는 둥근 어두운 카드, 고른 항목은 서비스 파랑 #3084B0 */
+.sort-dropdown {
+  position: relative;
 }
 
-.sort-tab {
+.sort-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: none;
   border: none;
   padding: 4px 0;
   color: #AEAEAE;
   font-family: Pretendard;
   font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.sort-tab:hover {
-  color: #FFF;
-}
-
-.sort-tab.active {
-  color: #FFF;
   font-weight: 600;
-  border-bottom-color: #3084B0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sort-trigger:hover,
+.sort-dropdown.open .sort-trigger {
+  color: #FFF;
+}
+
+.sort-chevron {
+  transition: transform 0.2s ease;
+}
+
+.sort-dropdown.open .sort-chevron {
+  transform: rotate(180deg);
+}
+
+.sort-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  min-width: 170px;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.sort-option {
+  padding: 10px 16px;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.sort-option:hover {
+  background: #3a3a3a;
+}
+
+.sort-option.active {
+  color: #3084B0;
+  font-weight: 600;
 }
 
 @media (max-width: 550px) {
-  .sort-tabs {
-    gap: 12px;
-  }
-
-  .sort-tab {
+  .sort-trigger {
     font-size: 13px;
   }
 }

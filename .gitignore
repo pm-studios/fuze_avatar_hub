@@ -32,3 +32,10 @@ dist-ssr
 
 .vite
 .vercel
+
+# localhost 개발용 링크 (AvatarWeb 로컬 빌드) — README 참고
+public/oz-avatar-editor.js
+public/oz-avatar-grid.js
+
+# 개인 Claude 설정
+.claude/settings.local.json

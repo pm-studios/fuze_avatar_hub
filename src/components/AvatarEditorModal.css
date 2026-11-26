@@ -33,6 +33,25 @@
   }
 }
 
+/* 폰(세로): 가로 비율을 지키면 편집창이 약 300×210 으로 떠서 쓸 수 없었다 → 화면 전체로 (편집기가 좁은 폭에서는 위 아바타·아래 편집창 배치로 바뀐다) */
+@media (max-width: 600px) and (orientation: portrait) {
+  .unity-modal-overlay {
+    padding: 0;
+  }
+  .unity-modal-content {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+  .unity-container {
+    border-radius: 0;
+  }
+}
+
 .unity-container {
   flex: 1;
   position: relative;

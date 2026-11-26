@@ -23582,7 +23582,7 @@ const Yt = class Yt {
 };
 Yt.MAX_CONCURRENT = 6, Yt.REVEAL_DELAY_MS = 150, Yt.LAZY_ROOT_MARGIN_PX = 400;
 let Dr = Yt;
-var Ao = { id: "dev #380", env: "dev", number: 380, time: "2026-11-26 12:54:34", commit: "01a8f0253" };
+var Ao = { id: "dev #382", env: "dev", number: 382, time: "2026-11-26 13:31:22", commit: "e1df17930" };
 const ml = typeof Ao < "u" ? Ao : { id: "source", env: "source", number: 0, time: "", commit: "" };
 function Eo(s = ml) {
   return `${s.id}${s.time ? ` · ${s.time} KST` : ""}${s.commit ? ` · ${s.commit}` : ""}`;

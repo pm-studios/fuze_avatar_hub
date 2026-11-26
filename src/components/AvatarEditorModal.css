@@ -27,7 +27,9 @@
 
 @media (max-width: 1000px) {
   .unity-modal-content {
-    width: 95%;
+    /* 폭 95% 를 쓰되 화면 높이를 넘지 않게 — 폰 가로 화면에서 아래가 잘렸다 */
+    width: min(95%, calc((100vh - 40px) * 988 / 698));
+    width: min(95%, calc((100dvh - 40px) * 988 / 698));
     height: auto;
     aspect-ratio: 988 / 698;
   }
